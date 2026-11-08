@@ -1,54 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en-SG">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brian Jeffrey — Full-Stack &amp; Cybersecurity Student Portfolio</title>
-  <meta name="description" content="Portfolio of Brian Jeffrey — Diploma in Information Technology student at Singapore Polytechnic specializing in Full-Stack Web Development and Cybersecurity." />
+  <meta name="description" content="Portfolio of Brian Jeffrey, a Diploma in Information Technology student at Singapore Polytechnic seeking full-stack software development and cybersecurity internships from March 2027." />
+  <meta name="theme-color" content="#0B0D13" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root[data-theme="dark"] {
-      --bg-primary: #0b0f19;
-      --bg-secondary: #111827;
-      --bg-card: rgba(17, 24, 39, 0.78);
-      --bg-card-hover: rgba(30, 41, 59, 0.9);
-      --bg-elevated: #1e293b;
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent-secondary: #6366f1;
-      --accent-glow: rgba(56, 189, 248, 0.18);
-      --border: rgba(148, 163, 184, 0.14);
-      --border-hover: rgba(56, 189, 248, 0.45);
-      --badge-bg: rgba(56, 189, 248, 0.12);
-      --badge-text: #7dd3fc;
-      --success: #10b981;
-      --nav-bg: rgba(11, 15, 25, 0.82);
-      --shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
-    }
-
-    :root[data-theme="light"] {
-      --bg-primary: #f8fafc;
-      --bg-secondary: #f1f5f9;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f8fafc;
-      --bg-elevated: #e2e8f0;
-      --text-primary: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --accent: #0284c7;
-      --accent-secondary: #4f46e5;
-      --accent-glow: rgba(2, 132, 199, 0.12);
-      --border: rgba(15, 23, 42, 0.1);
-      --border-hover: rgba(2, 132, 199, 0.45);
-      --badge-bg: rgba(2, 132, 199, 0.1);
-      --badge-text: #0369a1;
-      --success: #059669;
-      --nav-bg: rgba(248, 250, 252, 0.85);
-      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    :root {
+      /* Minimal Red Hood Palette: Tactical Gunmetal, Obsidian & Crimson */
+      --color-abyss: #06070b;
+      --color-navy-950: #0b0d13;
+      --color-navy-900: #11141e;
+      --color-navy-800: #171b28;
+      --color-navy-700: #202637;
+      --color-ocean: #7f1d1d;
+      --color-sky: #ef4444;       /* Signature Red Hood Crimson */
+      --color-sky-light: #fca5a5; /* Soft Crimson Highlight */
+      --color-ice: #ffe4e6;       /* Crisp Rose-White */
+      --color-snow: #f8fafc;
+      --color-mist: #cbd5e1;
+      --color-mist-dim: #94a3b8;
+      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
     * {
@@ -59,758 +37,1233 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 84px;
+      scroll-padding-top: 5rem;
     }
 
     body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.65;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      background-color: var(--color-navy-950);
+      color: var(--color-snow);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* Subtle Ambient Background Grid & Glow */
-    .ambient-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    ::selection {
+      background: rgba(239, 68, 68, 0.32);
+      color: var(--color-snow);
+    }
+
+    /* Tactical Glassmorphism (Gunmetal + Subtle Crimson Edge) */
+    .glass {
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(160deg, rgba(23, 27, 40, 0.78), rgba(14, 17, 26, 0.62));
+      border: 1px solid rgba(239, 68, 68, 0.16);
+      box-shadow: inset 0 1px rgba(255, 228, 230, 0.05), 0 20px 40px -24px rgba(0, 0, 0, 0.75);
+    }
+
+    .glass-hover {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .glass-hover:hover {
+      border-color: rgba(239, 68, 68, 0.44);
+      box-shadow: inset 0 1px rgba(255, 228, 230, 0.08), 0 24px 50px -22px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(239, 68, 68, 0.1), 0 0 40px -10px rgba(239, 68, 68, 0.24);
+    }
+
+    .text-gradient {
+      background: linear-gradient(100deg, #ffffff 0%, var(--color-sky-light) 35%, var(--color-sky) 70%, #ffffff 100%);
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient-shift 14s ease infinite;
+    }
+
+    .grid-backdrop {
       background-image:
-        radial-gradient(circle at 15% 15%, var(--accent-glow), transparent 38%),
-        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12), transparent 35%),
-        radial-gradient(circle at 50% 85%, var(--accent-glow), transparent 40%);
+        linear-gradient(rgba(239, 68, 68, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239, 68, 68, 0.045) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(#000 30%, transparent 75%);
+      mask-image: radial-gradient(#000 30%, transparent 75%);
     }
 
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-18px); }
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    @keyframes ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+
+    /* Layout Container */
     .container {
-      max-width: 1120px;
+      width: 100%;
+      max-width: 72rem;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 1.5rem;
     }
 
-    /* Navbar */
+    section.section-block {
+      position: relative;
+      padding: 6.5rem 0;
+    }
+
+    section.section-deep {
+      background-color: rgba(6, 7, 11, 0.68);
+    }
+
+    /* Sticky Navbar */
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: var(--nav-bg);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(11, 13, 19, 0.85);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 4.25rem;
     }
 
-    .brand {
+    .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 1.15rem;
-      color: var(--text-primary);
-      text-decoration: none;
-      letter-spacing: -0.02em;
+      gap: 0.7rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--color-snow);
     }
 
-    .brand-badge {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      color: #ffffff;
+    .brand-monogram {
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 0.7rem;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.45));
+      border: 1px solid rgba(239, 68, 68, 0.42);
       display: grid;
       place-items: center;
-      font-family: "JetBrains Mono", monospace;
-      font-weight: 700;
-      font-size: 0.9rem;
+      color: var(--color-sky);
+      box-shadow: 0 0 16px -4px rgba(239, 68, 68, 0.45);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
-      list-style: none;
+      gap: 0.25rem;
     }
 
     .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.92rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      transition: color 0.2s ease;
+      color: var(--color-mist);
+      transition: color 0.2s, background-color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .theme-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      width: 38px;
-      height: 38px;
-      border-radius: 9px;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      font-size: 1rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .theme-btn:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-1px);
+      color: var(--color-sky);
+      background: rgba(239, 68, 68, 0.08);
     }
 
     /* Buttons */
     .btn {
       display: inline-flex;
+      min-height: 2.75rem;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 10px;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 0.75rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
       font-weight: 600;
-      font-size: 0.92rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      background-color: var(--color-sky);
       color: #ffffff;
-      box-shadow: 0 4px 16px var(--accent-glow);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
+      background-color: #dc2626;
+      box-shadow: 0 0 28px -4px rgba(239, 68, 68, 0.65);
     }
 
-    .btn-outline {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-color: var(--border);
+    .btn-secondary {
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      background-color: rgba(11, 13, 19, 0.55);
+      color: var(--color-ice);
     }
 
-    .btn-outline:hover {
-      border-color: var(--border-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
+    .btn-secondary:hover {
+      border-color: var(--color-sky);
+      background-color: rgba(239, 68, 68, 0.12);
+      color: var(--color-snow);
+      box-shadow: 0 0 24px -8px rgba(239, 68, 68, 0.5);
     }
 
-    .btn-sm {
-      padding: 7px 14px;
-      font-size: 0.84rem;
-      border-radius: 8px;
+    .btn-ghost {
+      color: var(--color-sky-light);
     }
 
-    /* Hero Section */
-    .hero {
-      padding: 76px 0 56px;
+    .btn-ghost:hover {
+      color: var(--color-snow);
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    /* Section Header Component */
+    .sec-header {
+      margin-bottom: 3.5rem;
+      max-width: 48rem;
+    }
+
+    .sec-header.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      max-width: 42rem;
+    }
+
+    .sec-eyebrow {
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-sky);
+    }
+
+    .sec-eyebrow .sec-idx {
+      color: var(--color-mist-dim);
+    }
+
+    .sec-eyebrow .sec-line {
+      height: 1px;
+      width: 2rem;
+      background: linear-gradient(to right, var(--color-sky), transparent);
+    }
+
+    .sec-title {
+      font-size: clamp(1.95rem, 3.6vw, 2.75rem);
+      line-height: 1.1;
+      font-weight: 600;
+      color: var(--color-snow);
+    }
+
+    .sec-title .hl {
+      color: var(--color-sky);
+    }
+
+    .sec-desc {
+      margin-top: 1.25rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--color-mist);
+    }
+
+    /* Skill / Tech Badge */
+    .tech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(239, 68, 68, 0.22);
+      background: rgba(239, 68, 68, 0.07);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-ice);
+      transition: all 0.2s;
+    }
+
+    .tech-badge:hover {
+      border-color: rgba(239, 68, 68, 0.48);
+      background: rgba(239, 68, 68, 0.14);
+    }
+
+    .tech-badge.sm {
+      padding: 0.25rem 0.625rem;
+      font-size: 0.75rem;
+    }
+
+    .tech-badge.exploring {
+      border-style: dashed;
+      border-color: rgba(252, 165, 165, 0.38);
+      background: transparent;
+      color: rgba(252, 165, 165, 0.9);
+    }
+
+    .tech-dot {
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 999px;
+      background: var(--color-sky);
+    }
+
+    .tech-badge.exploring .tech-dot {
+      background: transparent;
+      border: 1px solid var(--color-sky-light);
+    }
+
+    /* Bullet list with glowing crimson dots */
+    .sky-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sky-list li {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.94rem;
+      line-height: 1.625;
+      color: var(--color-mist);
+    }
+
+    .sky-list li::before {
+      content: "";
+      margin-top: 0.55rem;
+      width: 0.375rem;
+      height: 0.375rem;
+      flex-shrink: 0;
+      border-radius: 999px;
+      background-color: var(--color-sky);
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.85);
+    }
+
+    /* ================= HERO SECTION (#top) ================= */
+    #top {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 6.5rem 0 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg-grad {
+      position: absolute;
+      inset: 0;
+      z-index: -20;
+      background-image: linear-gradient(130deg, #06070b 0%, #0b0d13 38%, #1a0d14 64%, #0b0d13 88%);
+      background-size: 220% 220%;
+      animation: gradient-shift 14s ease infinite;
+    }
+
+    /* Subtle Minimal Geometric Red Hood Crest Watermark in Background */
+    .redhood-watermark {
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38rem;
+      height: 38rem;
+      z-index: -15;
+      opacity: 0.035;
+      pointer-events: none;
+    }
+
+    .hero-orb-1 {
+      position: absolute;
+      top: 12%;
+      left: -8rem;
+      z-index: -10;
+      width: 28rem;
+      height: 28rem;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.11);
+      filter: blur(110px);
+      animation: float 13s ease-in-out infinite;
+    }
+
+    .hero-orb-2 {
+      position: absolute;
+      right: -6rem;
+      bottom: 8%;
+      z-index: -10;
+      width: 24rem;
+      height: 24rem;
+      border-radius: 999px;
+      background: rgba(127, 29, 29, 0.35);
+      filter: blur(110px);
+      animation: float 9s ease-in-out infinite;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.35fr 0.85fr;
-      gap: 36px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2.75rem;
       align-items: center;
     }
 
-    .status-pill {
+    .hero-pill {
+      margin-bottom: 1.5rem;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
+      gap: 0.5rem;
       border-radius: 999px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: var(--success);
-      font-size: 0.84rem;
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      background: rgba(239, 68, 68, 0.07);
+      padding: 0.375rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-sky-light);
+    }
+
+    .hero-title {
+      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      line-height: 1.02;
+      font-weight: 700;
+      color: var(--color-snow);
+    }
+
+    .hero-role-line {
+      margin-top: 1.25rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      font-weight: 500;
+      color: var(--color-mist);
+    }
+
+    .role-rotator {
+      color: var(--color-sky);
       font-weight: 600;
-      margin-bottom: 18px;
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
-      animation: pulse 2s infinite;
+    .cursor-blink {
+      display: inline-block;
+      width: 2px;
+      height: 1.05em;
+      background: var(--color-sky);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1s steps(1) infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.45; }
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 4.5vw, 3.35rem);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin-bottom: 14px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, var(--accent), #a855f7, var(--accent-secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
+    .hero-tagline {
+      margin-top: 2rem;
+      max-width: 36rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      line-height: 1.375;
       font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 16px;
+      color: var(--color-ice);
     }
 
-    .hero-description {
-      color: var(--text-muted);
-      font-size: 1rem;
-      max-width: 630px;
-      margin-bottom: 26px;
+    .hero-bio {
+      margin-top: 1rem;
+      max-width: 36rem;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--color-mist);
     }
 
-    .hero-cta {
+    .hero-actions {
+      margin-top: 2.25rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 0.75rem;
     }
 
-    /* Terminal / Profile Summary Card on Right */
-    .terminal-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
+    /* about_me.py Card */
+    .code-card-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .code-card-glow {
+      position: absolute;
+      inset: -1px;
+      border-radius: 1.5rem;
+      background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.5), rgba(127, 29, 29, 0.3), transparent);
+      opacity: 0.7;
+      filter: blur(1px);
+    }
+
+    .code-card {
+      position: relative;
+      border-radius: 1.5rem;
       overflow: hidden;
-      backdrop-filter: blur(12px);
     }
 
-    .terminal-header {
+    .code-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
+      padding: 0.875rem 1.25rem;
+    }
+
+    .code-dot-1 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(239, 68, 68, 0.85); }
+    .code-dot-2 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(252, 165, 165, 0.45); }
+    .code-dot-3 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(255, 228, 230, 0.22); }
+
+    .code-card pre {
+      overflow-x: auto;
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.75rem;
+    }
+
+    .code-card-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 16px;
-      background: rgba(15, 23, 42, 0.45);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid rgba(239, 68, 68, 0.14);
+      background: rgba(6, 7, 11, 0.5);
+      padding: 0.875rem 1.25rem;
+      font-size: 0.75rem;
     }
 
-    .terminal-dots {
+    .ping-wrap {
+      position: relative;
+      display: inline-flex;
+      width: 0.5rem;
+      height: 0.5rem;
+    }
+
+    .ping-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: var(--color-sky);
+      opacity: 0.6;
+      animation: ping 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    .ping-dot {
+      position: relative;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--color-sky);
+    }
+
+    /* ================= 01 ABOUT ME (#about) ================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-prose {
       display: flex;
-      gap: 7px;
-    }
-
-    .terminal-dots span {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-
-    .terminal-title {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .terminal-body {
-      padding: 20px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.83rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 1.0625rem;
       line-height: 1.7;
+      color: var(--color-mist);
     }
 
-    .cmd-line {
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .json-block {
-      color: var(--text-secondary);
-      padding-left: 10px;
-      border-left: 2px solid var(--border);
-      margin-bottom: 14px;
-    }
-
-    .json-key { color: #93c5fd; }
-    .json-str { color: #86efac; }
-
-    /* Quick Metrics Row */
-    .metrics-grid {
+    .about-facts {
+      border-radius: 1.5rem;
+      padding: 0.75rem;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 12px;
+      gap: 0.25rem;
     }
 
-    .metric-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      transition: border-color 0.2s, transform 0.2s;
+    .about-fact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      border-radius: 1rem;
+      padding: 0.875rem;
+      transition: background-color 0.2s;
     }
 
-    .metric-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
+    .about-fact-item:hover {
+      background: rgba(239, 68, 68, 0.06);
     }
 
-    .metric-val {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1.2;
-      margin-bottom: 4px;
-    }
-
-    .metric-label {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    /* Section Headers */
-    section {
-      padding: 64px 0;
-    }
-
-    .section-header {
-      margin-bottom: 36px;
-    }
-
-    .section-eyebrow {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.15rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      max-width: 640px;
-      font-size: 0.98rem;
-    }
-
-    /* Skills Section */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.22s ease;
-    }
-
-    .skill-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    .skill-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: var(--badge-bg);
-      color: var(--accent);
+    .fact-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      flex-shrink: 0;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      background: rgba(11, 13, 19, 0.65);
+      color: var(--color-sky);
       display: grid;
       place-items: center;
-      font-size: 1.25rem;
-      margin-bottom: 14px;
+      font-size: 1rem;
     }
 
-    .skill-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+    .fact-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-mist-dim);
     }
 
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.76rem;
-      padding: 5px 10px;
-      border-radius: 7px;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      border: 1px solid rgba(56, 189, 248, 0.18);
+    .fact-val {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.9rem;
       font-weight: 500;
+      color: var(--color-snow);
     }
 
-    /* Projects Filter & Grid */
-    .filter-bar {
+    /* ================= 02 ACADEMIC PROJECTS (#projects) ================= */
+    .featured-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.75rem;
+      padding: 2rem;
+    }
+
+    .featured-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 1.5rem;
     }
 
-    .filter-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      padding: 8px 16px;
+    .badge-solid-sky {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
       border-radius: 999px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
+      background: var(--color-sky);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .badge-outline-sky {
+      border-radius: 999px;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-sky-light);
+    }
+
+    .badge-outline-mist {
+      border-radius: 999px;
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-mist);
+    }
+
+    .featured-split {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .arch-viewer {
+      border-radius: 1rem;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      background: rgba(6, 7, 11, 0.88);
+      padding: 1.25rem;
+      min-height: 21rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .arch-screen {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.65;
+      color: var(--color-ice);
+      background: rgba(11, 13, 19, 0.92);
+      border: 1px solid rgba(239, 68, 68, 0.15);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .arch-thumbs {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+
+    .arch-thumb-btn {
+      padding: 0.5rem 0.35rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(239, 68, 68, 0.16);
+      background: rgba(17, 20, 30, 0.7);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--color-mist);
+      text-align: center;
       transition: all 0.2s;
     }
 
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-      color: #ffffff;
-      border-color: transparent;
+    .arch-thumb-btn.active,
+    .arch-thumb-btn:hover {
+      border-color: var(--color-sky);
+      background: rgba(239, 68, 68, 0.16);
+      color: var(--color-snow);
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-
-    .project-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .project-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .module-pill {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.74rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(99, 102, 241, 0.14);
-      color: #a5b4fc;
-      border: 1px solid rgba(99, 102, 241, 0.28);
-    }
-
-    .role-pill {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .project-card h3 {
-      font-size: 1.22rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
-    .project-summary {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      margin-bottom: 14px;
-    }
-
-    .project-bullets {
-      padding-left: 18px;
-      margin-bottom: 18px;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-    }
-
-    .project-bullets li {
-      margin-bottom: 6px;
-    }
-
-    .project-bullets strong {
-      color: var(--text-primary);
-    }
-
-    .project-footer {
-      margin-top: auto;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    /* Timeline Section (Experience & Leadership) */
-    .dual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .timeline-column h3 {
-      font-size: 1.18rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 24px;
-      border-left: 2px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .timeline-item {
-      position: relative;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      transition: border-color 0.2s;
-    }
-
-    .timeline-item:hover {
-      border-color: var(--border-hover);
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -31px;
-      top: 24px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg-primary);
-    }
-
-    .timeline-date {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.76rem;
-      color: var(--accent);
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    .timeline-title {
-      font-size: 1.02rem;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .timeline-org {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .timeline-item ul {
-      padding-left: 16px;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-    }
-
-    .timeline-item li {
-      margin-bottom: 4px;
-    }
-
-    /* Modal for Technical Deep Dive */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 6, 23, 0.78);
-      backdrop-filter: blur(6px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
-
-    .modal-box {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-hover);
-      border-radius: 18px;
-      max-width: 720px;
-      width: 100%;
-      max-height: 86vh;
-      overflow-y: auto;
-      padding: 28px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .modal-close {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text-primary);
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-
-    .modal-body h4 {
+    .featured-quote {
+      margin-top: 1.25rem;
+      border-left: 2px solid var(--color-sky);
+      padding-left: 1rem;
       font-size: 0.95rem;
-      color: var(--accent);
-      margin: 16px 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-style: italic;
+      color: var(--color-ice);
     }
 
-    .code-snippet {
-      font-family: "JetBrains Mono", monospace;
+    .contrib-box {
+      margin-top: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      background: rgba(11, 13, 19, 0.55);
+      padding: 1rem 1.15rem;
+    }
+
+    .contrib-label {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-sky);
+    }
+
+    .stats-row {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .stat-tile {
+      border-radius: 1rem;
+      border: 1px solid rgba(239, 68, 68, 0.12);
+      background: rgba(11, 13, 19, 0.5);
+      padding: 1rem;
+    }
+
+    .stat-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-sky);
+    }
+
+    .stat-txt {
+      margin-top: 0.25rem;
+      display: block;
       font-size: 0.8rem;
-      background: rgba(15, 23, 42, 0.65);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
+      line-height: 1.375;
+      color: var(--color-mist);
+    }
+
+    /* Featured Project 5-Tab Bar */
+    .tabs-nav {
+      margin-top: 2rem;
+      display: flex;
+      gap: 0.25rem;
       overflow-x: auto;
-      color: #e2e8f0;
-      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
+    }
+
+    .tab-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-mist);
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      color: var(--color-snow);
+    }
+
+    .tab-btn.active {
+      color: var(--color-sky);
+      border-bottom-color: var(--color-sky);
+    }
+
+    .tab-panel {
+      padding-top: 1.5rem;
+      min-height: 11rem;
+    }
+
+    /* Secondary 2-Column Project Cards */
+    .subprojects-grid {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .subproject-card {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .subproject-banner {
+      position: relative;
+      background: linear-gradient(135deg, #0b0d13 0%, #1b131a 60%, #451219 100%);
+      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
+      padding: 1.5rem;
+      min-height: 13.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .subproject-code-preview {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      line-height: 1.55;
+      color: var(--color-sky-light);
+      background: rgba(6, 7, 11, 0.78);
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      border-radius: 0.75rem;
+      padding: 0.85rem;
       white-space: pre-wrap;
     }
 
-    /* Contact Section */
-    .contact-card {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.08));
-      border: 1px solid var(--border-hover);
-      border-radius: 20px;
-      padding: 40px;
-      text-align: center;
+    .subproject-module-tag {
+      align-self: flex-start;
+      margin-top: 0.75rem;
+      border-radius: 0.5rem;
+      background: rgba(11, 13, 19, 0.88);
+      padding: 0.25rem 0.65rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-sky-light);
+      border: 1px solid rgba(239, 68, 68, 0.22);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px;
-      margin-top: 28px;
+    .subproject-body {
+      padding: 1.5rem;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
     }
 
-    .contact-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      text-decoration: none;
-      color: var(--text-primary);
+    .subproject-accent {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-sky);
+    }
+
+    .accordion-btn {
+      margin-top: 1.5rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      background: rgba(11, 13, 19, 0.5);
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-ice);
       transition: all 0.2s;
+    }
+
+    .accordion-btn:hover {
+      border-color: rgba(239, 68, 68, 0.45);
+      color: var(--color-sky);
+    }
+
+    .accordion-content {
+      display: none;
+      padding-top: 1.5rem;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .accordion-content.open {
+      display: flex;
+    }
+
+    .accordion-subhead {
+      margin-bottom: 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-sky);
+    }
+
+    /* ================= 03 TECHNICAL SKILLS (#skills) ================= */
+    .skills-legend {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--color-mist);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .legend-swatch-solid {
+      width: 1.75rem;
+      height: 1rem;
+      border-radius: 0.375rem;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .legend-swatch-dashed {
+      width: 1.75rem;
+      height: 1rem;
+      border-radius: 0.375rem;
+      border: 1px dashed rgba(252, 165, 165, 0.5);
+    }
+
+    .skills-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .skill-box {
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      height: 100%;
+    }
+
+    .skill-box-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .skill-box-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.35));
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      color: var(--color-sky);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    /* ================= 04 LEARNING JOURNEY (#journey) ================= */
+    .journey-wrap {
+      position: relative;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .journey-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(to bottom, var(--color-sky), var(--color-sky-light), rgba(239, 68, 68, 0.2));
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.55);
+    }
+
+    .journey-list {
+      position: relative;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 6px;
+      gap: 1.25rem;
     }
 
-    .contact-item:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
+    .journey-row {
+      display: grid;
+      grid-template-columns: 1fr 3.5rem 1fr;
+      gap: 1.5rem;
+      align-items: flex-start;
     }
 
-    .contact-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .contact-val {
+    .journey-node {
+      grid-column: 2;
+      margin-top: 1.15rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 999px;
+      border: 1px solid rgba(239, 68, 68, 0.65);
+      background: var(--color-navy-800);
+      color: var(--color-sky);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       font-weight: 600;
-      font-size: 0.92rem;
-      word-break: break-all;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 18px -2px rgba(239, 68, 68, 0.45);
+      position: relative;
+      z-index: 2;
     }
 
-    footer {
-      padding: 32px 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.88rem;
+    .journey-node.next {
+      border-style: dashed;
+      border-color: rgba(252, 165, 165, 0.7);
+      background: var(--color-navy-950);
+      color: var(--color-sky-light);
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
+    .journey-card {
+      border-radius: 1rem;
+      padding: 1.25rem 1.4rem;
+    }
+
+    .journey-row.left .journey-card {
+      grid-column: 1;
+      text-align: right;
+    }
+
+    .journey-row.right .journey-card {
+      grid-column: 3;
+      text-align: left;
+    }
+
+    .journey-card.next {
+      border-style: dashed;
+      border-color: rgba(252, 165, 165, 0.35);
+    }
+
+    /* ================= 05 PERSPECTIVE (#approach) ================= */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .quote-figure {
+      position: relative;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(239, 68, 68, 0.22);
+      background: linear-gradient(135deg, rgba(23, 27, 40, 0.85), rgba(11, 13, 19, 0.7));
+      padding: 2rem;
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: -1.4rem;
+      left: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      line-height: 1;
+      color: rgba(239, 68, 68, 0.42);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .pillar-card {
+      border-radius: 1rem;
+      padding: 1.35rem;
+    }
+
+    /* ================= 06 WORK EXPERIENCE (#experience) ================= */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      border-radius: 1.5rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* ================= 07 EDUCATION & LEADERSHIP (#education) ================= */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .sp-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(239, 68, 68, 0.32);
+      background: linear-gradient(135deg, rgba(45, 18, 25, 0.75), rgba(23, 27, 40, 0.85), rgba(11, 13, 19, 0.9));
+      padding: 2rem;
+      height: 100%;
+    }
+
+    /* ================= 08 INTERNSHIP GOALS (#goals) ================= */
+    .goals-banner {
+      border-radius: 1.5rem;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    /* ================= 09 CONTACT (#contact) ================= */
+    .contact-cards-grid {
+      max-width: 56rem;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .contact-tile {
+      border-radius: 1rem;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-tile-icon {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+      border-radius: 0.75rem;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: var(--color-sky);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      transition: all 0.2s;
+    }
+
+    .contact-tile:hover .contact-tile-icon {
+      background: var(--color-sky);
+      color: #ffffff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 960px) {
       .hero-grid,
-      .dual-grid {
+      .about-grid,
+      .featured-split,
+      .subprojects-grid,
+      .skills-2col,
+      .approach-grid,
+      .exp-grid,
+      .edu-grid,
+      .contact-cards-grid {
         grid-template-columns: 1fr;
       }
-      .metrics-grid {
+
+      .stats-row {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .journey-line {
+        left: 1.25rem;
+      }
+
+      .journey-row {
+        grid-template-columns: 2.5rem 1fr;
+      }
+
+      .journey-node {
+        grid-column: 1;
+      }
+
+      .journey-row.left .journey-card,
+      .journey-row.right .journey-card {
+        grid-column: 2;
+        text-align: left;
+      }
+
       .nav-links {
         display: none;
       }
@@ -818,549 +1271,1111 @@
   </style>
 </head>
 <body>
-  <div class="ambient-bg"></div>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
+  <header class="navbar">
     <div class="container nav-inner">
-      <a href="#top" class="brand">
-        <span class="brand-badge">BJ</span>
+      <a href="#top" class="nav-brand">
+        <span class="brand-monogram" title="Brian Jeffrey">
+          <!-- Minimalist Geometric Red Hood Crest SVG -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 5.5L9.2 2L6.5 6.8L1 5L4.5 11.2L2 15.5L8.2 14.2L12 22L15.8 14.2L22 15.5L19.5 11.2L23 5L17.5 6.8L14.8 2L12 5.5Z" />
+          </svg>
+        </span>
         <span>Brian Jeffrey</span>
       </a>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience &amp; Leadership</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#approach">Perspective</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
 
-      <div class="nav-actions">
-        <button class="theme-btn" id="themeToggle" title="Toggle Dark/Light Theme" aria-label="Toggle Theme">
-          ☀️
-        </button>
-        <a href="resume.html" class="btn btn-primary btn-sm">
-          📄 View Resume
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO SECTION -->
-  <header class="hero" id="top">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="status-pill">
-            <span class="status-dot"></span>
-            Available for Internships from March 2027
-          </div>
-          <h1>
-            Hi, I'm <span class="gradient-text">Brian Jeffrey</span>
-          </h1>
-          <div class="hero-subtitle">
-            Full-Stack Software Development &amp; Cybersecurity Candidate · Singapore Polytechnic
-          </div>
-          <p class="hero-description">
-            Diploma in Information Technology student with hands-on experience building full-stack web applications using <strong>Node.js, Express, PostgreSQL, and MySQL</strong>, alongside practical foundations in <strong>Python, ethical hacking, and vulnerability assessment</strong>. Passionate about writing secure code, solving real-world engineering challenges, and contributing meaningful value through teamwork and leadership.
-          </p>
-
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">Explore My Projects ↓</a>
-            <a href="resume.html" class="btn btn-outline">📄 Printable Resume (PDF)</a>
-            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
-          </div>
-        </div>
-
-        <!-- Developer Profile Terminal -->
-        <div class="terminal-card" id="about">
-          <div class="terminal-header">
-            <div class="terminal-dots">
-              <span class="dot-red"></span>
-              <span class="dot-yellow"></span>
-              <span class="dot-green"></span>
-            </div>
-            <span class="terminal-title">brian@sp-soc:~/portfolio</span>
-          </div>
-          <div class="terminal-body">
-            <div class="cmd-line">$ cat profile.json</div>
-            <div class="json-block">
-              <div><span class="json-key">"name"</span>: <span class="json-str">"Brian Jeffrey"</span>,</div>
-              <div><span class="json-key">"school"</span>: <span class="json-str">"Singapore Polytechnic"</span>,</div>
-              <div><span class="json-key">"diploma"</span>: <span class="json-str">"Information Technology (2025–2028)"</span>,</div>
-              <div><span class="json-key">"focus"</span>: [<span class="json-str">"Full-Stack Web"</span>, <span class="json-str">"Cybersecurity"</span>],</div>
-              <div><span class="json-key">"leadership"</span>: <span class="json-str">"Class Chairman &amp; SP Leadership Camp"</span>,</div>
-              <div><span class="json-key">"globalExposure"</span>: <span class="json-str">"Shenzhen Tech &amp; CUHK Immersion"</span>,</div>
-              <div><span class="json-key">"languages"</span>: [<span class="json-str">"English"</span>, <span class="json-str">"Tamil"</span>]</div>
-            </div>
-            <div class="cmd-line">$ echo $INTERNSHIP_STATUS</div>
-            <div style="color: #86efac;">"Ready to learn, take initiative &amp; contribute from March 2027"</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick Highlights -->
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-val">3</div>
-          <div class="metric-label">Core Academic Projects (Full-Stack &amp; Security)</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">PostgreSQL &amp; MySQL</div>
-          <div class="metric-label">Relational Database Architecture</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">Shenzhen, CN</div>
-          <div class="metric-label">CUHK &amp; Tech Industry Study Immersion</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-val">Class Chairman</div>
-          <div class="metric-label">Student Leadership at Singapore Polytechnic</div>
-        </div>
-      </div>
+      <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem; min-height: 2.35rem; font-size: 0.82rem;">
+        Let's Connect
+      </a>
     </div>
   </header>
 
-  <!-- TECHNICAL SKILLS SECTION -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">01 // Capabilities</span>
-        <h2 class="section-title">Technical Skills &amp; Toolkit</h2>
-        <p class="section-desc">
-          Hands-on experience across backend API engineering, relational database modelling, frontend interfaces, and application security.
-        </p>
-      </div>
+  <main>
+    <!-- ================= HERO SECTION (#top) ================= -->
+    <section id="top">
+      <div class="hero-bg-grad" aria-hidden="true"></div>
+      <div class="grid-backdrop" style="position:absolute;inset:0;z-index:-10;" aria-hidden="true"></div>
+      <!-- Subtle Minimalist Geometric Crest Watermark -->
+      <svg class="redhood-watermark" viewBox="0 0 24 24" fill="var(--color-sky)" aria-hidden="true">
+        <path d="M12 5.5L9.2 2L6.5 6.8L1 5L4.5 11.2L2 15.5L8.2 14.2L12 22L15.8 14.2L22 15.5L19.5 11.2L23 5L17.5 6.8L14.8 2L12 5.5Z" />
+      </svg>
+      <div class="hero-orb-1" aria-hidden="true"></div>
+      <div class="hero-orb-2" aria-hidden="true"></div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">💻</div>
-          <h3>Programming &amp; Web Development</h3>
-          <div class="tag-list">
-            <span class="tag">JavaScript (ES6+)</span>
-            <span class="tag">Python</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express.js</span>
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">RESTful APIs</span>
-            <span class="tag">MVC Architecture</span>
+      <div class="container hero-grid">
+        <div>
+          <p class="hero-pill">
+            <span class="tech-dot"></span>
+            Diploma in Information Technology · Full-Stack &amp; Cybersecurity
+          </p>
+
+          <h1 class="hero-title">
+            Brian <span class="text-gradient">Jeffrey</span>
+          </h1>
+
+          <p class="hero-role-line">
+            <span class="role-rotator" id="roleRotator">Full-Stack Web Developer</span><span class="cursor-blink" aria-hidden="true"></span>
+            <span style="color: var(--color-mist-dim);"> · Singapore Polytechnic</span>
+          </p>
+
+          <p class="hero-tagline">
+            Building <span style="color: var(--color-sky);">full-stack apps</span>. Securing <span style="color: var(--color-sky);">systems</span>. Growing through <span style="color: var(--color-sky);">technology</span>.
+          </p>
+
+          <p class="hero-bio">
+            I'm an Information Technology student at Singapore Polytechnic passionate about full-stack software development, backend architecture, and cybersecurity. I enjoy turning ideas into reliable web applications and understanding how to keep systems resilient from the ground up.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View My Projects →</a>
+            <a href="#about" class="btn btn-secondary">👤 About Me</a>
+            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">in LinkedIn ↗</a>
+            <a href="#contact" class="btn btn-ghost">✉️ Contact Me</a>
           </div>
         </div>
 
-        <div class="skill-card">
-          <div class="skill-icon">🗄️</div>
-          <h3>Databases &amp; Authentication</h3>
-          <div class="tag-list">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">SQL Schema Design</span>
-            <span class="tag">JWT Authentication</span>
-            <span class="tag">bcrypt Password Hashing</span>
-            <span class="tag">Route Access Control</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">🛡️</div>
-          <h3>Cybersecurity &amp; Networking</h3>
-          <div class="tag-list">
-            <span class="tag">Ethical Hacking</span>
-            <span class="tag">Vulnerability Assessment</span>
-            <span class="tag">Network Security</span>
-            <span class="tag">System Administration</span>
-            <span class="tag">Input Validation</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-icon">⚙️</div>
-          <h3>Developer Tools &amp; Workflow</h3>
-          <div class="tag-list">
-            <span class="tag">Git &amp; GitHub</span>
-            <span class="tag">Postman API Testing</span>
-            <span class="tag">pgAdmin4</span>
-            <span class="tag">Agile / CI/CD Teamwork</span>
-            <span class="tag">Problem Solving</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ACADEMIC PROJECTS SECTION -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">02 // Portfolio Showcase</span>
-        <h2 class="section-title">Academic &amp; Technical Projects</h2>
-        <p class="section-desc">
-          Full-stack web applications and security assessments built during my Diploma in Information Technology at Singapore Polytechnic.
-        </p>
-      </div>
-
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (3)</button>
-        <button class="filter-btn" data-filter="fullstack">Full-Stack &amp; Backend</button>
-        <button class="filter-btn" data-filter="security">Cybersecurity</button>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Project 1: ByteMe -->
-        <article class="project-card" data-category="fullstack">
-          <div>
-            <div class="project-top">
-              <span class="module-pill">CI/CD · Agile Team Project</span>
-              <span class="role-pill">User Auth &amp; Study Rooms Lead</span>
+        <!-- Right column: about_me.py card -->
+        <div class="code-card-wrap" aria-label="Profile summary">
+          <div class="code-card-glow" aria-hidden="true"></div>
+          <div class="glass code-card">
+            <div class="code-card-header">
+              <span class="code-dot-1"></span>
+              <span class="code-dot-2"></span>
+              <span class="code-dot-3"></span>
+              <span style="margin-left:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--color-mist-dim);">about_me.py</span>
             </div>
-            <h3>ByteMe — Study Productivity &amp; Social Web App</h3>
-            <p class="project-summary">
-              A full-stack social study productivity platform combining Pomodoro focus timers, task planning, streaks, leaderboards, and collaborative group study rooms.
+            <pre><code><span style="color:var(--color-mist-dim);"># tactical profile // full-stack &amp; security engineer</span>
+<span style="color:var(--color-sky-light);">brian_jeffrey</span> = {
+    <span style="color:var(--color-sky);">"course"</span>: <span style="color:var(--color-ice);">"Diploma in Information Technology"</span>,
+    <span style="color:var(--color-sky);">"focus"</span>: <span style="color:var(--color-ice);">"Full-Stack Dev &amp; Cybersecurity"</span>,
+    <span style="color:var(--color-sky);">"school"</span>: <span style="color:var(--color-ice);">"Singapore Polytechnic"</span>,
+    <span style="color:var(--color-sky);">"cohort"</span>: <span style="color:var(--color-ice);">"Year 2 · 2025 – 2028"</span>,
+    <span style="color:var(--color-sky);">"leadership"</span>: <span style="color:var(--color-ice);">"Class Chairman (Sem 2)"</span>,
+    <span style="color:var(--color-sky);">"internship_from"</span>: <span style="color:var(--color-ice);">"March 2027"</span>,
+    <span style="color:var(--color-sky);">"exploring"</span>: [<span style="color:var(--color-ice);">"Node.js"</span>, <span style="color:var(--color-ice);">"SQL"</span>, <span style="color:var(--color-ice);">"Ethical Hacking"</span>],
+}</code></pre>
+            <div class="code-card-footer">
+              <span style="display:flex;align-items:center;gap:0.5rem;color:var(--color-ice);font-weight:500;">
+                <span class="ping-wrap"><span class="ping-circle"></span><span class="ping-dot"></span></span>
+                Open to internships
+              </span>
+              <span style="font-family:var(--font-mono);color:var(--color-mist-dim);">Singapore</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 01 // ABOUT ME (#about) ================= -->
+    <section id="about" class="section-block">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">01</span>
+            <span class="sec-line"></span>
+            About me
+          </p>
+          <h2 class="sec-title">
+            Curious about how systems work — and <span class="hl">how to build &amp; secure them</span>.
+          </h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-prose">
+            <p>
+              Hi, I'm <strong style="color:var(--color-snow);">Brian Jeffrey</strong> — a Diploma in Information Technology student at Singapore Polytechnic with a strong focus on <span style="color:var(--color-sky);">Full-Stack Software Development</span> and <span style="color:var(--color-sky);">Cybersecurity</span>.
             </p>
-            <ul class="project-bullets">
-              <li><strong>User Management &amp; Security:</strong> Engineered registration, login, JWT token issuance, bcrypt password hashing, and profile management with integrated streak &amp; points views.</li>
-              <li><strong>Group Study Rooms:</strong> Designed PostgreSQL tables (<code>study_rooms</code>, <code>study_room_members</code>, <code>study_room_messages</code>) and REST APIs for private invite codes, live study presence, and room chat.</li>
-            </ul>
+            <p>
+              What draws me to technology is the combination of creative building and analytical problem-solving. Whether I am designing relational database schemas, wiring up Express.js REST APIs, or investigating how vulnerabilities arise in networked systems, I enjoy looking under the hood to understand <em>why</em> an application behaves the way it does.
+            </p>
+            <p>
+              Through my coursework at Singapore Polytechnic, I have built full-stack web applications using Node.js, PostgreSQL, and MySQL, implemented JWT and bcrypt authentication workflows, and conducted practical ethical hacking and vulnerability assessments. Outside the classroom, serving as <strong style="color:var(--color-snow);">Class Chairman</strong>, attending the <strong style="color:var(--color-snow);">SP Leadership Camp</strong>, and visiting <strong style="color:var(--color-snow);">CUHK-Shenzhen and major tech companies in Shenzhen</strong> have broadened my perspective on teamwork and how technology operates at scale.
+            </p>
+            <p>
+              I am now looking forward to an internship where I can learn from experienced engineers, take ownership of real technical tasks, and contribute meaningful value to the team.
+            </p>
           </div>
 
-          <div class="project-footer">
-            <div class="tag-list">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">JWT &amp; bcrypt</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Postman</span>
+          <ul class="glass about-facts">
+            <li class="about-fact-item">
+              <span class="fact-icon">🎓</span>
+              <span>
+                <span class="fact-label">Studying</span>
+                <span class="fact-val">Diploma in Information Technology (2025 – 2028)</span>
+              </span>
+            </li>
+            <li class="about-fact-item">
+              <span class="fact-icon">🛡️</span>
+              <span>
+                <span class="fact-label">Core Focus Areas</span>
+                <span class="fact-val">Full-Stack Web Development &amp; Cybersecurity</span>
+              </span>
+            </li>
+            <li class="about-fact-item">
+              <span class="fact-icon">📍</span>
+              <span>
+                <span class="fact-label">School</span>
+                <span class="fact-val">Singapore Polytechnic, Singapore</span>
+              </span>
+            </li>
+            <li class="about-fact-item">
+              <span class="fact-icon">📅</span>
+              <span>
+                <span class="fact-label">Internship Availability</span>
+                <span class="fact-val">From March 2027</span>
+              </span>
+            </li>
+            <li class="about-fact-item">
+              <span class="fact-icon">🌏</span>
+              <span>
+                <span class="fact-label">Leadership &amp; Global Exposure</span>
+                <span class="fact-val">Class Chairman · SP Leadership Camp · Shenzhen Tech Trip</span>
+              </span>
+            </li>
+            <li class="about-fact-item">
+              <span class="fact-icon">🚀</span>
+              <span>
+                <span class="fact-label">Long-Term Goal</span>
+                <span class="fact-val">Engineer resilient, secure full-stack software systems</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02 // ACADEMIC PROJECTS (#projects) ================= -->
+    <section id="projects" class="section-block section-deep">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">02</span>
+            <span class="sec-line"></span>
+            Academic projects
+          </p>
+          <h2 class="sec-title">
+            Things I've <span class="hl">built, architected and secured</span>
+          </h2>
+          <p class="sec-desc">
+            Three key coursework projects across agile full-stack engineering, back-end MVC development, and ethical hacking vulnerability analysis.
+          </p>
+        </div>
+
+        <!-- FEATURED PROJECT (ByteMe) -->
+        <article class="glass glass-hover featured-card">
+          <div class="featured-badges">
+            <span class="badge-solid-sky">★ Featured project</span>
+            <span class="badge-outline-sky">Continuity &amp; Integration (CI/CD)</span>
+            <span class="badge-outline-mist">👥 Agile team project · 5 members</span>
+          </div>
+
+          <div class="featured-split">
+            <!-- Left: Interactive Architecture & Module Switcher (5 slides) -->
+            <div>
+              <div class="arch-viewer">
+                <div class="arch-screen" id="archScreen"></div>
+                <div style="margin-top: 1rem;">
+                  <p id="archTitle" style="font-family:var(--font-display);font-weight:600;color:var(--color-snow);font-size:1rem;"></p>
+                  <p id="archCaption" style="margin-top:0.25rem;font-size:0.86rem;color:var(--color-mist);"></p>
+                </div>
+              </div>
+              <div class="arch-thumbs" role="tablist" aria-label="ByteMe architecture views">
+                <button class="arch-thumb-btn active" onclick="setArchSlide(0)">1. Study Rooms</button>
+                <button class="arch-thumb-btn" onclick="setArchSlide(1)">2. User &amp; JWT</button>
+                <button class="arch-thumb-btn" onclick="setArchSlide(2)">3. DB Schema</button>
+                <button class="arch-thumb-btn" onclick="setArchSlide(3)">4. App Flow</button>
+                <button class="arch-thumb-btn" onclick="setArchSlide(4)">5. API Testing</button>
+              </div>
             </div>
-            <div class="project-links">
-              <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-                GitHub Repo ↗
-              </a>
-              <button class="btn btn-outline btn-sm" onclick="openProjectModal('byteme')">
-                🔍 Architecture &amp; DB Details
-              </button>
+
+            <!-- Right: Project Overview & My Contribution -->
+            <div>
+              <h3 style="font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 600; color: var(--color-snow); line-height: 1.2;">
+                ByteMe — Study Productivity &amp; Social Accountability Web Application
+              </h3>
+
+              <blockquote class="featured-quote">
+                “How can we help students stay consistent and motivated when studying by turning solitary focus timers into visible social progress, streaks, and live group study rooms?”
+              </blockquote>
+
+              <p style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--color-mist);">
+                A full-stack study productivity web application built with Node.js, Express.js, and PostgreSQL. Users start Pomodoro focus sessions, organise tasks on an interactive calendar, maintain daily streaks, climb a global leaderboard, and study together in live private Study Rooms.
+              </p>
+
+              <div class="contrib-box">
+                <p class="contrib-label">⚡ My Contribution (User Management &amp; Study Rooms Lead)</p>
+                <ul class="sky-list">
+                  <li>Built end-to-end <strong>User Registration, Login, and Profile Management</strong> using JWT authentication, bcrypt password hashing, and route access control.</li>
+                  <li>Designed and implemented <strong>Group Study Rooms</strong> (create private rooms, join via invite code, live study presence, room chat messages, leave/close room).</li>
+                  <li>Integrated user points and streak milestones cleanly into the unified <code>profile.html</code> dashboard.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="tech-badge sm"><span class="tech-dot"></span>Node.js</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>Express.js</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>PostgreSQL</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>JWT &amp; bcrypt</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>JavaScript</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>HTML &amp; CSS</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>Postman &amp; pgAdmin4</span>
+              </div>
+
+              <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                  🔗 View GitHub Repository ↗
+                </a>
+              </div>
             </div>
+          </div>
+
+          <!-- 4 Key Project Metrics -->
+          <div class="stats-row">
+            <div class="stat-tile">
+              <span class="stat-num">9 Tables</span>
+              <span class="stat-txt">Normalized PostgreSQL schema linking users, rooms, chat, tasks &amp; streaks</span>
+            </div>
+            <div class="stat-tile">
+              <span class="stat-num">12 Pages</span>
+              <span class="stat-txt">3 public pages + 9 JWT-protected full-stack application views</span>
+            </div>
+            <div class="stat-tile">
+              <span class="stat-num">Live Rooms</span>
+              <span class="stat-txt">Private invite codes, live member study presence &amp; group room chat</span>
+            </div>
+            <div class="stat-tile">
+              <span class="stat-num">5 Members</span>
+              <span class="stat-txt">Collaborative Git/GitHub CI/CD workflow across modular MVC layers</span>
+            </div>
+          </div>
+
+          <!-- 5 Interactive Tabs -->
+          <div>
+            <div class="tabs-nav" role="tablist">
+              <button class="tab-btn active" onclick="setFeaturedTab('features', this)">✨ Key Features</button>
+              <button class="tab-btn" onclick="setFeaturedTab('process', this)">⚙️ Architecture &amp; Process</button>
+              <button class="tab-btn" onclick="setFeaturedTab('learned', this)">💡 What I Learned</button>
+              <button class="tab-btn" onclick="setFeaturedTab('challenges', this)">🧩 Challenges</button>
+              <button class="tab-btn" onclick="setFeaturedTab('next', this)">🚀 Next Steps</button>
+            </div>
+            <div class="tab-panel" id="featuredTabPanel"></div>
           </div>
         </article>
 
-        <!-- Project 2: BED CA2 -->
-        <article class="project-card" data-category="fullstack">
-          <div>
-            <div class="project-top">
-              <span class="module-pill">Back-End Development (BED CA2)</span>
-              <span class="role-pill">Full-Stack Developer</span>
+        <!-- TWO EXPANDABLE SUB-PROJECTS BELOW FEATURED PROJECT -->
+        <div class="subprojects-grid">
+          <!-- Subproject 1: BED CA2 Gamified Wellness Challenge -->
+          <article class="glass glass-hover subproject-card">
+            <div class="subproject-banner">
+              <div class="subproject-code-preview">// BED CA2 — Multiplier &amp; Badge Progression Engine
+POST /api/challenge/:challenge_id
+├─ Verify cooldown expiry (anti-farming check)
+├─ Apply Elemental Type Multiplier (1.5× / 1.0× / 0.75×)
+├─ Consume optional Spell from user inventory
+└─ Apply Badge Bonus (up to 1.4×) &amp; check Year level-up</div>
+              <span class="subproject-module-tag">Back-End Development (BED CA2)</span>
             </div>
-            <h3>Gamified Wellness Challenge Web Application</h3>
-            <p class="project-summary">
-              An RPG-inspired full-stack web application that gamifies daily wellness challenges with houses, year-level progression, elemental spells, and collectible badges.
-            </p>
-            <ul class="project-bullets">
-              <li><strong>Gamified Reward Engine:</strong> Built MVC controllers &amp; MySQL models supporting elemental type multipliers (1.5× / 0.75×), spell inventories, and tiered badge multipliers (up to 1.4×).</li>
-              <li><strong>Anti-Farming &amp; Auth:</strong> Enforced challenge cooldown rules, automated random house assignment on JWT registration, and built user challenge review workflows.</li>
-            </ul>
-          </div>
 
-          <div class="project-footer">
-            <div class="tag-list">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express.js</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">JWT &amp; bcrypt</span>
-              <span class="tag">MVC Pattern</span>
-              <span class="tag">HTML/CSS/JS</span>
-            </div>
-            <div class="project-links">
-              <button class="btn btn-primary btn-sm" onclick="openProjectModal('wellness')">
-                🔍 API &amp; Game Logic Details
+            <div class="subproject-body">
+              <p class="subproject-accent">RPG Progression · Elemental Multipliers · MVC REST API</p>
+              <h3 style="margin-top: 0.5rem; font-size: 1.45rem; font-weight: 600; color: var(--color-snow);">
+                Gamified Wellness Challenge Web Application
+              </h3>
+              <p style="margin-top: 0.75rem; font-size: 0.94rem; color: var(--color-mist);">
+                A full-stack Node.js, Express, and MySQL web application that gamifies wellness habits. Users are sorted into houses at Year 1, complete wellness challenges to earn points, cast elemental spells, and collect Death Eater &amp; Voldemort badges that boost future rewards.
+              </p>
+
+              <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.45rem;">
+                <span class="tech-badge sm"><span class="tech-dot"></span>Node.js</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>Express.js</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>MySQL</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>JWT &amp; bcrypt</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>JavaScript</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>HTML &amp; CSS</span>
+              </div>
+
+              <button class="accordion-btn" onclick="toggleAccordion('acc-bed', this)">
+                <span>Features, learnings &amp; next steps</span>
+                <span>▼</span>
               </button>
-            </div>
-          </div>
-        </article>
 
-        <!-- Project 3: Ethical Hacking Report -->
-        <article class="project-card" data-category="security">
-          <div>
-            <div class="project-top">
-              <span class="module-pill">Cybersecurity Assessment</span>
-              <span class="role-pill">Security Analyst</span>
+              <div class="accordion-content" id="acc-bed">
+                <div>
+                  <h4 class="accordion-subhead">Verified Features</h4>
+                  <ul class="sky-list">
+                    <li>JWT registration &amp; login with bcrypt password hashing, automatic random House assignment, and Year 1 initialization.</li>
+                    <li>Elemental type chart system awarding 1.5× (Strong), 1.0× (Neutral), or 0.75× (Weak) point multipliers on challenge completion.</li>
+                    <li>Spell shop &amp; inventory system (`/api/shop/spells`, `/api/shop/buy`) allowing optional spell consumption during challenges.</li>
+                    <li>Tiered collectible Badge system (`1.0×` up to `1.4×` bonus) where all Death Eater badges must be owned before unlocking the Voldemort badge.</li>
+                    <li>Cooldown enforcement to prevent challenge farming, plus full CRUD challenge reviews.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="accordion-subhead">What I Learned</h4>
+                  <ul class="sky-list">
+                    <li>Structuring clean MVC layers (`routes → controllers → models → middleware`) so complex reward calculations stay maintainable.</li>
+                    <li>Designing relational MySQL tables for user inventories, completion logs, type charts, and progression thresholds.</li>
+                    <li>Securing API endpoints with stateless JWT bearer tokens and custom middleware chains.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="accordion-subhead">Future Improvements</h4>
+                  <ul class="sky-list">
+                    <li>Deploy the Express + MySQL stack to a cloud platform with live house leaderboards.</li>
+                    <li>Add automated integration tests for multi-step spell and badge multiplier calculations.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <h3>Ethical Hacking &amp; Vulnerability Assessment Report</h3>
-            <p class="project-summary">
-              Practical vulnerability assessment and penetration testing investigation examining network and application security posture within a controlled lab environment.
-            </p>
-            <ul class="project-bullets">
-              <li><strong>Reconnaissance &amp; Scanning:</strong> Performed structured enumeration and vulnerability analysis to uncover exploitable system and web weaknesses.</li>
-              <li><strong>Technical Security Reporting:</strong> Documented proof-of-concept exploitation steps, severity classifications, and defense-in-depth remediation controls.</li>
-            </ul>
-          </div>
+          </article>
 
-          <div class="project-footer">
-            <div class="tag-list">
-              <span class="tag">Ethical Hacking</span>
-              <span class="tag">Vulnerability Assessment</span>
-              <span class="tag">Network Security</span>
-              <span class="tag">Security Hardening</span>
+          <!-- Subproject 2: Ethical Hacking & Vulnerability Assessment Report -->
+          <article class="glass glass-hover subproject-card">
+            <div class="subproject-banner">
+              <div class="subproject-code-preview">// Ethical Hacking &amp; Vulnerability Assessment Workflow
+[Phase 1] Reconnaissance &amp; Host/Port Enumeration
+[Phase 2] Vulnerability Scanning &amp; Service Fingerprinting
+[Phase 3] Controlled Exploitation &amp; Impact Validation
+[Phase 4] Risk Rating &amp; Defense-in-Depth Remediation Report</div>
+              <span class="subproject-module-tag">Cybersecurity &amp; Ethical Hacking</span>
             </div>
-            <div class="project-links">
-              <button class="btn btn-outline btn-sm" onclick="openProjectModal('security')">
-                🔍 Assessment Methodology
+
+            <div class="subproject-body">
+              <p class="subproject-accent">Penetration Testing · Vulnerability Analysis · Security Hardening</p>
+              <h3 style="margin-top: 0.5rem; font-size: 1.45rem; font-weight: 600; color: var(--color-snow);">
+                Ethical Hacking &amp; Vulnerability Assessment Report
+              </h3>
+              <p style="margin-top: 0.75rem; font-size: 0.94rem; color: var(--color-mist);">
+                A comprehensive technical security investigation examining how system misconfigurations and application vulnerabilities can be discovered, responsibly validated, and mitigated within a sandboxed lab environment.
+              </p>
+
+              <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.45rem;">
+                <span class="tech-badge sm"><span class="tech-dot"></span>Ethical Hacking</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>Vulnerability Assessment</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>Network Security</span>
+                <span class="tech-badge sm"><span class="tech-dot"></span>System Hardening</span>
+              </div>
+
+              <button class="accordion-btn" onclick="toggleAccordion('acc-sec', this)">
+                <span>Features, learnings &amp; next steps</span>
+                <span>▼</span>
               </button>
+
+              <div class="accordion-content" id="acc-sec">
+                <div>
+                  <h4 class="accordion-subhead">Assessment Scope &amp; Deliverables</h4>
+                  <ul class="sky-list">
+                    <li>Performed structured reconnaissance and network enumeration to map exposed services, ports, and attack surfaces.</li>
+                    <li>Analysed common web and system vulnerabilities, documenting step-by-step proof-of-concept reproduction evidence.</li>
+                    <li>Evaluated risk severity and business impact for each identified weakness.</li>
+                    <li>Authored actionable remediation guidelines covering patching, access controls, input validation, and least-privilege configuration.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="accordion-subhead">What I Learned</h4>
+                  <ul class="sky-list">
+                    <li>Thinking like an attacker makes me a much better full-stack developer—every unvalidated input or weak token configuration is a potential entry point.</li>
+                    <li>Clear technical communication is just as important as finding bugs: a security report must help engineers fix the root cause quickly.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="accordion-subhead">Future Improvements</h4>
+                  <ul class="sky-list">
+                    <li>Expand hands-on practice through CTF challenges and automated security scanning in CI/CD pipelines (DevSecOps).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 // TECHNICAL SKILLS (#skills) ================= -->
+    <section id="skills" class="section-block">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">03</span>
+            <span class="sec-line"></span>
+            Technical skills
+          </p>
+          <h2 class="sec-title">
+            My toolkit <span class="hl">so far</span>
+          </h2>
+          <p class="sec-desc">
+            Technologies I've used hands-on in coursework and team projects, alongside the security and engineering areas I'm actively exploring next.
+          </p>
+        </div>
+
+        <div class="skills-legend">
+          <span class="legend-item"><span class="legend-swatch-solid"></span> Used in projects</span>
+          <span class="legend-item"><span class="legend-swatch-dashed"></span> Exploring &amp; learning next</span>
+        </div>
+
+        <div class="skills-2col">
+          <div class="glass glass-hover skill-box">
+            <div class="skill-box-head">
+              <span class="skill-box-icon">💻</span>
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Programming &amp; Web Development</h3>
+                <p style="font-size:0.85rem;color:var(--color-mist);">Languages and web technologies used across full-stack modules.</p>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge"><span class="tech-dot"></span>JavaScript (ES6+)</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Python</span>
+              <span class="tech-badge"><span class="tech-dot"></span>SQL</span>
+              <span class="tech-badge"><span class="tech-dot"></span>HTML5</span>
+              <span class="tech-badge"><span class="tech-dot"></span>CSS3</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Node.js</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Express.js</span>
             </div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- EXPERIENCE, LEADERSHIP & EDUCATION SECTION -->
-  <section id="experience">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">03 // Journey &amp; Character</span>
-        <h2 class="section-title">Experience, Education &amp; Leadership</h2>
-        <p class="section-desc">
-          Combining technical coursework with student leadership, overseas industry immersion, and fast-paced work experience.
-        </p>
-      </div>
-
-      <div class="dual-grid">
-        <!-- Left Column: Education & Leadership -->
-        <div class="timeline-column">
-          <h3>🎓 Education &amp; Leadership</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <span class="timeline-date">Apr 2025 – Apr 2028 (Expected)</span>
-              <div class="timeline-title">Diploma in Information Technology</div>
-              <div class="timeline-org">Singapore Polytechnic</div>
-              <ul>
-                <li>Core focus in Full-Stack Web Development, Relational Databases, Python, CI/CD, and Cybersecurity.</li>
-                <li><strong>Class Chairman (Semester 2):</strong> Served as the primary liaison between lecturers and classmates, coordinating class initiatives and academic communications.</li>
-                <li><strong>SP Leadership Camp:</strong> Completed leadership and team-building training at Singapore Polytechnic.</li>
-              </ul>
+          <div class="glass glass-hover skill-box">
+            <div class="skill-box-head">
+              <span class="skill-box-icon">🗄️</span>
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Back-End, Databases &amp; Auth</h3>
+                <p style="font-size:0.85rem;color:var(--color-mist);">Relational data modelling, REST APIs, and authentication.</p>
+              </div>
             </div>
-
-            <div class="timeline-item">
-              <span class="timeline-date">Overseas Immersion Programme</span>
-              <div class="timeline-title">Shenzhen Tech &amp; University Study Trip</div>
-              <div class="timeline-org">Singapore Polytechnic · Shenzhen, China</div>
-              <ul>
-                <li>Visited <strong>The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen)</strong> for academic exchange and campus immersion.</li>
-                <li>Toured leading technology enterprises in Shenzhen to gain first-hand exposure to software innovation, hardware ecosystems, and global industry practices.</li>
-              </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge"><span class="tech-dot"></span>PostgreSQL</span>
+              <span class="tech-badge"><span class="tech-dot"></span>MySQL</span>
+              <span class="tech-badge"><span class="tech-dot"></span>RESTful APIs</span>
+              <span class="tech-badge"><span class="tech-dot"></span>MVC Architecture</span>
+              <span class="tech-badge"><span class="tech-dot"></span>JWT Authentication</span>
+              <span class="tech-badge"><span class="tech-dot"></span>bcrypt Hashing</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Relational Schema Design</span>
             </div>
+          </div>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Secondary School (4 Years)</span>
-              <div class="timeline-title">Badminton Co-Curricular Activity (CCA)</div>
-              <div class="timeline-org">4-Year Member</div>
-              <ul>
-                <li>Demonstrated sustained discipline, resilience, and teamwork across four years of training and school representation.</li>
-              </ul>
+          <div class="glass glass-hover skill-box">
+            <div class="skill-box-head">
+              <span class="skill-box-icon">🛡️</span>
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Cybersecurity &amp; Systems</h3>
+                <p style="font-size:0.85rem;color:var(--color-mist);">Defensive and offensive security foundations.</p>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge"><span class="tech-dot"></span>Ethical Hacking</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Vulnerability Assessment</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Networking Fundamentals</span>
+              <span class="tech-badge"><span class="tech-dot"></span>System Administration</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Route Access Control</span>
+            </div>
+            <p style="margin:1rem 0 0.5rem;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky-light);">Exploring next</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge exploring"><span class="tech-dot"></span>Web App Penetration Testing</span>
+              <span class="tech-badge exploring"><span class="tech-dot"></span>DevSecOps</span>
+            </div>
+          </div>
+
+          <div class="glass glass-hover skill-box">
+            <div class="skill-box-head">
+              <span class="skill-box-icon">⚙️</span>
+              <div>
+                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Developer Tools &amp; Workflow</h3>
+                <p style="font-size:0.85rem;color:var(--color-mist);">Version control, API verification, and team workflows.</p>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge"><span class="tech-dot"></span>Git</span>
+              <span class="tech-badge"><span class="tech-dot"></span>GitHub</span>
+              <span class="tech-badge"><span class="tech-dot"></span>GitHub Pages</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Postman</span>
+              <span class="tech-badge"><span class="tech-dot"></span>pgAdmin4</span>
+              <span class="tech-badge"><span class="tech-dot"></span>Agile CI/CD Workflow</span>
+            </div>
+            <p style="margin:1rem 0 0.5rem;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky-light);">Exploring next</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge exploring"><span class="tech-dot"></span>Automated API Testing</span>
+              <span class="tech-badge exploring"><span class="tech-dot"></span>Docker &amp; Cloud Deployment</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Right Column: Work Experience -->
-        <div class="timeline-column">
-          <h3>💼 Work Experience</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <span class="timeline-date">Sep 2026 – Nov 2026</span>
-              <div class="timeline-title">Cook (Part-time)</div>
-              <div class="timeline-org">Universal Studios Singapore (USS) · Singapore</div>
-              <ul>
-                <li>Prepared high-volume food orders accurately in a fast-paced hospitality environment while strictly upholding food safety and hygiene standards.</li>
-                <li>Coordinated closely with kitchen crew during peak hours to maintain smooth workflows and timely service delivery.</li>
-              </ul>
+    <!-- ================= 04 // MY LEARNING JOURNEY (#journey) ================= -->
+    <section id="journey" class="section-block section-deep">
+      <div class="container">
+        <div class="sec-header center">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">04</span>
+            <span class="sec-line"></span>
+            My learning journey
+          </p>
+          <h2 class="sec-title">
+            Learning, <span class="hl">Building</span> &amp; Leading
+          </h2>
+          <p class="sec-desc">
+            Every semester and experience at Singapore Polytechnic has pushed me a step further — from writing my first scripts to leading classmates and building full-stack team platforms.
+          </p>
+        </div>
+
+        <div class="journey-wrap">
+          <div class="journey-line" aria-hidden="true"></div>
+          <ol class="journey-list">
+            <li class="journey-row left">
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Learning the fundamentals</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Started my Diploma in Information Technology at Singapore Polytechnic, building a strong foundation in Python, JavaScript, programming logic, and problem-solving.</p>
+              </div>
+              <span class="journey-node">01</span>
+            </li>
+
+            <li class="journey-row right">
+              <span class="journey-node">02</span>
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Stepping up as Class Chairman &amp; Leadership Camp</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Served as Class Chairman in Semester 2 and completed the SP Leadership Camp — learning how to communicate clearly, support peers, and coordinate effectively.</p>
+              </div>
+            </li>
+
+            <li class="journey-row left">
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Building full-stack MVC web apps (BED CA2)</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Engineered a Gamified Wellness Challenge web app with Node.js, Express, MySQL, JWT, and bcrypt — turning complex game rules into clean backend code.</p>
+              </div>
+              <span class="journey-node">03</span>
+            </li>
+
+            <li class="journey-row right">
+              <span class="journey-node">04</span>
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Exploring ethical hacking &amp; security</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Conducted practical vulnerability assessments and ethical hacking labs, learning how attackers probe systems and how developers should harden their applications.</p>
+              </div>
+            </li>
+
+            <li class="journey-row left">
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Collaborating in an agile CI/CD team (ByteMe)</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Led User Management and Group Study Rooms in a 5-person team using PostgreSQL and Express, merging features cleanly across shared schemas and Git branches.</p>
+              </div>
+              <span class="journey-node">05</span>
+            </li>
+
+            <li class="journey-row right">
+              <span class="journey-node">06</span>
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Global tech immersion in Shenzhen, China</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Visited CUHK-Shenzhen and major technology enterprises in Shenzhen with Singapore Polytechnic, seeing first-hand how modern engineering teams innovate at scale.</p>
+              </div>
+            </li>
+
+            <li class="journey-row left">
+              <div class="glass glass-hover journey-card">
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Connecting security with full-stack engineering</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Bringing my two passions together: writing clean full-stack features while always asking how authentication, data integrity, and access controls can be made stronger.</p>
+              </div>
+              <span class="journey-node">07</span>
+            </li>
+
+            <li class="journey-row right">
+              <span class="journey-node next">08</span>
+              <div class="glass glass-hover journey-card next">
+                <span style="display:inline-block;margin-bottom:0.4rem;border-radius:999px;background:rgba(239,68,68,0.15);padding:0.15rem 0.6rem;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--color-sky);">Up next</span>
+                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Learning from industry professionals</h3>
+                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Seeking an internship from March 2027 where I can learn from experienced engineers and security practitioners while contributing to real production systems.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 // PERSPECTIVE (#approach) ================= -->
+    <section id="approach" class="section-block">
+      <div class="container">
+        <div class="approach-grid">
+          <div>
+            <div class="sec-header" style="margin-bottom: 2rem;">
+              <p class="sec-eyebrow">
+                <span class="sec-idx">05</span>
+                <span class="sec-line"></span>
+                Perspective
+              </p>
+              <h2 class="sec-title">
+                How I Approach <span class="hl">Software &amp; Security</span>
+              </h2>
             </div>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Dec 2024 – Feb 2025</span>
-              <div class="timeline-title">Temporary Staff (Part-time)</div>
-              <div class="timeline-org">NTUC FairPrice · Singapore</div>
-              <ul>
-                <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
-                <li>Monitored shelf inventory levels, replenished stock, and maintained an organised retail floor for a smooth customer experience.</li>
-              </ul>
+            <figure class="quote-figure">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote style="font-size:1.05rem;line-height:1.7;color:var(--color-ice);">
+                Getting an application to work is only half the job — making sure it is structured cleanly, handles edge cases, and protects user data is what turns a school assignment into real software. I use modern tools and AI assistants to learn faster, but I always make sure I understand the underlying code, database queries, and security logic myself.
+              </blockquote>
+            </figure>
+          </div>
+
+          <ul class="pillars-grid">
+            <li class="glass glass-hover pillar-card">
+              <div style="font-size:1.4rem;color:var(--color-sky);">🔐</div>
+              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Security by design</h3>
+              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">From bcrypt password hashing and JWT middleware to server-side validation, I treat security as part of the core architecture rather than an afterthought.</p>
+            </li>
+            <li class="glass glass-hover pillar-card">
+              <div style="font-size:1.4rem;color:var(--color-sky);">🧠</div>
+              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Understand before relying</h3>
+              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">I trace through API routes, SQL joins, and middleware step-by-step. If I can't explain why a piece of code works, I keep digging until I can.</p>
+            </li>
+            <li class="glass glass-hover pillar-card">
+              <div style="font-size:1.4rem;color:var(--color-sky);">🧪</div>
+              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Verify &amp; test thoroughly</h3>
+              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">Using Postman, pgAdmin4, and browser testing to verify both happy paths and failure cases so features hold up when teammates integrate with them.</p>
+            </li>
+            <li class="glass glass-hover pillar-card">
+              <div style="font-size:1.4rem;color:var(--color-sky);">🤝</div>
+              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Clear team ownership</h3>
+              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">Whether leading a class or owning backend modules in a 5-person repo, I focus on clear documentation, clean interfaces, and dependable follow-through.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 // WORK EXPERIENCE (#experience) ================= -->
+    <section id="experience" class="section-block section-deep">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">06</span>
+            <span class="sec-line"></span>
+            Work experience
+          </p>
+          <h2 class="sec-title">
+            Learning to perform <span class="hl">under pressure &amp; with people</span>
+          </h2>
+          <p class="sec-desc">
+            My part-time roles in fast-paced hospitality and retail environments have taught me reliability, teamwork under peak-hour pressure, and clear communication.
+          </p>
+        </div>
+
+        <div class="exp-grid">
+          <!-- Job 1: USS -->
+          <article class="glass glass-hover exp-card">
+            <header style="display:flex;align-items:flex-start;gap:1rem;">
+              <span class="fact-icon" style="width:3rem;height:3rem;font-size:1.25rem;">🍳</span>
+              <div>
+                <h3 style="font-size:1.25rem;font-weight:600;color:var(--color-snow);">Universal Studios Singapore (USS)</h3>
+                <p style="color:var(--color-sky-light);font-weight:500;">Cook · <span style="color:var(--color-mist);">Part-time</span></p>
+                <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--color-mist);">📅 Sep 2026 – Nov 2026 · 📍 Singapore</p>
+              </div>
+            </header>
+
+            <ul class="sky-list" style="margin-top:1.5rem;">
+              <li>Prepared high-volume food orders accurately in a fast-paced theme park hospitality environment.</li>
+              <li>Upheld strict food safety, hygiene, and quality control standards across daily kitchen operations.</li>
+              <li>Coordinated closely with kitchen crew during peak crowd hours to keep workflows smooth and orders on time.</li>
+            </ul>
+
+            <div style="margin-top:auto;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge sm">Teamwork under pressure</span>
+              <span class="tech-badge sm">Operational discipline</span>
+              <span class="tech-badge sm">Time management</span>
+            </div>
+          </article>
+
+          <!-- Job 2: FairPrice -->
+          <article class="glass glass-hover exp-card">
+            <header style="display:flex;align-items:flex-start;gap:1rem;">
+              <span class="fact-icon" style="width:3rem;height:3rem;font-size:1.25rem;">🛒</span>
+              <div>
+                <h3 style="font-size:1.25rem;font-weight:600;color:var(--color-snow);">NTUC FairPrice</h3>
+                <p style="color:var(--color-sky-light);font-weight:500;">Temporary Staff · <span style="color:var(--color-mist);">Part-time</span></p>
+                <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--color-mist);">📅 Dec 2024 – Feb 2025 · 📍 Singapore</p>
+              </div>
+            </header>
+
+            <ul class="sky-list" style="margin-top:1.5rem;">
+              <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
+              <li>Monitored shelf inventory levels, flagged low stock, and replenished merchandise systematically.</li>
+              <li>Maintained an organised retail floor alongside team members to ensure a smooth customer experience.</li>
+            </ul>
+
+            <div style="margin-top:auto;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <span class="tech-badge sm">Customer service</span>
+              <span class="tech-badge sm">Attention to detail</span>
+              <span class="tech-badge sm">Reliability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 07 // EDUCATION & LEADERSHIP (#education) ================= -->
+    <section id="education" class="section-block">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">07</span>
+            <span class="sec-line"></span>
+            Education, leadership &amp; global exposure
+          </p>
+          <h2 class="sec-title">
+            Where I'm <span class="hl">learning &amp; growing</span>
+          </h2>
+        </div>
+
+        <div class="edu-grid">
+          <!-- Left: SP Diploma Card -->
+          <article class="sp-card">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem;">
+              <span style="width:3rem;height:3rem;border-radius:1rem;background:var(--color-sky);color:#ffffff;display:grid;place-items:center;font-size:1.35rem;font-weight:700;">🎓</span>
+              <span class="badge-outline-sky" style="background:rgba(239,68,68,0.12);color:var(--color-sky-light);font-weight:600;">Currently studying · Year 2</span>
             </div>
 
-            <div class="timeline-item">
-              <span class="timeline-date">Languages &amp; Certifications</span>
-              <div class="timeline-title">Communication &amp; Credentials</div>
-              <div class="timeline-org">Singaporean</div>
-              <ul>
+            <h3 style="margin-top:1.5rem;font-size:1.85rem;font-weight:600;color:var(--color-snow);">Singapore Polytechnic</h3>
+            <p style="margin-top:0.35rem;font-size:1.125rem;font-weight:500;color:var(--color-sky-light);">Diploma in Information Technology</p>
+            <p style="margin-top:0.25rem;color:var(--color-mist);">Focus: <span style="color:var(--color-ice);font-weight:500;">Full-Stack Software Development &amp; Cybersecurity</span></p>
+            <p style="margin-top:1rem;font-size:0.9rem;color:var(--color-mist);">📅 April 2025 – April 2028 (expected)</p>
+
+            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(239,68,68,0.18);">
+              <p style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky);margin-bottom:0.75rem;">Key Modules &amp; Domains</p>
+              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+                <span class="tech-badge sm">Continuity &amp; Integration (CI/CD)</span>
+                <span class="tech-badge sm">Back-End Development (BED)</span>
+                <span class="tech-badge sm">Ethical Hacking &amp; Security</span>
+                <span class="tech-badge sm">Relational Database Systems</span>
+                <span class="tech-badge sm">Python Programming</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Right: Stacked Leadership, Shenzhen Immersion & CCA Cards -->
+          <div style="display:flex;flex-direction:column;gap:1.25rem;">
+            <article class="glass glass-hover" style="border-radius:1.5rem;padding:1.5rem;">
+              <h3 style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-sky);">🌏 Overseas Immersion &amp; Leadership</h3>
+              <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.85rem;">
+                <div style="border-radius:1rem;border:1px solid rgba(239,68,68,0.14);background:rgba(11,13,19,0.5);padding:1rem;">
+                  <p style="font-weight:600;color:var(--color-snow);font-size:0.95rem;">Shenzhen Study Trip — CUHK-Shenzhen &amp; Tech Industry Visits</p>
+                  <p style="margin-top:0.25rem;font-size:0.82rem;color:var(--color-mist);">Visited The Chinese University of Hong Kong, Shenzhen and leading Shenzhen technology enterprises with Singapore Polytechnic.</p>
+                </div>
+                <div style="border-radius:1rem;border:1px solid rgba(239,68,68,0.14);background:rgba(11,13,19,0.5);padding:1rem;">
+                  <p style="font-weight:600;color:var(--color-snow);font-size:0.95rem;">Class Chairman (Semester 2) &amp; SP Leadership Camp</p>
+                  <p style="margin-top:0.25rem;font-size:0.82rem;color:var(--color-mist);">Represented classmates, coordinated academic communications with lecturers, and completed SP's student leadership programme.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="glass glass-hover" style="border-radius:1.5rem;padding:1.5rem;">
+              <h3 style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-sky);">🏸 Co-Curricular, Certifications &amp; Languages</h3>
+              <ul class="sky-list" style="margin-top:0.85rem;">
+                <li><strong>Badminton CCA (4 Years, Secondary School):</strong> Built long-term discipline, resilience, and team spirit.</li>
+                <li><strong>Certification:</strong> Rock Your LinkedIn.</li>
                 <li><strong>Languages:</strong> English &amp; Tamil (Good spoken and written proficiency).</li>
-                <li><strong>Certifications:</strong> Rock Your LinkedIn.</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <span class="section-eyebrow">04 // Get In Touch</span>
-        <h2 class="section-title">Looking for an Internship from March 2027</h2>
-        <p class="section-desc" style="margin: 0 auto;">
-          I am eager to learn through mentorship, take initiative on real-world software or cybersecurity projects, and contribute meaningful value to your engineering team.
-        </p>
+    <!-- ================= 08 // INTERNSHIP GOALS (#goals) ================= -->
+    <section id="goals" class="section-block section-deep">
+      <div class="container">
+        <div class="sec-header">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">08</span>
+            <span class="sec-line"></span>
+            Internship goals
+          </p>
+          <h2 class="sec-title">
+            What I'm <span class="hl">Looking For</span>
+          </h2>
+          <p class="sec-desc">
+            An internship where I can learn from experienced software and security professionals — and pull my weight on real technical deliverables while I'm there.
+          </p>
+        </div>
 
-        <div class="contact-grid">
-          <a href="mailto:brianjeffrey1518@gmail.com" class="contact-item">
-            <span class="contact-label">✉️ Email</span>
-            <span class="contact-val">brianjeffrey1518@gmail.com</span>
+        <div class="glass goals-banner">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span style="width:3rem;height:3rem;border-radius:1rem;background:var(--color-sky);color:#ffffff;display:grid;place-items:center;font-size:1.3rem;">📅</span>
+            <div>
+              <p style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-mist-dim);">Available from</p>
+              <p style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--color-snow);">March 2027</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+            <span class="tech-badge">Full-Stack Development</span>
+            <span class="tech-badge">Back-End Engineering</span>
+            <span class="tech-badge">Cybersecurity</span>
+            <span class="tech-badge">Vulnerability Assessment</span>
+            <span class="tech-badge">Software Engineering</span>
+          </div>
+        </div>
+
+        <div class="skills-2col">
+          <div class="glass glass-hover skill-box">
+            <h3 style="display:flex;align-items:center;gap:0.75rem;font-size:1.15rem;font-weight:600;color:var(--color-snow);margin-bottom:1.25rem;">
+              <span class="fact-icon">🎯</span> What I hope to gain
+            </h3>
+            <ul class="sky-list">
+              <li>Learn directly from experienced software engineers and cybersecurity practitioners.</li>
+              <li>Understand how professional teams architect, code-review, test, and secure production applications.</li>
+              <li>See how real-world engineering teams diagnose and resolve complex technical problems.</li>
+              <li>Strengthen my full-stack development, database optimization, and security assessment skills.</li>
+              <li>Grow into a more capable, independent engineer ready to tackle larger responsibilities.</li>
+            </ul>
+          </div>
+
+          <div class="glass glass-hover skill-box">
+            <h3 style="display:flex;align-items:center;gap:0.75rem;font-size:1.15rem;font-weight:600;color:var(--color-snow);margin-bottom:1.25rem;">
+              <span class="fact-icon">⚡</span> What I'll bring to the team
+            </h3>
+            <ul class="sky-list">
+              <li>Hands-on experience building Node.js/Express backends, PostgreSQL &amp; MySQL schemas, and JWT/bcrypt auth flows.</li>
+              <li>A security-aware mindset grounded in ethical hacking and vulnerability assessment coursework.</li>
+              <li>Proven initiative and communication from serving as Class Chairman and working in fast-paced teams.</li>
+              <li>Strong ownership of assigned tasks, eagerness to pick up new stacks quickly, and openness to feedback.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 09 // CONTACT (#contact) ================= -->
+    <section id="contact" class="section-block">
+      <div class="container">
+        <div class="sec-header center">
+          <p class="sec-eyebrow">
+            <span class="sec-idx">09</span>
+            <span class="sec-line"></span>
+            Contact
+          </p>
+          <h2 class="sec-title">
+            Let's <span class="hl">Connect</span>
+          </h2>
+          <p class="sec-desc">
+            I'm always excited to connect regarding software development or cybersecurity internship opportunities starting March 2027. If you're looking for a curious, dependable intern who loves building and securing applications, I'd love to hear from you.
+          </p>
+        </div>
+
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.75rem;">
+          <a href="mailto:brianjeffrey1518@gmail.com?subject=Internship%20Opportunity%20—%20Brian%20Jeffrey" class="btn btn-primary">
+            ✉️ Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            in Connect on LinkedIn
+          </a>
+        </div>
+
+        <div class="contact-cards-grid">
+          <a href="mailto:brianjeffrey1518@gmail.com" class="glass glass-hover contact-tile">
+            <span class="contact-tile-icon">✉️</span>
+            <span style="min-width:0;flex:1;">
+              <span class="fact-label">Email</span>
+              <span style="display:block;font-weight:600;color:var(--color-snow);overflow:hidden;text-overflow:ellipsis;">brianjeffrey1518@gmail.com</span>
+            </span>
           </a>
 
-          <a href="tel:+6597227598" class="contact-item">
-            <span class="contact-label">📱 Phone</span>
-            <span class="contact-val">+65 9722 7598</span>
+          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="glass glass-hover contact-tile">
+            <span class="contact-tile-icon">in</span>
+            <span style="min-width:0;flex:1;">
+              <span class="fact-label">LinkedIn</span>
+              <span style="display:block;font-weight:600;color:var(--color-snow);">linkedin.com/in/brianjeffreyd</span>
+            </span>
           </a>
 
-          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener" class="contact-item">
-            <span class="contact-label">🔗 LinkedIn</span>
-            <span class="contact-val">linkedin.com/in/brianjeffreyd</span>
-          </a>
-
-          <a href="resume.html" class="contact-item">
-            <span class="contact-label">📄 Resume / CV</span>
-            <span class="contact-val">View Printable Resume →</span>
+          <a href="tel:+6597227598" class="glass glass-hover contact-tile">
+            <span class="contact-tile-icon">📱</span>
+            <span style="min-width:0;flex:1;">
+              <span class="fact-label">Phone (Singapore)</span>
+              <span style="display:block;font-weight:600;color:var(--color-snow);">+65 9722 7598</span>
+            </span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2026 Brian Jeffrey · Built for GitHub Pages · Singapore Polytechnic (Diploma in Information Technology)</p>
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(239,68,68,0.12);background:rgba(6,7,11,0.82);padding:2.5rem 0 1.5rem;">
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;padding-bottom:1.75rem;">
+      <div>
+        <p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--color-snow);">Brian Jeffrey</p>
+        <p style="font-size:0.85rem;color:var(--color-mist);">Diploma in Information Technology student · Singapore Polytechnic</p>
+      </div>
+
+      <ul style="display:flex;flex-wrap:wrap;gap:1.25rem;font-size:0.85rem;color:var(--color-mist);">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+    <p style="border-top:1px solid rgba(239,68,68,0.08);padding-top:1.25rem;text-align:center;font-size:0.75rem;color:var(--color-mist-dim);">
+      © 2026 Brian Jeffrey · Full-Stack &amp; Cybersecurity Portfolio
+    </p>
   </footer>
 
-  <!-- TECHNICAL ARCHITECTURE MODAL -->
-  <div class="modal-backdrop" id="projectModal" onclick="if(event.target === this) closeProjectModal()">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div>
-          <span class="section-eyebrow" id="modalEyebrow">Project Architecture</span>
-          <h3 id="modalTitle" style="font-size: 1.35rem; font-weight: 800;"></h3>
-        </div>
-        <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
-      </div>
-      <div class="modal-body" id="modalBody"></div>
-    </div>
-  </div>
-
   <script>
-    // Dark / Light Theme Toggle
-    const themeToggle = document.getElementById("themeToggle");
-    const htmlEl = document.documentElement;
+    // 1. Hero Role Rotator
+    const roles = [
+      "Full-Stack Web Developer",
+      "Cybersecurity Enthusiast",
+      "Back-End API Engineer",
+      "Problem Solver & Team Leader"
+    ];
+    let roleIdx = 0;
+    const roleEl = document.getElementById("roleRotator");
+    setInterval(() => {
+      roleIdx = (roleIdx + 1) % roles.length;
+      roleEl.textContent = roles[roleIdx];
+    }, 2600);
 
-    themeToggle.addEventListener("click", () => {
-      const current = htmlEl.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
-      htmlEl.setAttribute("data-theme", next);
-      themeToggle.textContent = next === "dark" ? "☀️" : "🌙";
-    });
-
-    // Category Filter for Projects
-    const filterBtns = document.querySelectorAll(".filter-btn");
-    const projectCards = document.querySelectorAll(".project-card");
-
-    filterBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filterBtns.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        const filter = btn.getAttribute("data-filter");
-
-        projectCards.forEach((card) => {
-          if (filter === "all" || card.getAttribute("data-category") === filter) {
-            card.style.display = "flex";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      });
-    });
-
-    // Project Technical Details Modal Data
-    const projectDetails = {
-      byteme: {
-        eyebrow: "CI/CD Agile Team Project · Brian's Feature Ownership",
-        title: "ByteMe — User Management & Group Study Rooms",
-        html: `
-          <p style="color: var(--text-secondary);">
-            In our 5-member agile project, I owned the end-to-end backend and frontend implementation for <strong>User Management &amp; Authentication</strong> and <strong>Group Study Rooms</strong>.
-          </p>
-          <h4>1. User Management &amp; JWT Security</h4>
-          <div class="code-snippet">POST /api/users/register  → bcrypt password hashing + account creation
-POST /api/users/login     → credential verification + signed JWT issuance
-GET  /api/users/profile   → protected route returning points, join date &amp; user info
-PUT  /api/users/profile   → update display_name with validation middleware</div>
-          <h4>2. Group Study Rooms &amp; Relational Schema</h4>
-          <div class="code-snippet">Tables Engineered in PostgreSQL:
-• study_rooms (id, name, room_code, creator_id, status, created_at)
-• study_room_members (id, room_id -> study_rooms.id, user_id -> users.id, presence_status)
-• study_room_messages (id, room_id -> study_rooms.id, user_id -> users.id, message, sent_at)</div>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">
-            Users can create private rooms, share an invite code, view active room members and live study timer presence, chat with group members, leave a room, or close the room as host.
-          </p>
-        `
+    // 2. Featured Project (ByteMe) 5-Slide Interactive Architecture Showcase
+    const archSlides = [
+      {
+        title: "1. Group Study Rooms & Live Presence (My Feature)",
+        caption: "Users create private rooms, invite friends with a room code, update live study presence, and chat in real time.",
+        code: `┌──────────────────────────────────────────────────────────┐
+│  STUDY ROOM #2B26  [Invite Code: BYTE-8492]   🔴 4 Live  │
+├──────────────────────────┬───────────────────────────────┤
+│  ROOM MEMBERS            │  LIVE ROOM CHAT               │
+│  • Brian (Host) ⏱️ 24:10 │  Brian: Starting 25m Pomodoro │
+│  • Keira        ⏱️ 24:10 │  Keira: Let's finish CA2 docs │
+│  • Nigel        ☕ Break │  Nigel: Joining next round!   │
+│  [Update Presence]       │  [Send Message...]     [Send] │
+└──────────────────────────┴───────────────────────────────┘`
       },
-      wellness: {
-        eyebrow: "Back-End Development (BED CA2) · Full-Stack MVC",
-        title: "Gamified Wellness Challenge Application",
-        html: `
-          <p style="color: var(--text-secondary);">
-            A Node.js, Express, and MySQL web application that turns daily wellness habits into an RPG progression system with houses, spells, badges, and elemental multipliers.
-          </p>
-          <h4>Key Backend Endpoints</h4>
-          <div class="code-snippet">POST /api/register &amp; POST /api/login   → JWT auth + bcrypt + random House &amp; Year 1 init
-GET  /api/challenge &amp; POST /api/challenge/:id → Enforces cooldowns &amp; calculates reward multipliers
-GET  /api/shop/spells &amp; POST /api/shop/buy    → Point deduction &amp; user spell inventory tracking
-POST /api/badge/buy &amp; GET /api/badge/badges   → Death Eater set check before unlocking Voldemort badge</div>
-          <h4>Reward Calculation Mechanics</h4>
-          <div class="code-snippet">• Elemental Type Multipliers: Strong (1.5×) | Neutral (1.0×) | Weak (0.75×)
-• Badge Ownership Bonus: 0–2 (1.0×), 3–5 (1.1×), 6–8 (1.2×), 9–11 (1.3×), 12+ (1.4×)
-• Anti-Farming Cooldowns: Prevents repeated completions before cooldown expiry</div>
-        `
+      {
+        title: "2. User Management, JWT Auth & Profile + Streaks (My Feature)",
+        caption: "Secure registration/login with bcrypt + JWT, plus unified profile showing points, join date, and streak milestones.",
+        code: `POST /api/users/register  ──► bcrypt.hash(password, 10) ──► INSERT INTO users
+POST /api/users/login     ──► bcrypt.compare()          ──► jwt.sign({ userId })
+GET  /api/users/profile   ──► verifyToken middleware    ──► Returns Profile + Points
+GET  /api/streaks         ──► Integrated on Profile     ──► Current: 7🔥 | Best: 14🔥`
       },
-      security: {
-        eyebrow: "Cybersecurity Coursework · Technical Report",
-        title: "Ethical Hacking & Vulnerability Assessment",
-        html: `
-          <p style="color: var(--text-secondary);">
-            Focused on identifying, analysing, and remediating security vulnerabilities across networked systems and web applications in a controlled lab environment.
-          </p>
-          <h4>Assessment Phases Covered</h4>
-          <div class="code-snippet">1. Reconnaissance &amp; Footprinting   → Discovering active hosts, open ports, and running services
-2. Vulnerability Scanning          → Identifying misconfigurations, outdated services, and weak controls
-3. Exploitation &amp; Verification     → Validating impact and risk severity of discovered weaknesses
-4. Remediation &amp; Hardening Report  → Recommending patching, access controls, and input sanitization</div>
-        `
+      {
+        title: "3. PostgreSQL Relational Database Schema (9 Tables)",
+        caption: "Foreign key relationships connecting users to study rooms, focus sessions, streaks, friendships, and tasks.",
+        code: `users (id, username, display_name, email, password_hash, points, created_at)
+ ├── study_rooms (id, room_name, invite_code, creator_id -> users.id)
+ ├── study_room_members (id, room_id -> study_rooms.id, user_id -> users.id, status)
+ ├── study_room_messages (id, room_id -> study_rooms.id, user_id -> users.id, content)
+ ├── focus_sessions (id, userId -> users.id, totalFocusSeconds, focusScore)
+ └── streaks (id, userId -> users.id, currentStreak, longestStreak, lastStudyDate)`
+      },
+      {
+        title: "4. Core App Flow & Points Engine",
+        caption: "How focus sessions feed points (+1/min, +10 high focus, +5 daily streak, +25 7-day milestone) across the platform.",
+        code: `[Start Focus Session] ──► [Track Focus Time & Tab Switches]
+         │
+         ▼
+[Complete Session]    ──► [Save to focus_sessions Table]
+         │
+         ▼
+[Calculate Rewards]   ──► [Update users.points & streaks.currentStreak]
+         │
+         ▼
+[Refresh Views]       ──► [Profile Page · Friends Feed · Global Leaderboard]`
+      },
+      {
+        title: "5. API Verification & Access Control",
+        caption: "Tested via Postman, pgAdmin4, and browser storage checks across 3 public pages and 9 JWT-protected views.",
+        code: `Public Pages:     index.html | login.html | register.html
+Protected Pages:  dashboard.html | profile.html | study_room.html
+                  study_timer.html | task_planner.html | analytics_board.html
+                  user.html | friendship.html | leaderboard.html`
       }
+    ];
+
+    function setArchSlide(idx) {
+      const s = archSlides[idx];
+      document.getElementById("archScreen").textContent = s.code;
+      document.getElementById("archTitle").textContent = s.title;
+      document.getElementById("archCaption").textContent = s.caption;
+      document.querySelectorAll(".arch-thumb-btn").forEach((btn, i) => {
+        btn.classList.toggle("active", i === idx);
+      });
+    }
+    setArchSlide(0);
+
+    // 3. Featured Project 5-Tab Switcher
+    const featuredTabs = {
+      features: [
+        "Secure User Registration & Login with bcrypt password hashing and signed JWT authentication tokens.",
+        "Profile Management displaying username, email, total points, user ID, join date, display-name editing, and integrated Streak milestones.",
+        "Private Group Study Rooms with unique invite codes, live member study status updates, real-time room chat messaging, and host room controls.",
+        "Connected ecosystem with Pomodoro Study Timer, URL-whitelisted Focus Mode, Calendar Task Planner, Analytics Board, Friendships, and Global Leaderboard."
+      ],
+      process: [
+        "Collaborated in a 5-member agile CI/CD team (Class 2B26), dividing backend MVC controllers, models, and routers cleanly by domain.",
+        "Designed normalized PostgreSQL tables in schema.sql with foreign-key constraints linking users, study_rooms, study_room_members, and study_room_messages.",
+        "Built reusable Express middlewares (bcryptMiddleware.js, jwtMiddleware.js, validation.js) to protect backend routes and sanitize inputs.",
+        "Integrated streak endpoints separately from profile endpoints on profile.html so account logic and streak logic remained modular.",
+        "Verified all API endpoints with Postman and inspected live database state in pgAdmin4."
+      ],
+      learned: [
+        "How to coordinate database schema migrations and shared tables (like users.points) across 5 team members without breaking each other's features.",
+        "Why separating responsibilities (e.g., dedicated endpoints for Profile vs. Streaks, and personal Focus Sessions vs. live Study Room presence) keeps a codebase maintainable.",
+        "Implementing stateless JWT authentication across both backend API routes and protected frontend HTML pages.",
+        "Writing clear API documentation (API_REFERENCE.md) and backend testing guides (BACKEND_TESTING.md) for the team."
+      ],
+      challenges: [
+        "Keeping Study Room live presence distinct from saved personal Focus Sessions so group coordination stayed lightweight while personal analytics remained accurate.",
+        "Ensuring total points updated consistently across the Profile page, Friendship page, and Global Leaderboard by centralizing points in the users table.",
+        "Handling UTC vs. local timezone formatting in PostgreSQL date responses using backend CURRENT_DATE checks."
+      ],
+      next: [
+        "Upgrade Study Room chat and live timer presence from HTTP polling to WebSockets (Socket.io) for instant real-time sync.",
+        "Add automated CI/CD unit and integration test suites for User Management and Study Room routes.",
+        "Connect Study Room group sessions directly to optional bonus team streak rewards."
+      ]
     };
 
-    function openProjectModal(key) {
-      const data = projectDetails[key];
-      if (!data) return;
-      document.getElementById("modalEyebrow").textContent = data.eyebrow;
-      document.getElementById("modalTitle").textContent = data.title;
-      document.getElementById("modalBody").innerHTML = data.html;
-      document.getElementById("projectModal").classList.add("open");
+    function setFeaturedTab(key, btnEl) {
+      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      const items = featuredTabs[key] || [];
+      const ul = document.createElement("ul");
+      ul.className = "sky-list";
+      items.forEach((txt) => {
+        const li = document.createElement("li");
+        li.textContent = txt;
+        ul.appendChild(li);
+      });
+      const panel = document.getElementById("featuredTabPanel");
+      panel.innerHTML = "";
+      panel.appendChild(ul);
     }
+    setFeaturedTab("features", document.querySelector(".tab-btn"));
 
-    function closeProjectModal() {
-      document.getElementById("projectModal").classList.remove("open");
+    // 4. Expandable Subproject Accordions
+    function toggleAccordion(id, btn) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.toggle("open");
+      btn.querySelector("span:first-child").textContent = isOpen
+        ? "Hide project details"
+        : "Features, learnings & next steps";
+      btn.querySelector("span:last-child").textContent = isOpen ? "▲" : "▼";
     }
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeProjectModal();
-    });
   </script>
 </body>
 </html>
