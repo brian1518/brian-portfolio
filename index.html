@@ -3,33 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brian Jeffrey — Full-Stack &amp; Cybersecurity Student Portfolio</title>
-  <meta name="description" content="Portfolio of Brian Jeffrey, a Diploma in Information Technology student at Singapore Polytechnic seeking full-stack software development and cybersecurity internships from March 2027." />
-  <meta name="theme-color" content="#0B0D13" />
+  <title>Brian Jeffrey | Full-Stack Software &amp; Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio of Brian Jeffrey, Diploma in Information Technology student at Singapore Polytechnic specializing in Node.js, PostgreSQL, MySQL, and Cybersecurity. Available for internships from March 2027." />
+  <meta name="theme-color" content="#090A0D" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090A0D' stroke='%23EF4444' stroke-width='1.5'/%3E%3Cpath d='M16 7.5L12.5 3.5L9.2 9.2L3 7L7.2 14.5L4 19.8L11.4 18.2L16 27.5L20.6 18.2L28 19.8L24.8 14.5L29 7L22.8 9.2L19.5 3.5L16 7.5Z' fill='%23EF4444'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM TOKENS (Restrained Obsidian, Gunmetal & Red Hood Crimson)
+       ========================================================================== */
     :root {
-      /* Minimal Red Hood Palette: Tactical Gunmetal, Obsidian & Crimson */
-      --color-abyss: #06070b;
-      --color-navy-950: #0b0d13;
-      --color-navy-900: #11141e;
-      --color-navy-800: #171b28;
-      --color-navy-700: #202637;
-      --color-ocean: #7f1d1d;
-      --color-sky: #ef4444;       /* Signature Red Hood Crimson */
-      --color-sky-light: #fca5a5; /* Soft Crimson Highlight */
-      --color-ice: #ffe4e6;       /* Crisp Rose-White */
-      --color-snow: #f8fafc;
-      --color-mist: #cbd5e1;
-      --color-mist-dim: #94a3b8;
-      --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-      --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --bg-base: #090a0d;
+      --bg-surface: #0f1116;
+      --bg-elevated: #151820;
+      --bg-interactive: #1c202a;
+
+      --text-primary: #f4f6f9;
+      --text-secondary: #a8b2c1;
+      --text-muted: #6e7889;
+
+      --accent: #ef4444;
+      --accent-hover: #dc2626;
+      --accent-subtle: rgba(239, 68, 68, 0.1);
+      --accent-border: rgba(239, 68, 68, 0.32);
+
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-default: rgba(255, 255, 255, 0.11);
+      --border-strong: rgba(255, 255, 255, 0.18);
+
+      --success: #10b981;
+
+      /* Geometric Corner Radius System: Outer (12px) -> Inner (8px / 6px) */
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 6px;
+
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-display: "Space Grotesk", "Inter", sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -38,20 +57,83 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 5rem;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     body {
-      background-color: var(--color-navy-950);
-      color: var(--color-snow);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+    }
+
+    /* Subtle architectural grid background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 80% 10%, rgba(239, 68, 68, 0.06), transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 64px 64px, 64px 64px;
+    }
+
+    ::selection {
+      background-color: rgba(239, 68, 68, 0.28);
+      color: var(--text-primary);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 12px;
     }
 
     h1, h2, h3, h4 {
       font-family: var(--font-display);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      text-wrap: balance;
+    }
+
+    p {
+      text-wrap: pretty;
     }
 
     a {
@@ -71,1227 +153,946 @@
       cursor: pointer;
     }
 
-    ::selection {
-      background: rgba(239, 68, 68, 0.32);
-      color: var(--color-snow);
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
     }
 
-    /* Tactical Glassmorphism (Gunmetal + Subtle Crimson Edge) */
-    .glass {
-      -webkit-backdrop-filter: blur(14px);
-      backdrop-filter: blur(14px);
-      background: linear-gradient(160deg, rgba(23, 27, 40, 0.78), rgba(14, 17, 26, 0.62));
-      border: 1px solid rgba(239, 68, 68, 0.16);
-      box-shadow: inset 0 1px rgba(255, 228, 230, 0.05), 0 20px 40px -24px rgba(0, 0, 0, 0.75);
+    .icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
     }
 
-    .glass-hover {
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    .icon-sm {
+      width: 15px;
+      height: 15px;
     }
 
-    .glass-hover:hover {
-      border-color: rgba(239, 68, 68, 0.44);
-      box-shadow: inset 0 1px rgba(255, 228, 230, 0.08), 0 24px 50px -22px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(239, 68, 68, 0.1), 0 0 40px -10px rgba(239, 68, 68, 0.24);
+    .icon-lg {
+      width: 20px;
+      height: 20px;
     }
 
-    .text-gradient {
-      background: linear-gradient(100deg, #ffffff 0%, var(--color-sky-light) 35%, var(--color-sky) 70%, #ffffff 100%);
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: gradient-shift 14s ease infinite;
-    }
-
-    .grid-backdrop {
-      background-image:
-        linear-gradient(rgba(239, 68, 68, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(239, 68, 68, 0.045) 1px, transparent 1px);
-      background-size: 56px 56px;
-      -webkit-mask-image: radial-gradient(#000 30%, transparent 75%);
-      mask-image: radial-gradient(#000 30%, transparent 75%);
-    }
-
-    @keyframes gradient-shift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-18px); }
-    }
-
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
-    }
-
-    @keyframes ping {
-      75%, 100% { transform: scale(2); opacity: 0; }
-    }
-
-    /* Layout Container */
+    /* ==========================================================================
+       2. LAYOUT & REUSABLE SURFACES
+       ========================================================================== */
     .container {
       width: 100%;
-      max-width: 72rem;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 24px;
     }
 
-    section.section-block {
+    .section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-alt {
+      background-color: rgba(15, 17, 22, 0.55);
+    }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .section-eyebrow span.num {
+      color: var(--text-muted);
+    }
+
+    .section-eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background-color: var(--accent-border);
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .section-desc {
+      margin-top: 14px;
+      font-size: 1.025rem;
+      color: var(--text-secondary);
+    }
+
+    /* Standardized Card Component: Outer radius 12px, Inner radius 8px */
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .card-interactive:hover {
+      border-color: var(--accent-border);
+      background-color: var(--bg-elevated);
+    }
+
+    .surface-inner {
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    /* Standardized Buttons (Radius 8px, never arbitrary pills) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 9px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1;
+      transition: background-color 0.18s ease, border-color 0.18s ease, transform 0.18s ease, color 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #ffffff;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: var(--bg-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-default);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-interactive);
+    }
+
+    .btn-sm {
+      min-height: 36px;
+      padding: 7px 14px;
+      font-size: 0.8125rem;
+    }
+
+    /* Standardized Technical Tag */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-default);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .tag-exploring {
+      border-style: dashed;
+      background-color: transparent;
+      color: var(--text-muted);
+    }
+
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bullet-list li {
       position: relative;
-      padding: 6.5rem 0;
+      padding-left: 18px;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
     }
 
-    section.section-deep {
-      background-color: rgba(6, 7, 11, 0.68);
-    }
-
-    /* Sticky Navbar */
-    .navbar {
-      position: fixed;
-      top: 0;
+    .bullet-list li::before {
+      content: "";
+      position: absolute;
       left: 0;
-      right: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 1px;
+      background-color: var(--accent);
+    }
+
+    .bullet-list li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (Desktop & Accessible Mobile Drawer)
+       ========================================================================== */
+    .navbar {
+      position: sticky;
+      top: 0;
       z-index: 50;
-      background: rgba(11, 13, 19, 0.85);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
+      background-color: rgba(9, 10, 13, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 4.25rem;
+      height: 68px;
     }
 
-    .nav-brand {
-      display: flex;
+    .brand {
+      display: inline-flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 10px;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--color-snow);
+      font-size: 1rem;
+      color: var(--text-primary);
     }
 
-    .brand-monogram {
-      width: 2.35rem;
-      height: 2.35rem;
-      border-radius: 0.7rem;
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.45));
-      border: 1px solid rgba(239, 68, 68, 0.42);
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--accent-border);
       display: grid;
       place-items: center;
-      color: var(--color-sky);
-      box-shadow: 0 0 16px -4px rgba(239, 68, 68, 0.45);
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 0.25rem;
+      gap: 4px;
     }
 
     .nav-links a {
-      padding: 0.45rem 0.75rem;
-      border-radius: 0.5rem;
-      font-size: 0.85rem;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84375rem;
       font-weight: 500;
-      color: var(--color-mist);
-      transition: color 0.2s, background-color 0.2s;
+      color: var(--text-secondary);
+      transition: color 0.15s ease, background-color 0.15s ease;
     }
 
     .nav-links a:hover {
-      color: var(--color-sky);
-      background: rgba(239, 68, 68, 0.08);
+      color: var(--text-primary);
+      background-color: var(--bg-elevated);
     }
 
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      min-height: 2.75rem;
+    .nav-actions {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border-radius: 0.75rem;
-      padding: 0.625rem 1.25rem;
+      gap: 10px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-default);
+      background-color: var(--bg-surface);
+      place-items: center;
+      color: var(--text-primary);
+    }
+
+    .mobile-drawer {
+      display: none;
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      padding: 16px 24px 20px;
+    }
+
+    .mobile-drawer.open {
+      display: block;
+    }
+
+    .mobile-drawer ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .mobile-drawer a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
       font-size: 0.875rem;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background-color: var(--color-sky);
-      color: #ffffff;
-      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
-    }
-
-    .btn-primary:hover {
-      background-color: #dc2626;
-      box-shadow: 0 0 28px -4px rgba(239, 68, 68, 0.65);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(239, 68, 68, 0.45);
-      background-color: rgba(11, 13, 19, 0.55);
-      color: var(--color-ice);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--color-sky);
-      background-color: rgba(239, 68, 68, 0.12);
-      color: var(--color-snow);
-      box-shadow: 0 0 24px -8px rgba(239, 68, 68, 0.5);
-    }
-
-    .btn-ghost {
-      color: var(--color-sky-light);
-    }
-
-    .btn-ghost:hover {
-      color: var(--color-snow);
-      background-color: rgba(239, 68, 68, 0.1);
-    }
-
-    /* Section Header Component */
-    .sec-header {
-      margin-bottom: 3.5rem;
-      max-width: 48rem;
-    }
-
-    .sec-header.center {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      max-width: 42rem;
-    }
-
-    .sec-eyebrow {
-      margin-bottom: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-sky);
-    }
-
-    .sec-eyebrow .sec-idx {
-      color: var(--color-mist-dim);
-    }
-
-    .sec-eyebrow .sec-line {
-      height: 1px;
-      width: 2rem;
-      background: linear-gradient(to right, var(--color-sky), transparent);
-    }
-
-    .sec-title {
-      font-size: clamp(1.95rem, 3.6vw, 2.75rem);
-      line-height: 1.1;
-      font-weight: 600;
-      color: var(--color-snow);
-    }
-
-    .sec-title .hl {
-      color: var(--color-sky);
-    }
-
-    .sec-desc {
-      margin-top: 1.25rem;
-      font-size: 1.0625rem;
-      line-height: 1.65;
-      color: var(--color-mist);
-    }
-
-    /* Skill / Tech Badge */
-    .tech-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border-radius: 0.5rem;
-      border: 1px solid rgba(239, 68, 68, 0.22);
-      background: rgba(239, 68, 68, 0.07);
-      padding: 0.35rem 0.75rem;
-      font-size: 0.82rem;
       font-weight: 500;
-      color: var(--color-ice);
-      transition: all 0.2s;
+      color: var(--text-secondary);
     }
 
-    .tech-badge:hover {
-      border-color: rgba(239, 68, 68, 0.48);
-      background: rgba(239, 68, 68, 0.14);
-    }
-
-    .tech-badge.sm {
-      padding: 0.25rem 0.625rem;
-      font-size: 0.75rem;
-    }
-
-    .tech-badge.exploring {
-      border-style: dashed;
-      border-color: rgba(252, 165, 165, 0.38);
-      background: transparent;
-      color: rgba(252, 165, 165, 0.9);
-    }
-
-    .tech-dot {
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 999px;
-      background: var(--color-sky);
-    }
-
-    .tech-badge.exploring .tech-dot {
-      background: transparent;
-      border: 1px solid var(--color-sky-light);
-    }
-
-    /* Bullet list with glowing crimson dots */
-    .sky-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .sky-list li {
-      display: flex;
-      gap: 0.75rem;
-      font-size: 0.94rem;
-      line-height: 1.625;
-      color: var(--color-mist);
-    }
-
-    .sky-list li::before {
-      content: "";
-      margin-top: 0.55rem;
-      width: 0.375rem;
-      height: 0.375rem;
-      flex-shrink: 0;
-      border-radius: 999px;
-      background-color: var(--color-sky);
-      box-shadow: 0 0 8px rgba(239, 68, 68, 0.85);
-    }
-
-    /* ================= HERO SECTION (#top) ================= */
-    #top {
-      position: relative;
-      isolation: isolate;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      padding: 6.5rem 0 5rem;
-      overflow: hidden;
-    }
-
-    .hero-bg-grad {
-      position: absolute;
-      inset: 0;
-      z-index: -20;
-      background-image: linear-gradient(130deg, #06070b 0%, #0b0d13 38%, #1a0d14 64%, #0b0d13 88%);
-      background-size: 220% 220%;
-      animation: gradient-shift 14s ease infinite;
-    }
-
-    /* Subtle Minimal Geometric Red Hood Crest Watermark in Background */
-    .redhood-watermark {
-      position: absolute;
-      right: 4%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38rem;
-      height: 38rem;
-      z-index: -15;
-      opacity: 0.035;
-      pointer-events: none;
-    }
-
-    .hero-orb-1 {
-      position: absolute;
-      top: 12%;
-      left: -8rem;
-      z-index: -10;
-      width: 28rem;
-      height: 28rem;
-      border-radius: 999px;
-      background: rgba(239, 68, 68, 0.11);
-      filter: blur(110px);
-      animation: float 13s ease-in-out infinite;
-    }
-
-    .hero-orb-2 {
-      position: absolute;
-      right: -6rem;
-      bottom: 8%;
-      z-index: -10;
-      width: 24rem;
-      height: 24rem;
-      border-radius: 999px;
-      background: rgba(127, 29, 29, 0.35);
-      filter: blur(110px);
-      animation: float 9s ease-in-out infinite;
+    /* ==========================================================================
+       4. HERO SECTION & INTERACTIVE API WORKBENCH
+       ========================================================================== */
+    .hero {
+      padding: 76px 0 88px;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 2.75rem;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
       align-items: center;
     }
 
-    .hero-pill {
-      margin-bottom: 1.5rem;
+    .availability-indicator {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(239, 68, 68, 0.28);
-      background: rgba(239, 68, 68, 0.07);
-      padding: 0.375rem 0.9rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--color-sky-light);
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent);
     }
 
     .hero-title {
-      font-size: clamp(2.75rem, 6vw, 4.5rem);
-      line-height: 1.02;
+      font-size: clamp(2.25rem, 4.4vw, 3.35rem);
+      line-height: 1.08;
       font-weight: 700;
-      color: var(--color-snow);
+      margin-bottom: 18px;
     }
 
-    .hero-role-line {
-      margin-top: 1.25rem;
-      font-family: var(--font-display);
-      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
-      font-weight: 500;
-      color: var(--color-mist);
+    .hero-title span.accent {
+      color: var(--accent);
     }
 
-    .role-rotator {
-      color: var(--color-sky);
-      font-weight: 600;
-    }
-
-    .cursor-blink {
-      display: inline-block;
-      width: 2px;
-      height: 1.05em;
-      background: var(--color-sky);
-      vertical-align: middle;
-      margin-left: 2px;
-      animation: blink 1s steps(1) infinite;
-    }
-
-    .hero-tagline {
-      margin-top: 2rem;
-      max-width: 36rem;
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
-      line-height: 1.375;
-      font-weight: 600;
-      color: var(--color-ice);
-    }
-
-    .hero-bio {
-      margin-top: 1rem;
-      max-width: 36rem;
+    .hero-lead {
       font-size: 1.0625rem;
-      line-height: 1.65;
-      color: var(--color-mist);
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
-      margin-top: 2.25rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    /* about_me.py Card */
-    .code-card-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 28rem;
-      margin: 0 auto;
-    }
-
-    .code-card-glow {
-      position: absolute;
-      inset: -1px;
-      border-radius: 1.5rem;
-      background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.5), rgba(127, 29, 29, 0.3), transparent);
-      opacity: 0.7;
-      filter: blur(1px);
-    }
-
-    .code-card {
-      position: relative;
-      border-radius: 1.5rem;
+    /* Interactive Backend & Security Inspector Workbench */
+    .workbench {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
       overflow: hidden;
     }
 
-    .code-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
-      padding: 0.875rem 1.25rem;
-    }
-
-    .code-dot-1 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(239, 68, 68, 0.85); }
-    .code-dot-2 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(252, 165, 165, 0.45); }
-    .code-dot-3 { width: 0.625rem; height: 0.625rem; border-radius: 999px; background: rgba(255, 228, 230, 0.22); }
-
-    .code-card pre {
-      overflow-x: auto;
-      padding: 1.25rem;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      line-height: 1.75rem;
-    }
-
-    .code-card-footer {
+    .workbench-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(239, 68, 68, 0.14);
-      background: rgba(6, 7, 11, 0.5);
-      padding: 0.875rem 1.25rem;
-      font-size: 0.75rem;
+      padding: 12px 16px;
+      background-color: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-default);
     }
 
-    .ping-wrap {
-      position: relative;
+    .workbench-title {
       display: inline-flex;
-      width: 0.5rem;
-      height: 0.5rem;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
     }
 
-    .ping-circle {
-      position: absolute;
-      inset: 0;
-      border-radius: 999px;
-      background: var(--color-sky);
-      opacity: 0.6;
-      animation: ping 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    .workbench-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: var(--bg-base);
     }
 
-    .ping-dot {
-      position: relative;
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 999px;
-      background: var(--color-sky);
+    .wb-tab {
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      border-right: 1px solid var(--border-subtle);
+      text-align: left;
+      transition: color 0.15s, background-color 0.15s;
     }
 
-    /* ================= 01 ABOUT ME (#about) ================= */
+    .wb-tab:last-child {
+      border-right: none;
+    }
+
+    .wb-tab:hover {
+      color: var(--text-secondary);
+      background-color: var(--bg-surface);
+    }
+
+    .wb-tab.active {
+      color: var(--text-primary);
+      background-color: var(--bg-surface);
+      border-bottom-color: var(--accent);
+    }
+
+    .wb-method {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .workbench-body {
+      padding: 16px;
+    }
+
+    .wb-code {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      overflow-x: auto;
+      white-space: pre;
+      min-height: 188px;
+    }
+
+    .wb-footer {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .wb-status {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wb-status.ok {
+      color: var(--success);
+    }
+
+    /* ==========================================================================
+       5. SECTIONS: ABOUT, PROJECTS, SKILLS, JOURNEY, EXPERIENCE, EDUCATION
+       ========================================================================== */
     .about-grid {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 3.5rem;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
       align-items: start;
     }
 
-    .about-prose {
+    .about-copy {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      color: var(--color-mist);
+      gap: 16px;
+      color: var(--text-secondary);
     }
 
-    .about-facts {
-      border-radius: 1.5rem;
-      padding: 0.75rem;
-      display: grid;
-      gap: 0.25rem;
+    .about-copy strong {
+      color: var(--text-primary);
+      font-weight: 600;
     }
 
-    .about-fact-item {
+    .facts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fact-row {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      border-radius: 1rem;
-      padding: 0.875rem;
-      transition: background-color 0.2s;
+      gap: 14px;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
     }
 
-    .about-fact-item:hover {
-      background: rgba(239, 68, 68, 0.06);
-    }
-
-    .fact-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      flex-shrink: 0;
-      border-radius: 0.75rem;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-      background: rgba(11, 13, 19, 0.65);
-      color: var(--color-sky);
+    .fact-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-default);
+      color: var(--accent);
       display: grid;
       place-items: center;
-      font-size: 1rem;
+      flex-shrink: 0;
     }
 
     .fact-label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      color: var(--color-mist-dim);
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
     }
 
-    .fact-val {
+    .fact-value {
       display: block;
-      margin-top: 0.15rem;
       font-size: 0.9rem;
       font-weight: 500;
-      color: var(--color-snow);
+      color: var(--text-primary);
+      margin-top: 2px;
     }
 
-    /* ================= 02 ACADEMIC PROJECTS (#projects) ================= */
-    .featured-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.75rem;
-      padding: 2rem;
+    /* Featured Project Case Study */
+    .featured-project {
+      padding: 32px;
     }
 
-    .featured-badges {
+    .project-meta-bar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.625rem;
-      margin-bottom: 1.5rem;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
-    .badge-solid-sky {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      border-radius: 999px;
-      background: var(--color-sky);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #ffffff;
+    .meta-tag-primary {
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .badge-outline-sky {
-      border-radius: 999px;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--color-sky-light);
-    }
-
-    .badge-outline-mist {
-      border-radius: 999px;
-      border: 1px solid rgba(239, 68, 68, 0.18);
-      padding: 0.25rem 0.75rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--color-mist);
-    }
-
-    .featured-split {
+    .featured-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 32px;
       align-items: start;
     }
 
-    .arch-viewer {
-      border-radius: 1rem;
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      background: rgba(6, 7, 11, 0.88);
-      padding: 1.25rem;
-      min-height: 21rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .arch-screen {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      line-height: 1.65;
-      color: var(--color-ice);
-      background: rgba(11, 13, 19, 0.92);
-      border: 1px solid rgba(239, 68, 68, 0.15);
-      border-radius: 0.75rem;
-      padding: 1rem;
-      overflow-x: auto;
-      white-space: pre;
-    }
-
-    .arch-thumbs {
-      margin-top: 1rem;
+    .arch-switcher-nav {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 0.5rem;
+      gap: 6px;
+      margin-top: 10px;
     }
 
-    .arch-thumb-btn {
-      padding: 0.5rem 0.35rem;
-      border-radius: 0.5rem;
-      border: 1px solid rgba(239, 68, 68, 0.16);
-      background: rgba(17, 20, 30, 0.7);
+    .arch-btn {
+      padding: 8px 6px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--color-mist);
+      font-size: 0.7rem;
+      color: var(--text-muted);
       text-align: center;
-      transition: all 0.2s;
+      transition: all 0.15s ease;
     }
 
-    .arch-thumb-btn.active,
-    .arch-thumb-btn:hover {
-      border-color: var(--color-sky);
-      background: rgba(239, 68, 68, 0.16);
-      color: var(--color-snow);
-      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
+    .arch-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-default);
     }
 
-    .featured-quote {
-      margin-top: 1.25rem;
-      border-left: 2px solid var(--color-sky);
-      padding-left: 1rem;
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--color-ice);
+    .arch-btn.active {
+      background-color: var(--accent-subtle);
+      border-color: var(--accent);
+      color: var(--text-primary);
     }
 
-    .contrib-box {
-      margin-top: 1.5rem;
-      border-radius: 1rem;
-      border: 1px solid rgba(239, 68, 68, 0.18);
-      background: rgba(11, 13, 19, 0.55);
-      padding: 1rem 1.15rem;
-    }
-
-    .contrib-label {
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-sky);
-    }
-
-    .stats-row {
-      margin-top: 2rem;
+    .metrics-bar {
+      margin-top: 28px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .stat-tile {
-      border-radius: 1rem;
-      border: 1px solid rgba(239, 68, 68, 0.12);
-      background: rgba(11, 13, 19, 0.5);
-      padding: 1rem;
+    .metric-item {
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
     }
 
-    .stat-num {
+    .metric-number {
       display: block;
       font-family: var(--font-display);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--color-sky);
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
     }
 
-    .stat-txt {
-      margin-top: 0.25rem;
+    .metric-caption {
       display: block;
-      font-size: 0.8rem;
-      line-height: 1.375;
-      color: var(--color-mist);
+      margin-top: 4px;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.4;
     }
 
-    /* Featured Project 5-Tab Bar */
-    .tabs-nav {
-      margin-top: 2rem;
+    /* Case Study Tabs */
+    .case-tabs {
+      margin-top: 28px;
       display: flex;
-      gap: 0.25rem;
+      gap: 4px;
+      border-bottom: 1px solid var(--border-default);
       overflow-x: auto;
-      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
     }
 
-    .tab-btn {
-      position: relative;
-      display: flex;
+    .case-tab-btn {
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
+      gap: 8px;
+      padding: 12px 16px;
       font-size: 0.875rem;
       font-weight: 500;
-      color: var(--color-mist);
-      white-space: nowrap;
+      color: var(--text-muted);
       border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      white-space: nowrap;
+      transition: color 0.15s ease;
     }
 
-    .tab-btn:hover {
-      color: var(--color-snow);
+    .case-tab-btn:hover {
+      color: var(--text-primary);
     }
 
-    .tab-btn.active {
-      color: var(--color-sky);
-      border-bottom-color: var(--color-sky);
+    .case-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
-    .tab-panel {
-      padding-top: 1.5rem;
-      min-height: 11rem;
+    .case-tab-panel {
+      padding-top: 20px;
+      min-height: 150px;
     }
 
-    /* Secondary 2-Column Project Cards */
-    .subprojects-grid {
-      margin-top: 2rem;
+    /* Secondary Projects Grid */
+    .projects-2col {
+      margin-top: 24px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.75rem;
+      gap: 24px;
     }
 
-    .subproject-card {
-      border-radius: 1.5rem;
-      overflow: hidden;
+    .project-card {
       display: flex;
       flex-direction: column;
     }
 
-    .subproject-banner {
-      position: relative;
-      background: linear-gradient(135deg, #0b0d13 0%, #1b131a 60%, #451219 100%);
-      border-bottom: 1px solid rgba(239, 68, 68, 0.14);
-      padding: 1.5rem;
-      min-height: 13.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .subproject-code-preview {
+    .project-code-header {
       font-family: var(--font-mono);
       font-size: 0.74rem;
-      line-height: 1.55;
-      color: var(--color-sky-light);
-      background: rgba(6, 7, 11, 0.78);
-      border: 1px solid rgba(239, 68, 68, 0.18);
-      border-radius: 0.75rem;
-      padding: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 20px;
       white-space: pre-wrap;
     }
 
-    .subproject-module-tag {
-      align-self: flex-start;
-      margin-top: 0.75rem;
-      border-radius: 0.5rem;
-      background: rgba(11, 13, 19, 0.88);
-      padding: 0.25rem 0.65rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--color-sky-light);
-      border: 1px solid rgba(239, 68, 68, 0.22);
-    }
-
-    .subproject-body {
-      padding: 1.5rem;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    }
-
-    .subproject-accent {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-sky);
-    }
-
-    .accordion-btn {
-      margin-top: 1.5rem;
+    .drawer-toggle {
+      margin-top: 20px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-radius: 0.75rem;
-      border: 1px solid rgba(239, 68, 68, 0.18);
-      background: rgba(11, 13, 19, 0.5);
-      padding: 0.75rem 1rem;
-      font-size: 0.875rem;
+      padding: 11px 14px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-base);
+      border: 1px solid var(--border-default);
+      font-size: 0.84375rem;
       font-weight: 500;
-      color: var(--color-ice);
-      transition: all 0.2s;
+      color: var(--text-primary);
+      transition: border-color 0.15s ease;
     }
 
-    .accordion-btn:hover {
-      border-color: rgba(239, 68, 68, 0.45);
-      color: var(--color-sky);
+    .drawer-toggle:hover {
+      border-color: var(--accent-border);
     }
 
-    .accordion-content {
+    .drawer-body {
       display: none;
-      padding-top: 1.5rem;
+      padding-top: 18px;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 18px;
     }
 
-    .accordion-content.open {
+    .drawer-body.open {
       display: flex;
     }
 
-    .accordion-subhead {
-      margin-bottom: 0.65rem;
+    .drawer-heading {
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      color: var(--color-sky);
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
 
-    /* ================= 03 TECHNICAL SKILLS (#skills) ================= */
-    .skills-legend {
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
-      font-size: 0.75rem;
-      color: var(--color-mist);
-    }
-
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .legend-swatch-solid {
-      width: 1.75rem;
-      height: 1rem;
-      border-radius: 0.375rem;
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      background: rgba(239, 68, 68, 0.1);
-    }
-
-    .legend-swatch-dashed {
-      width: 1.75rem;
-      height: 1rem;
-      border-radius: 0.375rem;
-      border: 1px dashed rgba(252, 165, 165, 0.5);
-    }
-
-    .skills-2col {
+    /* Skills 2x2 Grid */
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 20px;
     }
 
-    .skill-box {
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      height: 100%;
-    }
-
-    .skill-box-head {
+    .skill-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    .skill-box-icon {
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(127, 29, 29, 0.35));
-      border: 1px solid rgba(239, 68, 68, 0.28);
-      color: var(--color-sky);
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
-    }
-
-    /* ================= 04 LEARNING JOURNEY (#journey) ================= */
-    .journey-wrap {
+    /* 8-Step Vertical Journey Timeline */
+    .timeline-container {
       position: relative;
-      max-width: 56rem;
+      max-width: 880px;
       margin: 0 auto;
     }
 
-    .journey-line {
+    .timeline-spine {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
-      width: 2px;
+      width: 1px;
       transform: translateX(-50%);
-      background: linear-gradient(to bottom, var(--color-sky), var(--color-sky-light), rgba(239, 68, 68, 0.2));
-      box-shadow: 0 0 12px rgba(239, 68, 68, 0.55);
+      background-color: var(--border-default);
     }
 
-    .journey-list {
-      position: relative;
+    .timeline-list {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 20px;
     }
 
-    .journey-row {
+    .timeline-item {
       display: grid;
-      grid-template-columns: 1fr 3.5rem 1fr;
-      gap: 1.5rem;
-      align-items: flex-start;
+      grid-template-columns: 1fr 48px 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
-    .journey-node {
+    .timeline-step-badge {
       grid-column: 2;
-      margin-top: 1.15rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 999px;
-      border: 1px solid rgba(239, 68, 68, 0.65);
-      background: var(--color-navy-800);
-      color: var(--color-sky);
+      margin: 16px auto 0;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
       font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 600;
       display: grid;
       place-items: center;
-      box-shadow: 0 0 18px -2px rgba(239, 68, 68, 0.45);
       position: relative;
       z-index: 2;
+      font-variant-numeric: tabular-nums;
     }
 
-    .journey-node.next {
-      border-style: dashed;
-      border-color: rgba(252, 165, 165, 0.7);
-      background: var(--color-navy-950);
-      color: var(--color-sky-light);
-    }
-
-    .journey-card {
-      border-radius: 1rem;
-      padding: 1.25rem 1.4rem;
-    }
-
-    .journey-row.left .journey-card {
+    .timeline-item.left .timeline-card {
       grid-column: 1;
       text-align: right;
     }
 
-    .journey-row.right .journey-card {
+    .timeline-item.right .timeline-card {
       grid-column: 3;
       text-align: left;
     }
 
-    .journey-card.next {
-      border-style: dashed;
-      border-color: rgba(252, 165, 165, 0.35);
-    }
-
-    /* ================= 05 PERSPECTIVE (#approach) ================= */
-    .approach-grid {
+    /* Engineering Perspective & Contact */
+    .perspective-grid {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
-      gap: 3.5rem;
+      gap: 40px;
       align-items: center;
     }
 
-    .quote-figure {
-      position: relative;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(239, 68, 68, 0.22);
-      background: linear-gradient(135deg, rgba(23, 27, 40, 0.85), rgba(11, 13, 19, 0.7));
-      padding: 2rem;
-    }
-
-    .quote-mark {
-      position: absolute;
-      top: -1.4rem;
-      left: 1.5rem;
-      font-family: var(--font-display);
-      font-size: 4.5rem;
-      line-height: 1;
-      color: rgba(239, 68, 68, 0.42);
-    }
-
-    .pillars-grid {
+    .principles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
+      gap: 16px;
     }
 
-    .pillar-card {
-      border-radius: 1rem;
-      padding: 1.35rem;
-    }
-
-    /* ================= 06 WORK EXPERIENCE (#experience) ================= */
-    .exp-grid {
+    .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 16px;
+      max-width: 820px;
+      margin-top: 32px;
     }
 
-    .exp-card {
-      border-radius: 1.5rem;
-      padding: 1.75rem;
+    .contact-card {
       display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    /* ================= 07 EDUCATION & LEADERSHIP (#education) ================= */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .sp-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      border: 1px solid rgba(239, 68, 68, 0.32);
-      background: linear-gradient(135deg, rgba(45, 18, 25, 0.75), rgba(23, 27, 40, 0.85), rgba(11, 13, 19, 0.9));
-      padding: 2rem;
-      height: 100%;
-    }
-
-    /* ================= 08 INTERNSHIP GOALS (#goals) ================= */
-    .goals-banner {
-      border-radius: 1.5rem;
-      padding: 1.75rem;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
+      gap: 14px;
+      padding: 18px 20px;
     }
 
-    /* ================= 09 CONTACT (#contact) ================= */
-    .contact-cards-grid {
-      max-width: 56rem;
-      margin: 3rem auto 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-
-    .contact-tile {
-      border-radius: 1rem;
-      padding: 1.25rem;
+    .contact-card-left {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 14px;
+      min-width: 0;
     }
 
-    .contact-tile-icon {
-      width: 3rem;
-      height: 3rem;
-      flex-shrink: 0;
-      border-radius: 0.75rem;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-      color: var(--color-sky);
-      display: grid;
-      place-items: center;
-      font-size: 1.2rem;
-      transition: all 0.2s;
-    }
-
-    .contact-tile:hover .contact-tile-icon {
-      background: var(--color-sky);
-      color: #ffffff;
-    }
-
-    /* Responsive adjustments */
+    /* ==========================================================================
+       6. RESPONSIVE BREAKPOINTS
+       ========================================================================== */
     @media (max-width: 960px) {
+      .section {
+        padding: 72px 0;
+      }
+
       .hero-grid,
       .about-grid,
-      .featured-split,
-      .subprojects-grid,
-      .skills-2col,
-      .approach-grid,
-      .exp-grid,
-      .edu-grid,
-      .contact-cards-grid {
+      .featured-grid,
+      .projects-2col,
+      .skills-grid,
+      .perspective-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .stats-row {
+      .metrics-bar {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .journey-line {
-        left: 1.25rem;
-      }
-
-      .journey-row {
-        grid-template-columns: 2.5rem 1fr;
-      }
-
-      .journey-node {
-        grid-column: 1;
-      }
-
-      .journey-row.left .journey-card,
-      .journey-row.right .journey-card {
-        grid-column: 2;
-        text-align: left;
       }
 
       .nav-links {
         display: none;
       }
+
+      .mobile-menu-btn {
+        display: grid;
+      }
+
+      .timeline-spine {
+        left: 18px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 36px 1fr;
+        gap: 16px;
+      }
+
+      .timeline-step-badge {
+        grid-column: 1;
+        margin-left: 0;
+      }
+
+      .timeline-item.left .timeline-card,
+      .timeline-item.right .timeline-card {
+        grid-column: 2;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .principles-grid,
+      .metrics-bar,
+      .mobile-drawer ul {
+        grid-template-columns: 1fr;
+      }
+
+      .arch-switcher-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .featured-project {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAVBAR -->
+  <!-- STICKY NAVIGATION -->
   <header class="navbar">
     <div class="container nav-inner">
-      <a href="#top" class="nav-brand">
-        <span class="brand-monogram" title="Brian Jeffrey">
-          <!-- Minimalist Geometric Red Hood Crest SVG -->
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <a href="#top" class="brand" aria-label="Brian Jeffrey Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 5.5L9.2 2L6.5 6.8L1 5L4.5 11.2L2 15.5L8.2 14.2L12 22L15.8 14.2L22 15.5L19.5 11.2L23 5L17.5 6.8L14.8 2L12 5.5Z" />
           </svg>
         </span>
         <span>Brian Jeffrey</span>
       </a>
 
-      <nav aria-label="Primary">
+      <nav aria-label="Primary navigation">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#journey">Journey</a></li>
-          <li><a href="#approach">Perspective</a></li>
+          <li><a href="#perspective">Perspective</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#goals">Goals</a></li>
@@ -1299,406 +1100,418 @@
         </ul>
       </nav>
 
-      <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem; min-height: 2.35rem; font-size: 0.82rem;">
-        Let's Connect
-      </a>
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+          <svg class="icon" viewBox="0 0 24 24" id="menuIconOpen">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Accessible Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="#about" class="mobile-nav-link">01. About</a></li>
+        <li><a href="#projects" class="mobile-nav-link">02. Projects</a></li>
+        <li><a href="#skills" class="mobile-nav-link">03. Skills</a></li>
+        <li><a href="#journey" class="mobile-nav-link">04. Journey</a></li>
+        <li><a href="#perspective" class="mobile-nav-link">05. Perspective</a></li>
+        <li><a href="#experience" class="mobile-nav-link">06. Experience</a></li>
+        <li><a href="#education" class="mobile-nav-link">07. Education</a></li>
+        <li><a href="#goals" class="mobile-nav-link">08. Goals</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary mobile-nav-link" style="width: 100%;">Contact Brian</a>
     </div>
   </header>
 
-  <main>
-    <!-- ================= HERO SECTION (#top) ================= -->
-    <section id="top">
-      <div class="hero-bg-grad" aria-hidden="true"></div>
-      <div class="grid-backdrop" style="position:absolute;inset:0;z-index:-10;" aria-hidden="true"></div>
-      <!-- Subtle Minimalist Geometric Crest Watermark -->
-      <svg class="redhood-watermark" viewBox="0 0 24 24" fill="var(--color-sky)" aria-hidden="true">
-        <path d="M12 5.5L9.2 2L6.5 6.8L1 5L4.5 11.2L2 15.5L8.2 14.2L12 22L15.8 14.2L22 15.5L19.5 11.2L23 5L17.5 6.8L14.8 2L12 5.5Z" />
-      </svg>
-      <div class="hero-orb-1" aria-hidden="true"></div>
-      <div class="hero-orb-2" aria-hidden="true"></div>
-
+  <main id="main-content">
+    <!-- ========================================================================
+         HERO SECTION (#top)
+         ======================================================================== -->
+    <section id="top" class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="hero-pill">
-            <span class="tech-dot"></span>
-            Diploma in Information Technology · Full-Stack &amp; Cybersecurity
-          </p>
+          <div class="availability-indicator tabular-nums">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Singapore Polytechnic · Internship Availability: March 2027</span>
+          </div>
 
           <h1 class="hero-title">
-            Brian <span class="text-gradient">Jeffrey</span>
+            Brian Jeffrey.<br />
+            <span class="accent">Full-Stack Software</span> &amp; Cybersecurity Student.
           </h1>
 
-          <p class="hero-role-line">
-            <span class="role-rotator" id="roleRotator">Full-Stack Web Developer</span><span class="cursor-blink" aria-hidden="true"></span>
-            <span style="color: var(--color-mist-dim);"> · Singapore Polytechnic</span>
-          </p>
-
-          <p class="hero-tagline">
-            Building <span style="color: var(--color-sky);">full-stack apps</span>. Securing <span style="color: var(--color-sky);">systems</span>. Growing through <span style="color: var(--color-sky);">technology</span>.
-          </p>
-
-          <p class="hero-bio">
-            I'm an Information Technology student at Singapore Polytechnic passionate about full-stack software development, backend architecture, and cybersecurity. I enjoy turning ideas into reliable web applications and understanding how to keep systems resilient from the ground up.
+          <p class="hero-lead">
+            Diploma in Information Technology student at Singapore Polytechnic building Node.js, Express, PostgreSQL, and MySQL web applications with a focus on authentication security and vulnerability assessment.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View My Projects →</a>
-            <a href="#about" class="btn btn-secondary">👤 About Me</a>
-            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">in LinkedIn ↗</a>
-            <a href="#contact" class="btn btn-ghost">✉️ Contact Me</a>
+            <a href="#projects" class="btn btn-primary">
+              <span>Inspect Engineering Work</span>
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="https://github.com/brian1518" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                <path d="M9 18c-4.51 2-5-2-7-2" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
 
-        <!-- Right column: about_me.py card -->
-        <div class="code-card-wrap" aria-label="Profile summary">
-          <div class="code-card-glow" aria-hidden="true"></div>
-          <div class="glass code-card">
-            <div class="code-card-header">
-              <span class="code-dot-1"></span>
-              <span class="code-dot-2"></span>
-              <span class="code-dot-3"></span>
-              <span style="margin-left:0.5rem;font-family:var(--font-mono);font-size:0.75rem;color:var(--color-mist-dim);">about_me.py</span>
-            </div>
-            <pre><code><span style="color:var(--color-mist-dim);"># tactical profile // full-stack &amp; security engineer</span>
-<span style="color:var(--color-sky-light);">brian_jeffrey</span> = {
-    <span style="color:var(--color-sky);">"course"</span>: <span style="color:var(--color-ice);">"Diploma in Information Technology"</span>,
-    <span style="color:var(--color-sky);">"focus"</span>: <span style="color:var(--color-ice);">"Full-Stack Dev &amp; Cybersecurity"</span>,
-    <span style="color:var(--color-sky);">"school"</span>: <span style="color:var(--color-ice);">"Singapore Polytechnic"</span>,
-    <span style="color:var(--color-sky);">"cohort"</span>: <span style="color:var(--color-ice);">"Year 2 · 2025 – 2028"</span>,
-    <span style="color:var(--color-sky);">"leadership"</span>: <span style="color:var(--color-ice);">"Class Chairman (Sem 2)"</span>,
-    <span style="color:var(--color-sky);">"internship_from"</span>: <span style="color:var(--color-ice);">"March 2027"</span>,
-    <span style="color:var(--color-sky);">"exploring"</span>: [<span style="color:var(--color-ice);">"Node.js"</span>, <span style="color:var(--color-ice);">"SQL"</span>, <span style="color:var(--color-ice);">"Ethical Hacking"</span>],
-}</code></pre>
-            <div class="code-card-footer">
-              <span style="display:flex;align-items:center;gap:0.5rem;color:var(--color-ice);font-weight:500;">
-                <span class="ping-wrap"><span class="ping-circle"></span><span class="ping-dot"></span></span>
-                Open to internships
+        <!-- Interactive Endpoint & Architecture Inspector demonstrating real project work -->
+        <div class="workbench" aria-label="Interactive Backend Route Inspector">
+          <div class="workbench-bar">
+            <span class="workbench-title">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              <span>live_route_inspector.js</span>
+            </span>
+            <span class="tag tabular-nums">Node.js · Express · SQL</span>
+          </div>
+
+          <div class="workbench-tabs" role="tablist" aria-label="Select backend route to inspect">
+            <button type="button" class="wb-tab active" role="tab" aria-selected="true" onclick="selectWorkbenchRoute(0, this)">
+              <span class="wb-method">POST</span>/api/rooms/join
+            </button>
+            <button type="button" class="wb-tab" role="tab" aria-selected="false" onclick="selectWorkbenchRoute(1, this)">
+              <span class="wb-method">POST</span>/api/users/login
+            </button>
+            <button type="button" class="wb-tab" role="tab" aria-selected="false" onclick="selectWorkbenchRoute(2, this)">
+              <span class="wb-method">POST</span>/api/challenge/:id
+            </button>
+          </div>
+
+          <div class="workbench-body">
+            <pre class="wb-code" id="wbCodeView" aria-live="polite"></pre>
+            <div class="wb-footer">
+              <span class="wb-status ok tabular-nums" id="wbStatusText">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                <span>200 OK · Verified in Postman</span>
               </span>
-              <span style="font-family:var(--font-mono);color:var(--color-mist-dim);">Singapore</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="wbSimulateBtn" onclick="simulateRouteExecution()">
+                <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                <span>Run Sample Request</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 01 // ABOUT ME (#about) ================= -->
-    <section id="about" class="section-block">
+    <!-- ========================================================================
+         01. ABOUT ME (#about)
+         ======================================================================== -->
+    <section id="about" class="section">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">01</span>
-            <span class="sec-line"></span>
-            About me
-          </p>
-          <h2 class="sec-title">
-            Curious about how systems work — and <span class="hl">how to build &amp; secure them</span>.
-          </h2>
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">01</span> About Me</p>
+          <h2 class="section-title">Building reliable back-end systems with a security-first mindset.</h2>
         </div>
 
         <div class="about-grid">
-          <div class="about-prose">
+          <div class="about-copy">
             <p>
-              Hi, I'm <strong style="color:var(--color-snow);">Brian Jeffrey</strong> — a Diploma in Information Technology student at Singapore Polytechnic with a strong focus on <span style="color:var(--color-sky);">Full-Stack Software Development</span> and <span style="color:var(--color-sky);">Cybersecurity</span>.
+              I am <strong>Brian Jeffrey</strong>, a Year 2 Diploma in Information Technology student at Singapore Polytechnic focused on <strong>Full-Stack Software Development</strong> and <strong>Cybersecurity</strong>.
             </p>
             <p>
-              What draws me to technology is the combination of creative building and analytical problem-solving. Whether I am designing relational database schemas, wiring up Express.js REST APIs, or investigating how vulnerabilities arise in networked systems, I enjoy looking under the hood to understand <em>why</em> an application behaves the way it does.
+              My interest in software engineering comes from understanding how data flows across an entire application: from the client interface, through authentication and validation middleware, down to normalized relational tables in PostgreSQL and MySQL.
             </p>
             <p>
-              Through my coursework at Singapore Polytechnic, I have built full-stack web applications using Node.js, PostgreSQL, and MySQL, implemented JWT and bcrypt authentication workflows, and conducted practical ethical hacking and vulnerability assessments. Outside the classroom, serving as <strong style="color:var(--color-snow);">Class Chairman</strong>, attending the <strong style="color:var(--color-snow);">SP Leadership Camp</strong>, and visiting <strong style="color:var(--color-snow);">CUHK-Shenzhen and major tech companies in Shenzhen</strong> have broadened my perspective on teamwork and how technology operates at scale.
+              In school, I have built full-stack web applications using Node.js and Express, engineered JWT and bcrypt authentication workflows, and completed practical ethical hacking and vulnerability assessments. Alongside my technical modules, serving as <strong>Class Chairman</strong>, completing the <strong>SP Leadership Camp</strong>, and travelling to <strong>Shenzhen, China</strong> to visit CUHK-Shenzhen and technology enterprises taught me how to communicate clearly and collaborate effectively across teams.
             </p>
             <p>
-              I am now looking forward to an internship where I can learn from experienced engineers, take ownership of real technical tasks, and contribute meaningful value to the team.
+              I am seeking an internship starting in <strong>March 2027</strong> where I can contribute to production codebases, learn from experienced engineers, and take ownership of real engineering challenges.
             </p>
           </div>
 
-          <ul class="glass about-facts">
-            <li class="about-fact-item">
-              <span class="fact-icon">🎓</span>
-              <span>
-                <span class="fact-label">Studying</span>
-                <span class="fact-val">Diploma in Information Technology (2025 – 2028)</span>
+          <ul class="card facts-list" aria-label="Key profile facts">
+            <li class="fact-row">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </span>
+              <div>
+                <span class="fact-label">Qualification</span>
+                <span class="fact-value tabular-nums">Diploma in Information Technology (2025 – 2028)</span>
+              </div>
             </li>
-            <li class="about-fact-item">
-              <span class="fact-icon">🛡️</span>
-              <span>
-                <span class="fact-label">Core Focus Areas</span>
-                <span class="fact-val">Full-Stack Web Development &amp; Cybersecurity</span>
+            <li class="fact-row">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </span>
+              <div>
+                <span class="fact-label">Technical Focus</span>
+                <span class="fact-value">Full-Stack Web Engineering &amp; Cybersecurity</span>
+              </div>
             </li>
-            <li class="about-fact-item">
-              <span class="fact-icon">📍</span>
-              <span>
-                <span class="fact-label">School</span>
-                <span class="fact-val">Singapore Polytechnic, Singapore</span>
+            <li class="fact-row">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
               </span>
+              <div>
+                <span class="fact-label">Internship Window</span>
+                <span class="fact-value tabular-nums">Available from March 2027</span>
+              </div>
             </li>
-            <li class="about-fact-item">
-              <span class="fact-icon">📅</span>
-              <span>
-                <span class="fact-label">Internship Availability</span>
-                <span class="fact-val">From March 2027</span>
+            <li class="fact-row">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               </span>
-            </li>
-            <li class="about-fact-item">
-              <span class="fact-icon">🌏</span>
-              <span>
+              <div>
                 <span class="fact-label">Leadership &amp; Global Exposure</span>
-                <span class="fact-val">Class Chairman · SP Leadership Camp · Shenzhen Tech Trip</span>
-              </span>
-            </li>
-            <li class="about-fact-item">
-              <span class="fact-icon">🚀</span>
-              <span>
-                <span class="fact-label">Long-Term Goal</span>
-                <span class="fact-val">Engineer resilient, secure full-stack software systems</span>
-              </span>
+                <span class="fact-value">Class Chairman · SP Leadership Camp · Shenzhen Immersion</span>
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ================= 02 // ACADEMIC PROJECTS (#projects) ================= -->
-    <section id="projects" class="section-block section-deep">
+    <!-- ========================================================================
+         02. ACADEMIC PROJECTS (#projects)
+         ======================================================================== -->
+    <section id="projects" class="section section-alt">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">02</span>
-            <span class="sec-line"></span>
-            Academic projects
-          </p>
-          <h2 class="sec-title">
-            Things I've <span class="hl">built, architected and secured</span>
-          </h2>
-          <p class="sec-desc">
-            Three key coursework projects across agile full-stack engineering, back-end MVC development, and ethical hacking vulnerability analysis.
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">02</span> Academic Projects</p>
+          <h2 class="section-title">Selected engineering and security coursework.</h2>
+          <p class="section-desc">
+            Full-stack applications and vulnerability assessments developed during my diploma at Singapore Polytechnic.
           </p>
         </div>
 
-        <!-- FEATURED PROJECT (ByteMe) -->
-        <article class="glass glass-hover featured-card">
-          <div class="featured-badges">
-            <span class="badge-solid-sky">★ Featured project</span>
-            <span class="badge-outline-sky">Continuity &amp; Integration (CI/CD)</span>
-            <span class="badge-outline-mist">👥 Agile team project · 5 members</span>
+        <!-- FEATURED PROJECT: ByteMe -->
+        <article class="card featured-project">
+          <div class="project-meta-bar">
+            <span class="meta-tag-primary">Featured Project</span>
+            <span class="tag">Continuity &amp; Integration (CI/CD)</span>
+            <span class="tag tabular-nums">5-Member Agile Team</span>
           </div>
 
-          <div class="featured-split">
-            <!-- Left: Interactive Architecture & Module Switcher (5 slides) -->
+          <div class="featured-grid">
+            <!-- Left: Interactive Architecture Viewer -->
             <div>
-              <div class="arch-viewer">
-                <div class="arch-screen" id="archScreen"></div>
-                <div style="margin-top: 1rem;">
-                  <p id="archTitle" style="font-family:var(--font-display);font-weight:600;color:var(--color-snow);font-size:1rem;"></p>
-                  <p id="archCaption" style="margin-top:0.25rem;font-size:0.86rem;color:var(--color-mist);"></p>
+              <div class="surface-inner">
+                <pre class="wb-code" id="archScreen" style="min-height: 215px; border: none; padding: 4px;"></pre>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                  <p id="archTitle" style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--text-primary);"></p>
+                  <p id="archCaption" style="margin-top: 4px; font-size: 0.84rem; color: var(--text-secondary);"></p>
                 </div>
               </div>
-              <div class="arch-thumbs" role="tablist" aria-label="ByteMe architecture views">
-                <button class="arch-thumb-btn active" onclick="setArchSlide(0)">1. Study Rooms</button>
-                <button class="arch-thumb-btn" onclick="setArchSlide(1)">2. User &amp; JWT</button>
-                <button class="arch-thumb-btn" onclick="setArchSlide(2)">3. DB Schema</button>
-                <button class="arch-thumb-btn" onclick="setArchSlide(3)">4. App Flow</button>
-                <button class="arch-thumb-btn" onclick="setArchSlide(4)">5. API Testing</button>
+
+              <div class="arch-switcher-nav" role="tablist" aria-label="ByteMe technical views">
+                <button type="button" class="arch-btn active" onclick="setArchSlide(0)">1. Study Rooms</button>
+                <button type="button" class="arch-btn" onclick="setArchSlide(1)">2. User &amp; JWT</button>
+                <button type="button" class="arch-btn" onclick="setArchSlide(2)">3. DB Schema</button>
+                <button type="button" class="arch-btn" onclick="setArchSlide(3)">4. App Flow</button>
+                <button type="button" class="arch-btn" onclick="setArchSlide(4)">5. Access Control</button>
               </div>
             </div>
 
-            <!-- Right: Project Overview & My Contribution -->
+            <!-- Right: Project Details & Ownership -->
             <div>
-              <h3 style="font-size: clamp(1.5rem, 2.5vw, 1.9rem); font-weight: 600; color: var(--color-snow); line-height: 1.2;">
-                ByteMe — Study Productivity &amp; Social Accountability Web Application
+              <h3 style="font-size: 1.55rem; line-height: 1.25; font-weight: 700;">
+                ByteMe: Study Productivity &amp; Social Accountability Platform
               </h3>
 
-              <blockquote class="featured-quote">
-                “How can we help students stay consistent and motivated when studying by turning solitary focus timers into visible social progress, streaks, and live group study rooms?”
-              </blockquote>
-
-              <p style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--color-mist);">
-                A full-stack study productivity web application built with Node.js, Express.js, and PostgreSQL. Users start Pomodoro focus sessions, organise tasks on an interactive calendar, maintain daily streaks, climb a global leaderboard, and study together in live private Study Rooms.
+              <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                A full-stack study productivity web application built with Node.js, Express.js, and PostgreSQL. ByteMe connects personal Pomodoro focus sessions with task planning, daily study streaks, global leaderboards, and collaborative group study rooms.
               </p>
 
-              <div class="contrib-box">
-                <p class="contrib-label">⚡ My Contribution (User Management &amp; Study Rooms Lead)</p>
-                <ul class="sky-list">
-                  <li>Built end-to-end <strong>User Registration, Login, and Profile Management</strong> using JWT authentication, bcrypt password hashing, and route access control.</li>
-                  <li>Designed and implemented <strong>Group Study Rooms</strong> (create private rooms, join via invite code, live study presence, room chat messages, leave/close room).</li>
-                  <li>Integrated user points and streak milestones cleanly into the unified <code>profile.html</code> dashboard.</li>
+              <div class="surface-inner" style="margin-top: 18px;">
+                <p style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px;">
+                  My Feature Ownership: User Management &amp; Group Study Rooms
+                </p>
+                <ul class="bullet-list">
+                  <li>Engineered end-to-end <strong>User Registration, Login, and Profile Management</strong> using JWT authentication, bcrypt password hashing, and route access control.</li>
+                  <li>Architected PostgreSQL tables (<code>study_rooms</code>, <code>study_room_members</code>, <code>study_room_messages</code>) and REST endpoints for private invite codes, live study presence, and room chat.</li>
+                  <li>Integrated account profile data with streak and points endpoints on <code>profile.html</code>.</li>
                 </ul>
               </div>
 
-              <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <span class="tech-badge sm"><span class="tech-dot"></span>Node.js</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>Express.js</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>PostgreSQL</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>JWT &amp; bcrypt</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>JavaScript</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>HTML &amp; CSS</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>Postman &amp; pgAdmin4</span>
+              <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">JWT</span>
+                <span class="tag">bcrypt</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Postman</span>
               </div>
 
-              <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
-                <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                  🔗 View GitHub Repository ↗
+              <div style="margin-top: 20px;">
+                <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>View Source Repository</span>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- 4 Key Project Metrics -->
-          <div class="stats-row">
-            <div class="stat-tile">
-              <span class="stat-num">9 Tables</span>
-              <span class="stat-txt">Normalized PostgreSQL schema linking users, rooms, chat, tasks &amp; streaks</span>
+          <!-- Verified Project Metrics -->
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-number">9 Tables</span>
+              <span class="metric-caption">Normalized PostgreSQL schema with foreign-key constraints</span>
             </div>
-            <div class="stat-tile">
-              <span class="stat-num">12 Pages</span>
-              <span class="stat-txt">3 public pages + 9 JWT-protected full-stack application views</span>
+            <div class="metric-item">
+              <span class="metric-number">12 Pages</span>
+              <span class="metric-caption">3 public views and 9 JWT-protected application pages</span>
             </div>
-            <div class="stat-tile">
-              <span class="stat-num">Live Rooms</span>
-              <span class="stat-txt">Private invite codes, live member study presence &amp; group room chat</span>
+            <div class="metric-item">
+              <span class="metric-number">3 Room Tables</span>
+              <span class="metric-caption">Dedicated tables for rooms, live member presence, and chat</span>
             </div>
-            <div class="stat-tile">
-              <span class="stat-num">5 Members</span>
-              <span class="stat-txt">Collaborative Git/GitHub CI/CD workflow across modular MVC layers</span>
+            <div class="metric-item">
+              <span class="metric-number">5 Engineers</span>
+              <span class="metric-caption">Modular MVC controllers and Git branch workflow</span>
             </div>
           </div>
 
-          <!-- 5 Interactive Tabs -->
+          <!-- 5 Case Study Tabs -->
           <div>
-            <div class="tabs-nav" role="tablist">
-              <button class="tab-btn active" onclick="setFeaturedTab('features', this)">✨ Key Features</button>
-              <button class="tab-btn" onclick="setFeaturedTab('process', this)">⚙️ Architecture &amp; Process</button>
-              <button class="tab-btn" onclick="setFeaturedTab('learned', this)">💡 What I Learned</button>
-              <button class="tab-btn" onclick="setFeaturedTab('challenges', this)">🧩 Challenges</button>
-              <button class="tab-btn" onclick="setFeaturedTab('next', this)">🚀 Next Steps</button>
+            <div class="case-tabs" role="tablist" aria-label="ByteMe breakdown">
+              <button type="button" class="case-tab-btn active" onclick="setFeaturedTab('features', this)">Key Features</button>
+              <button type="button" class="case-tab-btn" onclick="setFeaturedTab('process', this)">Architecture &amp; Process</button>
+              <button type="button" class="case-tab-btn" onclick="setFeaturedTab('learned', this)">What I Learned</button>
+              <button type="button" class="case-tab-btn" onclick="setFeaturedTab('challenges', this)">Technical Challenges</button>
+              <button type="button" class="case-tab-btn" onclick="setFeaturedTab('next', this)">Next Steps</button>
             </div>
-            <div class="tab-panel" id="featuredTabPanel"></div>
+            <div class="case-tab-panel" id="featuredTabPanel"></div>
           </div>
         </article>
 
-        <!-- TWO EXPANDABLE SUB-PROJECTS BELOW FEATURED PROJECT -->
-        <div class="subprojects-grid">
-          <!-- Subproject 1: BED CA2 Gamified Wellness Challenge -->
-          <article class="glass glass-hover subproject-card">
-            <div class="subproject-banner">
-              <div class="subproject-code-preview">// BED CA2 — Multiplier &amp; Badge Progression Engine
+        <!-- SECONDARY PROJECTS GRID -->
+        <div class="projects-2col">
+          <!-- Project 2: BED CA2 -->
+          <article class="card card-interactive project-card">
+            <div class="project-code-header">// BED CA2 Reward &amp; Cooldown Pipeline
 POST /api/challenge/:challenge_id
-├─ Verify cooldown expiry (anti-farming check)
-├─ Apply Elemental Type Multiplier (1.5× / 1.0× / 0.75×)
-├─ Consume optional Spell from user inventory
-└─ Apply Badge Bonus (up to 1.4×) &amp; check Year level-up</div>
-              <span class="subproject-module-tag">Back-End Development (BED CA2)</span>
+1. Validate JWT &amp; check last completion cooldown
+2. Calculate Elemental Multiplier (1.5x / 1.0x / 0.75x)
+3. Consume optional Spell from user inventory
+4. Apply Badge Bonus (1.0x to 1.4x) &amp; update YearLevel</div>
+
+            <div class="project-meta-bar">
+              <span class="tag">Back-End Development (BED CA2)</span>
+              <span class="tag">Full-Stack MVC</span>
             </div>
 
-            <div class="subproject-body">
-              <p class="subproject-accent">RPG Progression · Elemental Multipliers · MVC REST API</p>
-              <h3 style="margin-top: 0.5rem; font-size: 1.45rem; font-weight: 600; color: var(--color-snow);">
-                Gamified Wellness Challenge Web Application
-              </h3>
-              <p style="margin-top: 0.75rem; font-size: 0.94rem; color: var(--color-mist);">
-                A full-stack Node.js, Express, and MySQL web application that gamifies wellness habits. Users are sorted into houses at Year 1, complete wellness challenges to earn points, cast elemental spells, and collect Death Eater &amp; Voldemort badges that boost future rewards.
-              </p>
+            <h3 style="font-size: 1.3rem; font-weight: 700;">
+              Gamified Wellness Challenge Application
+            </h3>
 
-              <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.45rem;">
-                <span class="tech-badge sm"><span class="tech-dot"></span>Node.js</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>Express.js</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>MySQL</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>JWT &amp; bcrypt</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>JavaScript</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>HTML &amp; CSS</span>
+            <p style="margin-top: 10px; font-size: 0.9375rem; color: var(--text-secondary);">
+              A full-stack Node.js, Express, and MySQL web application that gamifies wellness habits. New users are assigned to a house at Year 1, complete challenges to earn points, purchase elemental spells, and unlock collectible badges that multiply future challenge rewards.
+            </p>
+
+            <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JWT</span>
+              <span class="tag">bcrypt</span>
+              <span class="tag">JavaScript</span>
+            </div>
+
+            <button type="button" class="drawer-toggle" aria-expanded="false" onclick="toggleDrawer('drawer-bed', this)">
+              <span>Inspect features, learnings &amp; architecture</span>
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+
+            <div class="drawer-body" id="drawer-bed">
+              <div>
+                <h4 class="drawer-heading">Implemented Features</h4>
+                <ul class="bullet-list">
+                  <li>JWT registration and login with bcrypt password hashing, random house assignment, and Year 1 initialization.</li>
+                  <li>Elemental type multiplier system awarding 1.5x (strong), 1.0x (neutral), or 0.75x (weak) points.</li>
+                  <li>Spell shop and inventory endpoints (<code>/api/shop/spells</code>, <code>/api/shop/buy</code>) supporting optional spell usage during challenge completion.</li>
+                  <li>Collectible badge progression (<code>1.0x</code> to <code>1.4x</code> multiplier) requiring all Death Eater badges before unlocking the Voldemort badge.</li>
+                  <li>Challenge cooldown enforcement to prevent point farming, alongside CRUD challenge reviews.</li>
+                </ul>
               </div>
-
-              <button class="accordion-btn" onclick="toggleAccordion('acc-bed', this)">
-                <span>Features, learnings &amp; next steps</span>
-                <span>▼</span>
-              </button>
-
-              <div class="accordion-content" id="acc-bed">
-                <div>
-                  <h4 class="accordion-subhead">Verified Features</h4>
-                  <ul class="sky-list">
-                    <li>JWT registration &amp; login with bcrypt password hashing, automatic random House assignment, and Year 1 initialization.</li>
-                    <li>Elemental type chart system awarding 1.5× (Strong), 1.0× (Neutral), or 0.75× (Weak) point multipliers on challenge completion.</li>
-                    <li>Spell shop &amp; inventory system (`/api/shop/spells`, `/api/shop/buy`) allowing optional spell consumption during challenges.</li>
-                    <li>Tiered collectible Badge system (`1.0×` up to `1.4×` bonus) where all Death Eater badges must be owned before unlocking the Voldemort badge.</li>
-                    <li>Cooldown enforcement to prevent challenge farming, plus full CRUD challenge reviews.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="accordion-subhead">What I Learned</h4>
-                  <ul class="sky-list">
-                    <li>Structuring clean MVC layers (`routes → controllers → models → middleware`) so complex reward calculations stay maintainable.</li>
-                    <li>Designing relational MySQL tables for user inventories, completion logs, type charts, and progression thresholds.</li>
-                    <li>Securing API endpoints with stateless JWT bearer tokens and custom middleware chains.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="accordion-subhead">Future Improvements</h4>
-                  <ul class="sky-list">
-                    <li>Deploy the Express + MySQL stack to a cloud platform with live house leaderboards.</li>
-                    <li>Add automated integration tests for multi-step spell and badge multiplier calculations.</li>
-                  </ul>
-                </div>
+              <div>
+                <h4 class="drawer-heading">Engineering Takeaways</h4>
+                <ul class="bullet-list">
+                  <li>Structured routes, controllers, models, and services cleanly so multi-step reward calculations remained testable.</li>
+                  <li>Designed relational MySQL schemas for inventories, completion logs, type charts, and year thresholds.</li>
+                </ul>
               </div>
             </div>
           </article>
 
-          <!-- Subproject 2: Ethical Hacking & Vulnerability Assessment Report -->
-          <article class="glass glass-hover subproject-card">
-            <div class="subproject-banner">
-              <div class="subproject-code-preview">// Ethical Hacking &amp; Vulnerability Assessment Workflow
-[Phase 1] Reconnaissance &amp; Host/Port Enumeration
-[Phase 2] Vulnerability Scanning &amp; Service Fingerprinting
-[Phase 3] Controlled Exploitation &amp; Impact Validation
-[Phase 4] Risk Rating &amp; Defense-in-Depth Remediation Report</div>
-              <span class="subproject-module-tag">Cybersecurity &amp; Ethical Hacking</span>
+          <!-- Project 3: Ethical Hacking Report -->
+          <article class="card card-interactive project-card">
+            <div class="project-code-header">// Vulnerability Assessment Methodology
+Phase 1: Host Discovery &amp; Port/Service Enumeration
+Phase 2: Vulnerability Identification &amp; Analysis
+Phase 3: Controlled Proof-of-Concept Exploitation
+Phase 4: Risk Rating &amp; Remediation Specification</div>
+
+            <div class="project-meta-bar">
+              <span class="tag">Cybersecurity Module</span>
+              <span class="tag">Security Assessment</span>
             </div>
 
-            <div class="subproject-body">
-              <p class="subproject-accent">Penetration Testing · Vulnerability Analysis · Security Hardening</p>
-              <h3 style="margin-top: 0.5rem; font-size: 1.45rem; font-weight: 600; color: var(--color-snow);">
-                Ethical Hacking &amp; Vulnerability Assessment Report
-              </h3>
-              <p style="margin-top: 0.75rem; font-size: 0.94rem; color: var(--color-mist);">
-                A comprehensive technical security investigation examining how system misconfigurations and application vulnerabilities can be discovered, responsibly validated, and mitigated within a sandboxed lab environment.
-              </p>
+            <h3 style="font-size: 1.3rem; font-weight: 700;">
+              Ethical Hacking &amp; Vulnerability Assessment Report
+            </h3>
 
-              <div style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.45rem;">
-                <span class="tech-badge sm"><span class="tech-dot"></span>Ethical Hacking</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>Vulnerability Assessment</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>Network Security</span>
-                <span class="tech-badge sm"><span class="tech-dot"></span>System Hardening</span>
+            <p style="margin-top: 10px; font-size: 0.9375rem; color: var(--text-secondary);">
+              A technical security assessment examining how network and application vulnerabilities can be enumerated, validated in a controlled lab environment, and mitigated through defense-in-depth hardening controls.
+            </p>
+
+            <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Vulnerability Assessment</span>
+              <span class="tag">Network Security</span>
+              <span class="tag">System Hardening</span>
+            </div>
+
+            <button type="button" class="drawer-toggle" aria-expanded="false" onclick="toggleDrawer('drawer-sec', this)">
+              <span>Inspect scope, findings &amp; takeaways</span>
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+
+            <div class="drawer-body" id="drawer-sec">
+              <div>
+                <h4 class="drawer-heading">Assessment Deliverables</h4>
+                <ul class="bullet-list">
+                  <li>Executed structured reconnaissance and port scanning to identify exposed services and system entry points.</li>
+                  <li>Documented step-by-step proof-of-concept validation and severity ratings for discovered vulnerabilities.</li>
+                  <li>Formulated remediation steps covering patch management, access control enforcement, and input validation.</li>
+                </ul>
               </div>
-
-              <button class="accordion-btn" onclick="toggleAccordion('acc-sec', this)">
-                <span>Features, learnings &amp; next steps</span>
-                <span>▼</span>
-              </button>
-
-              <div class="accordion-content" id="acc-sec">
-                <div>
-                  <h4 class="accordion-subhead">Assessment Scope &amp; Deliverables</h4>
-                  <ul class="sky-list">
-                    <li>Performed structured reconnaissance and network enumeration to map exposed services, ports, and attack surfaces.</li>
-                    <li>Analysed common web and system vulnerabilities, documenting step-by-step proof-of-concept reproduction evidence.</li>
-                    <li>Evaluated risk severity and business impact for each identified weakness.</li>
-                    <li>Authored actionable remediation guidelines covering patching, access controls, input validation, and least-privilege configuration.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="accordion-subhead">What I Learned</h4>
-                  <ul class="sky-list">
-                    <li>Thinking like an attacker makes me a much better full-stack developer—every unvalidated input or weak token configuration is a potential entry point.</li>
-                    <li>Clear technical communication is just as important as finding bugs: a security report must help engineers fix the root cause quickly.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 class="accordion-subhead">Future Improvements</h4>
-                  <ul class="sky-list">
-                    <li>Expand hands-on practice through CTF challenges and automated security scanning in CI/CD pipelines (DevSecOps).</li>
-                  </ul>
-                </div>
+              <div>
+                <h4 class="drawer-heading">Engineering Takeaways</h4>
+                <ul class="bullet-list">
+                  <li>Understanding offensive techniques directly improves how I write authentication middleware and SQL queries in my full-stack projects.</li>
+                  <li>Security documentation must translate technical findings into clear, prioritized fixes for engineering teams.</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -1706,197 +1519,183 @@ POST /api/challenge/:challenge_id
       </div>
     </section>
 
-    <!-- ================= 03 // TECHNICAL SKILLS (#skills) ================= -->
-    <section id="skills" class="section-block">
+    <!-- ========================================================================
+         03. TECHNICAL SKILLS (#skills)
+         ======================================================================== -->
+    <section id="skills" class="section">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">03</span>
-            <span class="sec-line"></span>
-            Technical skills
-          </p>
-          <h2 class="sec-title">
-            My toolkit <span class="hl">so far</span>
-          </h2>
-          <p class="sec-desc">
-            Technologies I've used hands-on in coursework and team projects, alongside the security and engineering areas I'm actively exploring next.
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">03</span> Technical Skills</p>
+          <h2 class="section-title">Core stack and security toolkit.</h2>
+          <p class="section-desc">
+            Technologies applied in academic projects alongside areas I am actively studying next.
           </p>
         </div>
 
-        <div class="skills-legend">
-          <span class="legend-item"><span class="legend-swatch-solid"></span> Used in projects</span>
-          <span class="legend-item"><span class="legend-swatch-dashed"></span> Exploring &amp; learning next</span>
-        </div>
-
-        <div class="skills-2col">
-          <div class="glass glass-hover skill-box">
-            <div class="skill-box-head">
-              <span class="skill-box-icon">💻</span>
+        <div class="skills-grid">
+          <div class="card card-interactive">
+            <div class="skill-header">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
               <div>
-                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Programming &amp; Web Development</h3>
-                <p style="font-size:0.85rem;color:var(--color-mist);">Languages and web technologies used across full-stack modules.</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Programming &amp; Web Development</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Languages and frameworks used across coursework</p>
               </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge"><span class="tech-dot"></span>JavaScript (ES6+)</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Python</span>
-              <span class="tech-badge"><span class="tech-dot"></span>SQL</span>
-              <span class="tech-badge"><span class="tech-dot"></span>HTML5</span>
-              <span class="tech-badge"><span class="tech-dot"></span>CSS3</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Node.js</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Express.js</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="tag">JavaScript (ES6+)</span>
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">RESTful APIs</span>
             </div>
           </div>
 
-          <div class="glass glass-hover skill-box">
-            <div class="skill-box-head">
-              <span class="skill-box-icon">🗄️</span>
+          <div class="card card-interactive">
+            <div class="skill-header">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+              </span>
               <div>
-                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Back-End, Databases &amp; Auth</h3>
-                <p style="font-size:0.85rem;color:var(--color-mist);">Relational data modelling, REST APIs, and authentication.</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Databases &amp; Authentication</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Relational schema design and access control</p>
               </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge"><span class="tech-dot"></span>PostgreSQL</span>
-              <span class="tech-badge"><span class="tech-dot"></span>MySQL</span>
-              <span class="tech-badge"><span class="tech-dot"></span>RESTful APIs</span>
-              <span class="tech-badge"><span class="tech-dot"></span>MVC Architecture</span>
-              <span class="tech-badge"><span class="tech-dot"></span>JWT Authentication</span>
-              <span class="tech-badge"><span class="tech-dot"></span>bcrypt Hashing</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Relational Schema Design</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Relational Schema Design</span>
+              <span class="tag">JWT Authentication</span>
+              <span class="tag">bcrypt Password Hashing</span>
+              <span class="tag">MVC Architecture</span>
             </div>
           </div>
 
-          <div class="glass glass-hover skill-box">
-            <div class="skill-box-head">
-              <span class="skill-box-icon">🛡️</span>
+          <div class="card card-interactive">
+            <div class="skill-header">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
               <div>
-                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Cybersecurity &amp; Systems</h3>
-                <p style="font-size:0.85rem;color:var(--color-mist);">Defensive and offensive security foundations.</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Cybersecurity &amp; Systems</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Offensive and defensive security foundations</p>
               </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge"><span class="tech-dot"></span>Ethical Hacking</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Vulnerability Assessment</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Networking Fundamentals</span>
-              <span class="tech-badge"><span class="tech-dot"></span>System Administration</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Route Access Control</span>
-            </div>
-            <p style="margin:1rem 0 0.5rem;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky-light);">Exploring next</p>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge exploring"><span class="tech-dot"></span>Web App Penetration Testing</span>
-              <span class="tech-badge exploring"><span class="tech-dot"></span>DevSecOps</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Vulnerability Assessment</span>
+              <span class="tag">Network Fundamentals</span>
+              <span class="tag">System Administration</span>
+              <span class="tag tag-exploring">Exploring: Web App Pentesting</span>
+              <span class="tag tag-exploring">Exploring: DevSecOps</span>
             </div>
           </div>
 
-          <div class="glass glass-hover skill-box">
-            <div class="skill-box-head">
-              <span class="skill-box-icon">⚙️</span>
+          <div class="card card-interactive">
+            <div class="skill-header">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </span>
               <div>
-                <h3 style="font-size:1.15rem;font-weight:600;color:var(--color-snow);">Developer Tools &amp; Workflow</h3>
-                <p style="font-size:0.85rem;color:var(--color-mist);">Version control, API verification, and team workflows.</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Developer Tools &amp; Workflow</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Version control, API verification, and team workflows</p>
               </div>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge"><span class="tech-dot"></span>Git</span>
-              <span class="tech-badge"><span class="tech-dot"></span>GitHub</span>
-              <span class="tech-badge"><span class="tech-dot"></span>GitHub Pages</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Postman</span>
-              <span class="tech-badge"><span class="tech-dot"></span>pgAdmin4</span>
-              <span class="tech-badge"><span class="tech-dot"></span>Agile CI/CD Workflow</span>
-            </div>
-            <p style="margin:1rem 0 0.5rem;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky-light);">Exploring next</p>
-            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge exploring"><span class="tech-dot"></span>Automated API Testing</span>
-              <span class="tech-badge exploring"><span class="tech-dot"></span>Docker &amp; Cloud Deployment</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="tag">Git &amp; GitHub</span>
+              <span class="tag">Postman</span>
+              <span class="tag">pgAdmin4</span>
+              <span class="tag">Agile CI/CD Collaboration</span>
+              <span class="tag tag-exploring">Exploring: Docker</span>
+              <span class="tag tag-exploring">Exploring: Automated Testing</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 04 // MY LEARNING JOURNEY (#journey) ================= -->
-    <section id="journey" class="section-block section-deep">
+    <!-- ========================================================================
+         04. LEARNING JOURNEY (#journey)
+         ======================================================================== -->
+    <section id="journey" class="section section-alt">
       <div class="container">
-        <div class="sec-header center">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">04</span>
-            <span class="sec-line"></span>
-            My learning journey
-          </p>
-          <h2 class="sec-title">
-            Learning, <span class="hl">Building</span> &amp; Leading
-          </h2>
-          <p class="sec-desc">
-            Every semester and experience at Singapore Polytechnic has pushed me a step further — from writing my first scripts to leading classmates and building full-stack team platforms.
+        <div class="section-header" style="margin-left: auto; margin-right: auto; text-align: center;">
+          <p class="section-eyebrow" style="justify-content: center;"><span class="num">04</span> Progression</p>
+          <h2 class="section-title">Learning, building, and leading.</h2>
+          <p class="section-desc">
+            Key milestones across my technical coursework, leadership roles, and industry immersion at Singapore Polytechnic.
           </p>
         </div>
 
-        <div class="journey-wrap">
-          <div class="journey-line" aria-hidden="true"></div>
-          <ol class="journey-list">
-            <li class="journey-row left">
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Learning the fundamentals</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Started my Diploma in Information Technology at Singapore Polytechnic, building a strong foundation in Python, JavaScript, programming logic, and problem-solving.</p>
+        <div class="timeline-container">
+          <div class="timeline-spine" aria-hidden="true"></div>
+          <ol class="timeline-list">
+            <li class="timeline-item left">
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Programming Foundations</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Began the Diploma in Information Technology at Singapore Polytechnic, building core skills in Python, JavaScript, and algorithmic problem solving.</p>
               </div>
-              <span class="journey-node">01</span>
+              <span class="timeline-step-badge">01</span>
             </li>
 
-            <li class="journey-row right">
-              <span class="journey-node">02</span>
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Stepping up as Class Chairman &amp; Leadership Camp</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Served as Class Chairman in Semester 2 and completed the SP Leadership Camp — learning how to communicate clearly, support peers, and coordinate effectively.</p>
-              </div>
-            </li>
-
-            <li class="journey-row left">
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Building full-stack MVC web apps (BED CA2)</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Engineered a Gamified Wellness Challenge web app with Node.js, Express, MySQL, JWT, and bcrypt — turning complex game rules into clean backend code.</p>
-              </div>
-              <span class="journey-node">03</span>
-            </li>
-
-            <li class="journey-row right">
-              <span class="journey-node">04</span>
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Exploring ethical hacking &amp; security</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Conducted practical vulnerability assessments and ethical hacking labs, learning how attackers probe systems and how developers should harden their applications.</p>
+            <li class="timeline-item right">
+              <span class="timeline-step-badge">02</span>
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Class Chairman &amp; SP Leadership Camp</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Served as Class Chairman in Semester 2 and completed the SP Leadership Camp, acting as the bridge between lecturers and classmates.</p>
               </div>
             </li>
 
-            <li class="journey-row left">
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Collaborating in an agile CI/CD team (ByteMe)</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Led User Management and Group Study Rooms in a 5-person team using PostgreSQL and Express, merging features cleanly across shared schemas and Git branches.</p>
+            <li class="timeline-item left">
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Full-Stack MVC Architecture (BED CA2)</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Built a Gamified Wellness Challenge application using Node.js, Express, MySQL, JWT, and bcrypt with multi-tier reward logic.</p>
               </div>
-              <span class="journey-node">05</span>
+              <span class="timeline-step-badge">03</span>
             </li>
 
-            <li class="journey-row right">
-              <span class="journey-node">06</span>
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Global tech immersion in Shenzhen, China</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Visited CUHK-Shenzhen and major technology enterprises in Shenzhen with Singapore Polytechnic, seeing first-hand how modern engineering teams innovate at scale.</p>
+            <li class="timeline-item right">
+              <span class="timeline-step-badge">04</span>
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Ethical Hacking &amp; Vulnerability Analysis</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Conducted reconnaissance, vulnerability scanning, and remediation reporting in controlled cybersecurity lab environments.</p>
               </div>
             </li>
 
-            <li class="journey-row left">
-              <div class="glass glass-hover journey-card">
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Connecting security with full-stack engineering</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Bringing my two passions together: writing clean full-stack features while always asking how authentication, data integrity, and access controls can be made stronger.</p>
+            <li class="timeline-item left">
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Agile CI/CD Team Development (ByteMe)</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Led User Management and Group Study Rooms in a 5-member team, integrating PostgreSQL schemas and protected Express routes.</p>
               </div>
-              <span class="journey-node">07</span>
+              <span class="timeline-step-badge">05</span>
             </li>
 
-            <li class="journey-row right">
-              <span class="journey-node next">08</span>
-              <div class="glass glass-hover journey-card next">
-                <span style="display:inline-block;margin-bottom:0.4rem;border-radius:999px;background:rgba(239,68,68,0.15);padding:0.15rem 0.6rem;font-family:var(--font-mono);font-size:10px;text-transform:uppercase;color:var(--color-sky);">Up next</span>
-                <h3 style="font-size:1.1rem;font-weight:600;color:var(--color-snow);">Learning from industry professionals</h3>
-                <p style="margin-top:0.4rem;font-size:0.9rem;color:var(--color-mist);">Seeking an internship from March 2027 where I can learn from experienced engineers and security practitioners while contributing to real production systems.</p>
+            <li class="timeline-item right">
+              <span class="timeline-step-badge">06</span>
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Shenzhen Tech &amp; CUHK Overseas Immersion</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Visited The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen) and leading technology companies in Shenzhen with Singapore Polytechnic.</p>
+              </div>
+            </li>
+
+            <li class="timeline-item left">
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Bridging Full-Stack &amp; Security</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Combining backend engineering with security principles to build applications with strong access control and data integrity.</p>
+              </div>
+              <span class="timeline-step-badge">07</span>
+            </li>
+
+            <li class="timeline-item right">
+              <span class="timeline-step-badge">08</span>
+              <div class="card timeline-card" style="border-style: dashed; border-color: var(--accent-border);">
+                <span class="tag" style="color: var(--accent); border-color: var(--accent-border); margin-bottom: 8px;">Next Milestone · March 2027</span>
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Industry Internship</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Ready to contribute to a software engineering or cybersecurity team while learning production practices from senior engineers.</p>
               </div>
             </li>
           </ol>
@@ -1904,186 +1703,176 @@ POST /api/challenge/:challenge_id
       </div>
     </section>
 
-    <!-- ================= 05 // PERSPECTIVE (#approach) ================= -->
-    <section id="approach" class="section-block">
+    <!-- ========================================================================
+         05. PERSPECTIVE (#perspective)
+         ======================================================================== -->
+    <section id="perspective" class="section">
       <div class="container">
-        <div class="approach-grid">
+        <div class="perspective-grid">
           <div>
-            <div class="sec-header" style="margin-bottom: 2rem;">
-              <p class="sec-eyebrow">
-                <span class="sec-idx">05</span>
-                <span class="sec-line"></span>
-                Perspective
-              </p>
-              <h2 class="sec-title">
-                How I Approach <span class="hl">Software &amp; Security</span>
-              </h2>
+            <div class="section-header" style="margin-bottom: 24px;">
+              <p class="section-eyebrow"><span class="num">05</span> Engineering Philosophy</p>
+              <h2 class="section-title">How I approach software and security.</h2>
             </div>
 
-            <figure class="quote-figure">
-              <span class="quote-mark" aria-hidden="true">“</span>
-              <blockquote style="font-size:1.05rem;line-height:1.7;color:var(--color-ice);">
-                Getting an application to work is only half the job — making sure it is structured cleanly, handles edge cases, and protects user data is what turns a school assignment into real software. I use modern tools and AI assistants to learn faster, but I always make sure I understand the underlying code, database queries, and security logic myself.
-              </blockquote>
-            </figure>
+            <div class="card" style="border-left: 3px solid var(--accent);">
+              <p style="font-size: 1rem; color: var(--text-primary); line-height: 1.7;">
+                "Getting an application to run is only the starting point. Structuring routes cleanly, enforcing authentication properly, and verifying how the database handles edge cases is what makes software dependable. I use modern developer tools to prototype and learn faster, but I make sure I understand every query, middleware function, and security check before committing it."
+              </p>
+            </div>
           </div>
 
-          <ul class="pillars-grid">
-            <li class="glass glass-hover pillar-card">
-              <div style="font-size:1.4rem;color:var(--color-sky);">🔐</div>
-              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Security by design</h3>
-              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">From bcrypt password hashing and JWT middleware to server-side validation, I treat security as part of the core architecture rather than an afterthought.</p>
-            </li>
-            <li class="glass glass-hover pillar-card">
-              <div style="font-size:1.4rem;color:var(--color-sky);">🧠</div>
-              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Understand before relying</h3>
-              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">I trace through API routes, SQL joins, and middleware step-by-step. If I can't explain why a piece of code works, I keep digging until I can.</p>
-            </li>
-            <li class="glass glass-hover pillar-card">
-              <div style="font-size:1.4rem;color:var(--color-sky);">🧪</div>
-              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Verify &amp; test thoroughly</h3>
-              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">Using Postman, pgAdmin4, and browser testing to verify both happy paths and failure cases so features hold up when teammates integrate with them.</p>
-            </li>
-            <li class="glass glass-hover pillar-card">
-              <div style="font-size:1.4rem;color:var(--color-sky);">🤝</div>
-              <h3 style="margin-top:0.75rem;font-size:1rem;font-weight:600;color:var(--color-snow);">Clear team ownership</h3>
-              <p style="margin-top:0.45rem;font-size:0.88rem;color:var(--color-mist);">Whether leading a class or owning backend modules in a 5-person repo, I focus on clear documentation, clean interfaces, and dependable follow-through.</p>
-            </li>
-          </ul>
+          <div class="principles-grid">
+            <div class="card card-interactive">
+              <span class="fact-icon-box" aria-hidden="true" style="margin-bottom: 12px;">
+                <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <h3 style="font-size: 1rem; font-weight: 600;">Security by Design</h3>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">From bcrypt password hashing and JWT verification to input validation, access control belongs in the core architecture.</p>
+            </div>
+
+            <div class="card card-interactive">
+              <span class="fact-icon-box" aria-hidden="true" style="margin-bottom: 12px;">
+                <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+              </span>
+              <h3 style="font-size: 1rem; font-weight: 600;">First-Principles Understanding</h3>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">I trace through API controllers and SQL joins step by step so I can debug and explain every part of my code.</p>
+            </div>
+
+            <div class="card card-interactive">
+              <span class="fact-icon-box" aria-hidden="true" style="margin-bottom: 12px;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </span>
+              <h3 style="font-size: 1rem; font-weight: 600;">Systematic Verification</h3>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Testing endpoints in Postman and inspecting table state in pgAdmin4 across both valid requests and failure cases.</p>
+            </div>
+
+            <div class="card card-interactive">
+              <span class="fact-icon-box" aria-hidden="true" style="margin-bottom: 12px;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <h3 style="font-size: 1rem; font-weight: 600;">Reliable Ownership</h3>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Writing clear API documentation and keeping shared schemas stable so teammates can integrate without friction.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 06 // WORK EXPERIENCE (#experience) ================= -->
-    <section id="experience" class="section-block section-deep">
+    <!-- ========================================================================
+         06. WORK EXPERIENCE (#experience)
+         ======================================================================== -->
+    <section id="experience" class="section section-alt">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">06</span>
-            <span class="sec-line"></span>
-            Work experience
-          </p>
-          <h2 class="sec-title">
-            Learning to perform <span class="hl">under pressure &amp; with people</span>
-          </h2>
-          <p class="sec-desc">
-            My part-time roles in fast-paced hospitality and retail environments have taught me reliability, teamwork under peak-hour pressure, and clear communication.
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">06</span> Work Experience</p>
+          <h2 class="section-title">Performing reliably in fast-paced teams.</h2>
+          <p class="section-desc">
+            Part-time roles in high-volume hospitality and retail operations that strengthened my discipline, communication, and composure under pressure.
           </p>
         </div>
 
-        <div class="exp-grid">
-          <!-- Job 1: USS -->
-          <article class="glass glass-hover exp-card">
-            <header style="display:flex;align-items:flex-start;gap:1rem;">
-              <span class="fact-icon" style="width:3rem;height:3rem;font-size:1.25rem;">🍳</span>
+        <div class="projects-2col">
+          <article class="card card-interactive">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
               <div>
-                <h3 style="font-size:1.25rem;font-weight:600;color:var(--color-snow);">Universal Studios Singapore (USS)</h3>
-                <p style="color:var(--color-sky-light);font-weight:500;">Cook · <span style="color:var(--color-mist);">Part-time</span></p>
-                <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--color-mist);">📅 Sep 2026 – Nov 2026 · 📍 Singapore</p>
+                <h3 style="font-size: 1.2rem; font-weight: 700;">Universal Studios Singapore (USS)</h3>
+                <p style="font-size: 0.9rem; color: var(--accent); font-weight: 500;">Cook · Part-time</p>
               </div>
-            </header>
+              <span class="tag tabular-nums">Sep 2026 – Nov 2026</span>
+            </div>
 
-            <ul class="sky-list" style="margin-top:1.5rem;">
-              <li>Prepared high-volume food orders accurately in a fast-paced theme park hospitality environment.</li>
-              <li>Upheld strict food safety, hygiene, and quality control standards across daily kitchen operations.</li>
-              <li>Coordinated closely with kitchen crew during peak crowd hours to keep workflows smooth and orders on time.</li>
+            <ul class="bullet-list">
+              <li>Prepared high-volume food orders accurately in a fast-paced hospitality environment while upholding strict food safety and hygiene standards.</li>
+              <li>Coordinated closely with kitchen crew during peak hours to maintain smooth workflows and timely order delivery.</li>
             </ul>
 
-            <div style="margin-top:auto;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge sm">Teamwork under pressure</span>
-              <span class="tech-badge sm">Operational discipline</span>
-              <span class="tech-badge sm">Time management</span>
+            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="tag">Teamwork Under Pressure</span>
+              <span class="tag">Operational Discipline</span>
+              <span class="tag">Time Management</span>
             </div>
           </article>
 
-          <!-- Job 2: FairPrice -->
-          <article class="glass glass-hover exp-card">
-            <header style="display:flex;align-items:flex-start;gap:1rem;">
-              <span class="fact-icon" style="width:3rem;height:3rem;font-size:1.25rem;">🛒</span>
+          <article class="card card-interactive">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
               <div>
-                <h3 style="font-size:1.25rem;font-weight:600;color:var(--color-snow);">NTUC FairPrice</h3>
-                <p style="color:var(--color-sky-light);font-weight:500;">Temporary Staff · <span style="color:var(--color-mist);">Part-time</span></p>
-                <p style="margin-top:0.35rem;font-size:0.85rem;color:var(--color-mist);">📅 Dec 2024 – Feb 2025 · 📍 Singapore</p>
+                <h3 style="font-size: 1.2rem; font-weight: 700;">NTUC FairPrice</h3>
+                <p style="font-size: 0.9rem; color: var(--accent); font-weight: 500;">Temporary Staff · Part-time</p>
               </div>
-            </header>
+              <span class="tag tabular-nums">Dec 2024 – Feb 2025</span>
+            </div>
 
-            <ul class="sky-list" style="margin-top:1.5rem;">
+            <ul class="bullet-list">
               <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
-              <li>Monitored shelf inventory levels, flagged low stock, and replenished merchandise systematically.</li>
-              <li>Maintained an organised retail floor alongside team members to ensure a smooth customer experience.</li>
+              <li>Monitored shelf inventory levels, flagged low stock, and maintained an organised retail floor alongside the store team.</li>
             </ul>
 
-            <div style="margin-top:auto;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.5rem;">
-              <span class="tech-badge sm">Customer service</span>
-              <span class="tech-badge sm">Attention to detail</span>
-              <span class="tech-badge sm">Reliability</span>
+            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px;">
+              <span class="tag">Customer Communication</span>
+              <span class="tag">Inventory Tracking</span>
+              <span class="tag">Reliability</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ================= 07 // EDUCATION & LEADERSHIP (#education) ================= -->
-    <section id="education" class="section-block">
+    <!-- ========================================================================
+         07. EDUCATION & LEADERSHIP (#education)
+         ======================================================================== -->
+    <section id="education" class="section">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">07</span>
-            <span class="sec-line"></span>
-            Education, leadership &amp; global exposure
-          </p>
-          <h2 class="sec-title">
-            Where I'm <span class="hl">learning &amp; growing</span>
-          </h2>
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">07</span> Education &amp; Leadership</p>
+          <h2 class="section-title">Academic foundation and student leadership.</h2>
         </div>
 
-        <div class="edu-grid">
-          <!-- Left: SP Diploma Card -->
-          <article class="sp-card">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.75rem;">
-              <span style="width:3rem;height:3rem;border-radius:1rem;background:var(--color-sky);color:#ffffff;display:grid;place-items:center;font-size:1.35rem;font-weight:700;">🎓</span>
-              <span class="badge-outline-sky" style="background:rgba(239,68,68,0.12);color:var(--color-sky-light);font-weight:600;">Currently studying · Year 2</span>
+        <div class="about-grid">
+          <article class="card" style="border-color: var(--accent-border);">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+              <span class="meta-tag-primary">Current Diploma</span>
+              <span class="tag tabular-nums">Apr 2025 – Apr 2028 (Expected)</span>
             </div>
 
-            <h3 style="margin-top:1.5rem;font-size:1.85rem;font-weight:600;color:var(--color-snow);">Singapore Polytechnic</h3>
-            <p style="margin-top:0.35rem;font-size:1.125rem;font-weight:500;color:var(--color-sky-light);">Diploma in Information Technology</p>
-            <p style="margin-top:0.25rem;color:var(--color-mist);">Focus: <span style="color:var(--color-ice);font-weight:500;">Full-Stack Software Development &amp; Cybersecurity</span></p>
-            <p style="margin-top:1rem;font-size:0.9rem;color:var(--color-mist);">📅 April 2025 – April 2028 (expected)</p>
+            <h3 style="font-size: 1.6rem; font-weight: 700;">Singapore Polytechnic</h3>
+            <p style="margin-top: 4px; font-size: 1.05rem; color: var(--text-secondary); font-weight: 500;">
+              Diploma in Information Technology
+            </p>
 
-            <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(239,68,68,0.18);">
-              <p style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-sky);margin-bottom:0.75rem;">Key Modules &amp; Domains</p>
-              <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-                <span class="tech-badge sm">Continuity &amp; Integration (CI/CD)</span>
-                <span class="tech-badge sm">Back-End Development (BED)</span>
-                <span class="tech-badge sm">Ethical Hacking &amp; Security</span>
-                <span class="tech-badge sm">Relational Database Systems</span>
-                <span class="tech-badge sm">Python Programming</span>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-subtle);">
+              <p style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 10px;">
+                Relevant Coursework Modules
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tag">Continuity &amp; Integration (CI/CD)</span>
+                <span class="tag">Back-End Development (BED)</span>
+                <span class="tag">Ethical Hacking &amp; Security</span>
+                <span class="tag">Relational Database Systems</span>
+                <span class="tag">Python Programming</span>
               </div>
             </div>
           </article>
 
-          <!-- Right: Stacked Leadership, Shenzhen Immersion & CCA Cards -->
-          <div style="display:flex;flex-direction:column;gap:1.25rem;">
-            <article class="glass glass-hover" style="border-radius:1.5rem;padding:1.5rem;">
-              <h3 style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-sky);">🌏 Overseas Immersion &amp; Leadership</h3>
-              <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.85rem;">
-                <div style="border-radius:1rem;border:1px solid rgba(239,68,68,0.14);background:rgba(11,13,19,0.5);padding:1rem;">
-                  <p style="font-weight:600;color:var(--color-snow);font-size:0.95rem;">Shenzhen Study Trip — CUHK-Shenzhen &amp; Tech Industry Visits</p>
-                  <p style="margin-top:0.25rem;font-size:0.82rem;color:var(--color-mist);">Visited The Chinese University of Hong Kong, Shenzhen and leading Shenzhen technology enterprises with Singapore Polytechnic.</p>
-                </div>
-                <div style="border-radius:1rem;border:1px solid rgba(239,68,68,0.14);background:rgba(11,13,19,0.5);padding:1rem;">
-                  <p style="font-weight:600;color:var(--color-snow);font-size:0.95rem;">Class Chairman (Semester 2) &amp; SP Leadership Camp</p>
-                  <p style="margin-top:0.25rem;font-size:0.82rem;color:var(--color-mist);">Represented classmates, coordinated academic communications with lecturers, and completed SP's student leadership programme.</p>
-                </div>
-              </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <article class="card">
+              <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 10px;">
+                Shenzhen Overseas Tech Immersion &amp; CUHK Visit
+              </h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Selected for Singapore Polytechnic's study trip to Shenzhen, China, visiting The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen) and major Shenzhen technology companies.
+              </p>
             </article>
 
-            <article class="glass glass-hover" style="border-radius:1.5rem;padding:1.5rem;">
-              <h3 style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-sky);">🏸 Co-Curricular, Certifications &amp; Languages</h3>
-              <ul class="sky-list" style="margin-top:0.85rem;">
-                <li><strong>Badminton CCA (4 Years, Secondary School):</strong> Built long-term discipline, resilience, and team spirit.</li>
-                <li><strong>Certification:</strong> Rock Your LinkedIn.</li>
-                <li><strong>Languages:</strong> English &amp; Tamil (Good spoken and written proficiency).</li>
+            <article class="card">
+              <h3 style="font-size: 1.05rem; font-weight: 600; margin-bottom: 10px;">
+                Class Chairman &amp; Co-Curricular Track Record
+              </h3>
+              <ul class="bullet-list">
+                <li><strong>Class Chairman (Semester 2, SP):</strong> Coordinated communications and initiatives between lecturers and classmates.</li>
+                <li><strong>SP Leadership Camp:</strong> Completed student leadership and team-building training.</li>
+                <li><strong>Badminton CCA (4 Years, Secondary School):</strong> Sustained commitment, discipline, and teamwork.</li>
+                <li><strong>Languages:</strong> English and Tamil (good spoken and written proficiency).</li>
               </ul>
             </article>
           </div>
@@ -2091,127 +1880,124 @@ POST /api/challenge/:challenge_id
       </div>
     </section>
 
-    <!-- ================= 08 // INTERNSHIP GOALS (#goals) ================= -->
-    <section id="goals" class="section-block section-deep">
+    <!-- ========================================================================
+         08. INTERNSHIP GOALS (#goals)
+         ======================================================================== -->
+    <section id="goals" class="section section-alt">
       <div class="container">
-        <div class="sec-header">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">08</span>
-            <span class="sec-line"></span>
-            Internship goals
-          </p>
-          <h2 class="sec-title">
-            What I'm <span class="hl">Looking For</span>
-          </h2>
-          <p class="sec-desc">
-            An internship where I can learn from experienced software and security professionals — and pull my weight on real technical deliverables while I'm there.
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">08</span> Internship Goals</p>
+          <h2 class="section-title">What I am looking for in an internship.</h2>
+          <p class="section-desc">
+            Available for full-time polytechnic internships starting March 2027 across software engineering, full-stack development, and cybersecurity roles.
           </p>
         </div>
 
-        <div class="glass goals-banner">
-          <div style="display:flex;align-items:center;gap:1rem;">
-            <span style="width:3rem;height:3rem;border-radius:1rem;background:var(--color-sky);color:#ffffff;display:grid;place-items:center;font-size:1.3rem;">📅</span>
-            <div>
-              <p style="font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--color-mist-dim);">Available from</p>
-              <p style="font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--color-snow);">March 2027</p>
-            </div>
-          </div>
-
-          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-            <span class="tech-badge">Full-Stack Development</span>
-            <span class="tech-badge">Back-End Engineering</span>
-            <span class="tech-badge">Cybersecurity</span>
-            <span class="tech-badge">Vulnerability Assessment</span>
-            <span class="tech-badge">Software Engineering</span>
-          </div>
-        </div>
-
-        <div class="skills-2col">
-          <div class="glass glass-hover skill-box">
-            <h3 style="display:flex;align-items:center;gap:0.75rem;font-size:1.15rem;font-weight:600;color:var(--color-snow);margin-bottom:1.25rem;">
-              <span class="fact-icon">🎯</span> What I hope to gain
-            </h3>
-            <ul class="sky-list">
-              <li>Learn directly from experienced software engineers and cybersecurity practitioners.</li>
-              <li>Understand how professional teams architect, code-review, test, and secure production applications.</li>
-              <li>See how real-world engineering teams diagnose and resolve complex technical problems.</li>
-              <li>Strengthen my full-stack development, database optimization, and security assessment skills.</li>
-              <li>Grow into a more capable, independent engineer ready to tackle larger responsibilities.</li>
+        <div class="skills-grid">
+          <div class="card">
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 14px;">What I Hope to Gain</h3>
+            <ul class="bullet-list">
+              <li>Learn directly from experienced software engineers and security practitioners on production systems.</li>
+              <li>Understand how engineering teams conduct code reviews, automated testing, and deployment workflows.</li>
+              <li>Strengthen my ability to diagnose and solve complex backend, database, and application security issues.</li>
+              <li>Grow into a dependable, independent engineer capable of owning end-to-end technical features.</li>
             </ul>
           </div>
 
-          <div class="glass glass-hover skill-box">
-            <h3 style="display:flex;align-items:center;gap:0.75rem;font-size:1.15rem;font-weight:600;color:var(--color-snow);margin-bottom:1.25rem;">
-              <span class="fact-icon">⚡</span> What I'll bring to the team
-            </h3>
-            <ul class="sky-list">
-              <li>Hands-on experience building Node.js/Express backends, PostgreSQL &amp; MySQL schemas, and JWT/bcrypt auth flows.</li>
+          <div class="card">
+            <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 14px;">What I Will Bring to the Team</h3>
+            <ul class="bullet-list">
+              <li>Practical experience building Node.js and Express APIs, PostgreSQL and MySQL schemas, and JWT/bcrypt authentication.</li>
               <li>A security-aware mindset grounded in ethical hacking and vulnerability assessment coursework.</li>
-              <li>Proven initiative and communication from serving as Class Chairman and working in fast-paced teams.</li>
-              <li>Strong ownership of assigned tasks, eagerness to pick up new stacks quickly, and openness to feedback.</li>
+              <li>Strong initiative, clear communication, and leadership experience from serving as Class Chairman.</li>
+              <li>Ownership of assigned tasks, eagerness to learn new technologies quickly, and openness to mentorship.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= 09 // CONTACT (#contact) ================= -->
-    <section id="contact" class="section-block">
+    <!-- ========================================================================
+         09. CONTACT (#contact)
+         ======================================================================== -->
+    <section id="contact" class="section" style="border-bottom: none;">
       <div class="container">
-        <div class="sec-header center">
-          <p class="sec-eyebrow">
-            <span class="sec-idx">09</span>
-            <span class="sec-line"></span>
-            Contact
-          </p>
-          <h2 class="sec-title">
-            Let's <span class="hl">Connect</span>
-          </h2>
-          <p class="sec-desc">
-            I'm always excited to connect regarding software development or cybersecurity internship opportunities starting March 2027. If you're looking for a curious, dependable intern who loves building and securing applications, I'd love to hear from you.
+        <div class="section-header">
+          <p class="section-eyebrow"><span class="num">09</span> Contact</p>
+          <h2 class="section-title">Let's connect regarding March 2027 internships.</h2>
+          <p class="section-desc">
+            If your team is looking for a motivated software development or cybersecurity intern from Singapore Polytechnic, I would be glad to speak with you.
           </p>
         </div>
 
-        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.75rem;">
-          <a href="mailto:brianjeffrey1518@gmail.com?subject=Internship%20Opportunity%20—%20Brian%20Jeffrey" class="btn btn-primary">
-            ✉️ Email Me
+        <div class="hero-actions">
+          <a href="mailto:brianjeffrey1518@gmail.com?subject=Internship%20Opportunity%20-%20Brian%20Jeffrey" class="btn btn-primary">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>Send an Email</span>
           </a>
-          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            in Connect on LinkedIn
-          </a>
+          <button type="button" class="btn btn-secondary" id="copyEmailBtn" onclick="copyEmailAddress()">
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+            </svg>
+            <span id="copyEmailText">Copy Email Address</span>
+          </button>
         </div>
 
-        <div class="contact-cards-grid">
-          <a href="mailto:brianjeffrey1518@gmail.com" class="glass glass-hover contact-tile">
-            <span class="contact-tile-icon">✉️</span>
-            <span style="min-width:0;flex:1;">
-              <span class="fact-label">Email</span>
-              <span style="display:block;font-weight:600;color:var(--color-snow);overflow:hidden;text-overflow:ellipsis;">brianjeffrey1518@gmail.com</span>
-            </span>
+        <div class="contact-grid">
+          <a href="mailto:brianjeffrey1518@gmail.com" class="card card-interactive contact-card">
+            <div class="contact-card-left">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </span>
+              <div style="min-width: 0;">
+                <span class="fact-label">Email</span>
+                <span class="fact-value" style="overflow: hidden; text-overflow: ellipsis;">brianjeffrey1518@gmail.com</span>
+              </div>
+            </div>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="glass glass-hover contact-tile">
-            <span class="contact-tile-icon">in</span>
-            <span style="min-width:0;flex:1;">
-              <span class="fact-label">LinkedIn</span>
-              <span style="display:block;font-weight:600;color:var(--color-snow);">linkedin.com/in/brianjeffreyd</span>
-            </span>
+          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="card card-interactive contact-card">
+            <div class="contact-card-left">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </span>
+              <div>
+                <span class="fact-label">LinkedIn</span>
+                <span class="fact-value">linkedin.com/in/brianjeffreyd</span>
+              </div>
+            </div>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://github.com/brian1518" target="_blank" rel="noopener noreferrer" class="glass glass-hover contact-tile">
-            <span class="contact-tile-icon">⌘</span>
-            <span style="min-width:0;flex:1;">
-              <span class="fact-label">GitHub</span>
-              <span style="display:block;font-weight:600;color:var(--color-snow);">github.com/brian1518</span>
-            </span>
+          <a href="https://github.com/brian1518" target="_blank" rel="noopener noreferrer" class="card card-interactive contact-card">
+            <div class="contact-card-left">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </span>
+              <div>
+                <span class="fact-label">GitHub</span>
+                <span class="fact-value">github.com/brian1518</span>
+              </div>
+            </div>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="tel:+6597227598" class="glass glass-hover contact-tile">
-            <span class="contact-tile-icon">📱</span>
-            <span style="min-width:0;flex:1;">
-              <span class="fact-label">Phone (Singapore)</span>
-              <span style="display:block;font-weight:600;color:var(--color-snow);">+65 9722 7598</span>
-            </span>
+          <a href="tel:+6597227598" class="card card-interactive contact-card">
+            <div class="contact-card-left">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div>
+                <span class="fact-label">Phone (Singapore)</span>
+                <span class="fact-value tabular-nums">+65 9722 7598</span>
+              </div>
+            </div>
+            <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
@@ -2219,70 +2005,157 @@ POST /api/challenge/:challenge_id
   </main>
 
   <!-- FOOTER -->
-  <footer style="border-top:1px solid rgba(239,68,68,0.12);background:rgba(6,7,11,0.82);padding:2.5rem 0 1.5rem;">
-    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;padding-bottom:1.75rem;">
+  <footer style="border-top: 1px solid var(--border-subtle); background-color: var(--bg-surface); padding: 36px 0;">
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
       <div>
-        <p style="font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--color-snow);">Brian Jeffrey</p>
-        <p style="font-size:0.85rem;color:var(--color-mist);">Diploma in Information Technology student · Singapore Polytechnic</p>
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;">Brian Jeffrey</p>
+        <p style="font-size: 0.8125rem; color: var(--text-muted);">Diploma in Information Technology · Singapore Polytechnic</p>
       </div>
-
-      <ul style="display:flex;flex-wrap:wrap;gap:1.25rem;font-size:0.85rem;color:var(--color-mist);">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#goals">Goals</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <p style="font-size: 0.8125rem; color: var(--text-muted);" class="tabular-nums">
+        © 2026 Brian Jeffrey. Built with semantic HTML, CSS, and JavaScript.
+      </p>
     </div>
-    <p style="border-top:1px solid rgba(239,68,68,0.08);padding-top:1.25rem;text-align:center;font-size:0.75rem;color:var(--color-mist-dim);">
-      © 2026 Brian Jeffrey · Full-Stack &amp; Cybersecurity Portfolio
-    </p>
   </footer>
 
   <script>
-    // 1. Hero Role Rotator
-    const roles = [
-      "Full-Stack Web Developer",
-      "Cybersecurity Enthusiast",
-      "Back-End API Engineer",
-      "Problem Solver & Team Leader"
-    ];
-    let roleIdx = 0;
-    const roleEl = document.getElementById("roleRotator");
-    setInterval(() => {
-      roleIdx = (roleIdx + 1) % roles.length;
-      roleEl.textContent = roles[roleIdx];
-    }, 2600);
+    // 1. Accessible Mobile Navigation Drawer
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileDrawer = document.getElementById("mobileDrawer");
 
-    // 2. Featured Project (ByteMe) 5-Slide Interactive Architecture Showcase
+    mobileMenuBtn.addEventListener("click", () => {
+      const isOpen = mobileDrawer.classList.toggle("open");
+      mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileDrawer.classList.remove("open");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileDrawer.classList.contains("open")) {
+        mobileDrawer.classList.remove("open");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.focus();
+      }
+    });
+
+    // 2. Hero Interactive Route Workbench (Real code from ByteMe & BED CA2)
+    const workbenchRoutes = [
+      {
+        code: `// ByteMe: Join Private Study Room (studyRoomController.js)
+POST /api/study-rooms/join
+Middleware: verifyToken (JWT) -> validateInviteCode
+
+SQL Query (PostgreSQL):
+SELECT id, room_name, creator_id FROM study_rooms
+WHERE invite_code = $1 AND is_active = TRUE;
+
+INSERT INTO study_room_members (room_id, user_id, presence_status)
+VALUES ($1, $2, 'studying') RETURNING *;`,
+        response: `// Response: 200 OK (38ms)
+{
+  "status": "success",
+  "room": { "id": 14, "name": "2B26 Exam Prep", "code": "BYTE-8492" },
+  "member": { "userId": 4, "presence": "studying", "joinedAt": "2026-11-08T19:00:00Z" }
+}`
+      },
+      {
+        code: `// ByteMe: User Authentication (userController.js)
+POST /api/users/login
+Middleware: validateLoginBody -> comparePassword (bcrypt) -> signToken (JWT)
+
+SQL Query (PostgreSQL):
+SELECT id, username, display_name, password_hash, points
+FROM users WHERE username = $1;`,
+        response: `// Response: 200 OK (44ms)
+{
+  "message": "Login successful",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": { "id": 4, "username": "brian_j", "points": 340 }
+}`
+      },
+      {
+        code: `// BED CA2: Complete Wellness Challenge (challengeController.js)
+POST /api/challenge/7
+Middleware: verifyToken -> checkCooldownExpiry -> calcMultipliers
+
+MySQL Logic:
+• Base Points: 50 | Elemental Type Multiplier: 1.5x (Strong)
+• Badge Ownership Bonus (6 Badges Owned): 1.2x`,
+        response: `// Response: 201 Created (31ms)
+{
+  "challengeId": 7,
+  "pointsAwarded": 90,
+  "multipliers": { "type": 1.5, "badge": 1.2 },
+  "newYearLevel": 2
+}`
+      }
+    ];
+
+    let currentWbIndex = 0;
+
+    function selectWorkbenchRoute(idx, btnEl) {
+      currentWbIndex = idx;
+      document.querySelectorAll(".wb-tab").forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      if (btnEl) {
+        btnEl.classList.add("active");
+        btnEl.setAttribute("aria-selected", "true");
+      }
+      document.getElementById("wbCodeView").textContent = workbenchRoutes[idx].code;
+      document.getElementById("wbStatusText").innerHTML = `
+        <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Ready to inspect · Click Run Sample Request</span>
+      `;
+    }
+
+    function simulateRouteExecution() {
+      const codeEl = document.getElementById("wbCodeView");
+      const statusEl = document.getElementById("wbStatusText");
+      const route = workbenchRoutes[currentWbIndex];
+
+      statusEl.textContent = "Executing middleware & SQL query...";
+      setTimeout(() => {
+        codeEl.textContent = route.code + "\n\n" + route.response;
+        statusEl.innerHTML = `
+          <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>200 OK · Sample payload returned</span>
+        `;
+      }, 220);
+    }
+
+    selectWorkbenchRoute(0, document.querySelector(".wb-tab"));
+
+    // 3. Featured Project (ByteMe) 5-Slide Architecture Switcher
     const archSlides = [
       {
         title: "1. Group Study Rooms & Live Presence (My Feature)",
-        caption: "Users create private rooms, invite friends with a room code, update live study presence, and chat in real time.",
+        caption: "Users create private rooms, join via invite code, update live study status, and send room chat messages.",
         code: `┌──────────────────────────────────────────────────────────┐
-│  STUDY ROOM #2B26  [Invite Code: BYTE-8492]   🔴 4 Live  │
+│  STUDY ROOM #2B26  [Invite Code: BYTE-8492]    4 Active  │
 ├──────────────────────────┬───────────────────────────────┤
-│  ROOM MEMBERS            │  LIVE ROOM CHAT               │
-│  • Brian (Host) ⏱️ 24:10 │  Brian: Starting 25m Pomodoro │
-│  • Keira        ⏱️ 24:10 │  Keira: Let's finish CA2 docs │
-│  • Nigel        ☕ Break │  Nigel: Joining next round!   │
-│  [Update Presence]       │  [Send Message...]     [Send] │
+│  ROOM MEMBERS            │  ROOM CHAT                    │
+│  • Brian (Host)  24:10   │  Brian: Starting 25m Pomodoro │
+│  • Keira         24:10   │  Keira: Reviewing API docs    │
+│  • Nigel         Break   │  Nigel: Joining next round    │
 └──────────────────────────┴───────────────────────────────┘`
       },
       {
-        title: "2. User Management, JWT Auth & Profile + Streaks (My Feature)",
-        caption: "Secure registration/login with bcrypt + JWT, plus unified profile showing points, join date, and streak milestones.",
-        code: `POST /api/users/register  ──► bcrypt.hash(password, 10) ──► INSERT INTO users
-POST /api/users/login     ──► bcrypt.compare()          ──► jwt.sign({ userId })
-GET  /api/users/profile   ──► verifyToken middleware    ──► Returns Profile + Points
-GET  /api/streaks         ──► Integrated on Profile     ──► Current: 7🔥 | Best: 14🔥`
+        title: "2. User Management, JWT Auth & Profile Integration (My Feature)",
+        caption: "Registration and login with bcrypt and JWT, plus unified profile displaying points and streak milestones.",
+        code: `POST /api/users/register  -> bcrypt.hash(password, 10) -> INSERT INTO users
+POST /api/users/login     -> bcrypt.compare()          -> jwt.sign({ userId })
+GET  /api/users/profile   -> verifyToken middleware    -> Account + Points
+GET  /api/streaks         -> Integrated on Profile     -> Current: 7 | Best: 14`
       },
       {
         title: "3. PostgreSQL Relational Database Schema (9 Tables)",
-        caption: "Foreign key relationships connecting users to study rooms, focus sessions, streaks, friendships, and tasks.",
+        caption: "Foreign-key relationships linking users to study rooms, focus sessions, streaks, friendships, and tasks.",
         code: `users (id, username, display_name, email, password_hash, points, created_at)
  ├── study_rooms (id, room_name, invite_code, creator_id -> users.id)
  ├── study_room_members (id, room_id -> study_rooms.id, user_id -> users.id, status)
@@ -2291,22 +2164,22 @@ GET  /api/streaks         ──► Integrated on Profile     ──► Current:
  └── streaks (id, userId -> users.id, currentStreak, longestStreak, lastStudyDate)`
       },
       {
-        title: "4. Core App Flow & Points Engine",
-        caption: "How focus sessions feed points (+1/min, +10 high focus, +5 daily streak, +25 7-day milestone) across the platform.",
-        code: `[Start Focus Session] ──► [Track Focus Time & Tab Switches]
+        title: "4. Core Application Data Flow",
+        caption: "Completed focus sessions update total points (+1/min, +10 high focus) and daily streak progress.",
+        code: `[Start Focus Session] -> [Record Focus Duration & Distractions]
          │
          ▼
-[Complete Session]    ──► [Save to focus_sessions Table]
+[Complete Session]    -> [Save Record to focus_sessions Table]
          │
          ▼
-[Calculate Rewards]   ──► [Update users.points & streaks.currentStreak]
+[Update Rewards]      -> [Increment users.points & streaks.currentStreak]
          │
          ▼
-[Refresh Views]       ──► [Profile Page · Friends Feed · Global Leaderboard]`
+[Refresh Views]       -> [Profile · Friends Feed · Global Leaderboard]`
       },
       {
-        title: "5. API Verification & Access Control",
-        caption: "Tested via Postman, pgAdmin4, and browser storage checks across 3 public pages and 9 JWT-protected views.",
+        title: "5. Route Protection & Verification",
+        caption: "Verified across 3 public pages and 9 JWT-protected pages using Postman and pgAdmin4.",
         code: `Public Pages:     index.html | login.html | register.html
 Protected Pages:  dashboard.html | profile.html | study_room.html
                   study_timer.html | task_planner.html | analytics_board.html
@@ -2319,51 +2192,51 @@ Protected Pages:  dashboard.html | profile.html | study_room.html
       document.getElementById("archScreen").textContent = s.code;
       document.getElementById("archTitle").textContent = s.title;
       document.getElementById("archCaption").textContent = s.caption;
-      document.querySelectorAll(".arch-thumb-btn").forEach((btn, i) => {
+      document.querySelectorAll(".arch-btn").forEach((btn, i) => {
         btn.classList.toggle("active", i === idx);
       });
     }
     setArchSlide(0);
 
-    // 3. Featured Project 5-Tab Switcher
+    // 4. Featured Project 5-Tab Case Study Switcher
     const featuredTabs = {
       features: [
-        "Secure User Registration & Login with bcrypt password hashing and signed JWT authentication tokens.",
-        "Profile Management displaying username, email, total points, user ID, join date, display-name editing, and integrated Streak milestones.",
-        "Private Group Study Rooms with unique invite codes, live member study status updates, real-time room chat messaging, and host room controls.",
-        "Connected ecosystem with Pomodoro Study Timer, URL-whitelisted Focus Mode, Calendar Task Planner, Analytics Board, Friendships, and Global Leaderboard."
+        "User registration and login secured with bcrypt password hashing and signed JWT bearer tokens.",
+        "Profile page displaying username, email, total points, user ID, join date, display-name editing, and integrated streak milestones.",
+        "Private Group Study Rooms supporting room creation, invite-code joining, live study presence updates, room chat messaging, and host closure controls.",
+        "Connected workflow with Pomodoro Study Timer, URL-whitelisted Focus Mode, Task Planner, Analytics Board, Friendships, and Global Leaderboard."
       ],
       process: [
-        "Collaborated in a 5-member agile CI/CD team (Class 2B26), dividing backend MVC controllers, models, and routers cleanly by domain.",
-        "Designed normalized PostgreSQL tables in schema.sql with foreign-key constraints linking users, study_rooms, study_room_members, and study_room_messages.",
-        "Built reusable Express middlewares (bcryptMiddleware.js, jwtMiddleware.js, validation.js) to protect backend routes and sanitize inputs.",
-        "Integrated streak endpoints separately from profile endpoints on profile.html so account logic and streak logic remained modular.",
-        "Verified all API endpoints with Postman and inspected live database state in pgAdmin4."
+        "Worked in a 5-member agile CI/CD team (Class 2B26), separating backend controllers, models, and routers by domain.",
+        "Authored PostgreSQL table definitions in schema.sql with foreign keys connecting users, study_rooms, study_room_members, and study_room_messages.",
+        "Implemented reusable Express middlewares (bcryptMiddleware.js, jwtMiddleware.js, validation.js) for route protection and input validation.",
+        "Kept profile and streak endpoints modular while combining their responses cleanly on profile.html.",
+        "Tested all API routes in Postman and verified relational integrity in pgAdmin4."
       ],
       learned: [
-        "How to coordinate database schema migrations and shared tables (like users.points) across 5 team members without breaking each other's features.",
-        "Why separating responsibilities (e.g., dedicated endpoints for Profile vs. Streaks, and personal Focus Sessions vs. live Study Room presence) keeps a codebase maintainable.",
-        "Implementing stateless JWT authentication across both backend API routes and protected frontend HTML pages.",
-        "Writing clear API documentation (API_REFERENCE.md) and backend testing guides (BACKEND_TESTING.md) for the team."
+        "Coordinating schema changes and shared columns (such as users.points) across 5 developers using Git branches.",
+        "Separating live Study Room coordination from persisted personal Focus Session records so group presence stayed lightweight.",
+        "Securing both backend REST endpoints and frontend HTML views using JWT verification.",
+        "Documenting endpoints in API_REFERENCE.md and manual test cases in BACKEND_TESTING.md."
       ],
       challenges: [
-        "Keeping Study Room live presence distinct from saved personal Focus Sessions so group coordination stayed lightweight while personal analytics remained accurate.",
-        "Ensuring total points updated consistently across the Profile page, Friendship page, and Global Leaderboard by centralizing points in the users table.",
-        "Handling UTC vs. local timezone formatting in PostgreSQL date responses using backend CURRENT_DATE checks."
+        "Preventing conflicts between live Study Room presence and saved personal Focus Sessions by designing separate relational tables.",
+        "Maintaining a single source of truth for user points in users.points so the Profile, Friendship, and Leaderboard pages always matched.",
+        "Using PostgreSQL CURRENT_DATE on the backend for streak calculations so users could not manipulate browser dates."
       ],
       next: [
-        "Upgrade Study Room chat and live timer presence from HTTP polling to WebSockets (Socket.io) for instant real-time sync.",
-        "Add automated CI/CD unit and integration test suites for User Management and Study Room routes.",
-        "Connect Study Room group sessions directly to optional bonus team streak rewards."
+        "Migrate Study Room chat and live member presence from HTTP polling to WebSockets for instant updates.",
+        "Add automated integration tests for User Management and Study Room endpoints in the CI/CD pipeline.",
+        "Introduce optional group focus milestones inside Study Rooms."
       ]
     };
 
     function setFeaturedTab(key, btnEl) {
-      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".case-tab-btn").forEach((b) => b.classList.remove("active"));
       if (btnEl) btnEl.classList.add("active");
       const items = featuredTabs[key] || [];
       const ul = document.createElement("ul");
-      ul.className = "sky-list";
+      ul.className = "bullet-list";
       items.forEach((txt) => {
         const li = document.createElement("li");
         li.textContent = txt;
@@ -2373,16 +2246,30 @@ Protected Pages:  dashboard.html | profile.html | study_room.html
       panel.innerHTML = "";
       panel.appendChild(ul);
     }
-    setFeaturedTab("features", document.querySelector(".tab-btn"));
+    setFeaturedTab("features", document.querySelector(".case-tab-btn"));
 
-    // 4. Expandable Subproject Accordions
-    function toggleAccordion(id, btn) {
+    // 5. Secondary Project Drawer Toggles
+    function toggleDrawer(id, btn) {
       const el = document.getElementById(id);
       const isOpen = el.classList.toggle("open");
-      btn.querySelector("span:first-child").textContent = isOpen
-        ? "Hide project details"
-        : "Features, learnings & next steps";
-      btn.querySelector("span:last-child").textContent = isOpen ? "▲" : "▼";
+      btn.setAttribute("aria-expanded", String(isOpen));
+      btn.querySelector("span").textContent = isOpen
+        ? "Hide technical details"
+        : "Inspect features, learnings & architecture";
+    }
+
+    // 6. Copy Email with Feedback State
+    async function copyEmailAddress() {
+      const textEl = document.getElementById("copyEmailText");
+      try {
+        await navigator.clipboard.writeText("brianjeffrey1518@gmail.com");
+        textEl.textContent = "Copied: brianjeffrey1518@gmail.com";
+        setTimeout(() => {
+          textEl.textContent = "Copy Email Address";
+        }, 2400);
+      } catch {
+        window.location.href = "mailto:brianjeffrey1518@gmail.com";
+      }
     }
   </script>
 </body>
