@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian Jeffrey — Full-Stack &amp; Cybersecurity Student Portfolio</title>
+  <meta name="description" content="Portfolio of Brian Jeffrey — Diploma in Information Technology student at Singapore Polytechnic specializing in Full-Stack Web Development and Cybersecurity." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root[data-theme="dark"] {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.78);
+      --bg-card-hover: rgba(30, 41, 59, 0.9);
+      --bg-elevated: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-secondary: #6366f1;
+      --accent-glow: rgba(56, 189, 248, 0.18);
+      --border: rgba(148, 163, 184, 0.14);
+      --border-hover: rgba(56, 189, 248, 0.45);
+      --badge-bg: rgba(56, 189, 248, 0.12);
+      --badge-text: #7dd3fc;
+      --success: #10b981;
+      --nav-bg: rgba(11, 15, 25, 0.82);
+      --shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-elevated: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --accent: #0284c7;
+      --accent-secondary: #4f46e5;
+      --accent-glow: rgba(2, 132, 199, 0.12);
+      --border: rgba(15, 23, 42, 0.1);
+      --border-hover: rgba(2, 132, 199, 0.45);
+      --badge-bg: rgba(2, 132, 199, 0.1);
+      --badge-text: #0369a1;
+      --success: #059669;
+      --nav-bg: rgba(248, 250, 252, 0.85);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Ambient Background Grid & Glow */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        radial-gradient(circle at 15% 15%, var(--accent-glow), transparent 38%),
+        radial-gradient(circle at 85% 25%, rgba(99, 102, 241, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 85%, var(--accent-glow), transparent 40%);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .theme-btn:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      color: #ffffff;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .btn-outline {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-sm {
+      padding: 7px 14px;
+      font-size: 0.84rem;
+      border-radius: 8px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 76px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--success);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.35rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), #a855f7, var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 630px;
+      margin-bottom: 26px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    /* Terminal / Profile Summary Card on Right */
+    .terminal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(15, 23, 42, 0.45);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .terminal-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .terminal-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .terminal-body {
+      padding: 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.83rem;
+      line-height: 1.7;
+    }
+
+    .cmd-line {
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .json-block {
+      color: var(--text-secondary);
+      padding-left: 10px;
+      border-left: 2px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .json-key { color: #93c5fd; }
+    .json-str { color: #86efac; }
+
+    /* Quick Metrics Row */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .metric-val {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Section Headers */
+    section {
+      padding: 64px 0;
+    }
+
+    .section-header {
+      margin-bottom: 36px;
+    }
+
+    .section-eyebrow {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 640px;
+      font-size: 0.98rem;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.22s ease;
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--badge-bg);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.76rem;
+      padding: 5px 10px;
+      border-radius: 7px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      font-weight: 500;
+    }
+
+    /* Projects Filter & Grid */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .module-pill {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.14);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.28);
+    }
+
+    .role-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .project-card h3 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .project-summary {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .project-bullets {
+      padding-left: 18px;
+      margin-bottom: 18px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .project-bullets li {
+      margin-bottom: 6px;
+    }
+
+    .project-bullets strong {
+      color: var(--text-primary);
+    }
+
+    .project-footer {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    /* Timeline Section (Experience & Leadership) */
+    .dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .timeline-column h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .timeline-item {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: border-color 0.2s;
+    }
+
+    .timeline-item:hover {
+      border-color: var(--border-hover);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-primary);
+    }
+
+    .timeline-date {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.76rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .timeline-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .timeline-org {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .timeline-item ul {
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-item li {
+      margin-bottom: 4px;
+    }
+
+    /* Modal for Technical Deep Dive */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-hover);
+      border-radius: 18px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 86vh;
+      overflow-y: auto;
+      padding: 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-close {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .modal-body h4 {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin: 16px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .code-snippet {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      overflow-x: auto;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      white-space: pre-wrap;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(99, 102, 241, 0.08));
+      border: 1px solid var(--border-hover);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .contact-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-val {
+      font-weight: 600;
+      font-size: 0.92rem;
+      word-break: break-all;
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .dual-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-bg"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-badge">BJ</span>
+        <span>Brian Jeffrey</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience &amp; Leadership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeToggle" title="Toggle Dark/Light Theme" aria-label="Toggle Theme">
+          ☀️
+        </button>
+        <a href="resume.html" class="btn btn-primary btn-sm">
+          📄 View Resume
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            Available for Internships from March 2027
+          </div>
+          <h1>
+            Hi, I'm <span class="gradient-text">Brian Jeffrey</span>
+          </h1>
+          <div class="hero-subtitle">
+            Full-Stack Software Development &amp; Cybersecurity Candidate · Singapore Polytechnic
+          </div>
+          <p class="hero-description">
+            Diploma in Information Technology student with hands-on experience building full-stack web applications using <strong>Node.js, Express, PostgreSQL, and MySQL</strong>, alongside practical foundations in <strong>Python, ethical hacking, and vulnerability assessment</strong>. Passionate about writing secure code, solving real-world engineering challenges, and contributing meaningful value through teamwork and leadership.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">Explore My Projects ↓</a>
+            <a href="resume.html" class="btn btn-outline">📄 Printable Resume (PDF)</a>
+            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <!-- Developer Profile Terminal -->
+        <div class="terminal-card" id="about">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <span class="terminal-title">brian@sp-soc:~/portfolio</span>
+          </div>
+          <div class="terminal-body">
+            <div class="cmd-line">$ cat profile.json</div>
+            <div class="json-block">
+              <div><span class="json-key">"name"</span>: <span class="json-str">"Brian Jeffrey"</span>,</div>
+              <div><span class="json-key">"school"</span>: <span class="json-str">"Singapore Polytechnic"</span>,</div>
+              <div><span class="json-key">"diploma"</span>: <span class="json-str">"Information Technology (2025–2028)"</span>,</div>
+              <div><span class="json-key">"focus"</span>: [<span class="json-str">"Full-Stack Web"</span>, <span class="json-str">"Cybersecurity"</span>],</div>
+              <div><span class="json-key">"leadership"</span>: <span class="json-str">"Class Chairman &amp; SP Leadership Camp"</span>,</div>
+              <div><span class="json-key">"globalExposure"</span>: <span class="json-str">"Shenzhen Tech &amp; CUHK Immersion"</span>,</div>
+              <div><span class="json-key">"languages"</span>: [<span class="json-str">"English"</span>, <span class="json-str">"Tamil"</span>]</div>
+            </div>
+            <div class="cmd-line">$ echo $INTERNSHIP_STATUS</div>
+            <div style="color: #86efac;">"Ready to learn, take initiative &amp; contribute from March 2027"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Highlights -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-val">3</div>
+          <div class="metric-label">Core Academic Projects (Full-Stack &amp; Security)</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">PostgreSQL &amp; MySQL</div>
+          <div class="metric-label">Relational Database Architecture</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">Shenzhen, CN</div>
+          <div class="metric-label">CUHK &amp; Tech Industry Study Immersion</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val">Class Chairman</div>
+          <div class="metric-label">Student Leadership at Singapore Polytechnic</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TECHNICAL SKILLS SECTION -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">01 // Capabilities</span>
+        <h2 class="section-title">Technical Skills &amp; Toolkit</h2>
+        <p class="section-desc">
+          Hands-on experience across backend API engineering, relational database modelling, frontend interfaces, and application security.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Programming &amp; Web Development</h3>
+          <div class="tag-list">
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">Python</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">MVC Architecture</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🗄️</div>
+          <h3>Databases &amp; Authentication</h3>
+          <div class="tag-list">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">SQL Schema Design</span>
+            <span class="tag">JWT Authentication</span>
+            <span class="tag">bcrypt Password Hashing</span>
+            <span class="tag">Route Access Control</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🛡️</div>
+          <h3>Cybersecurity &amp; Networking</h3>
+          <div class="tag-list">
+            <span class="tag">Ethical Hacking</span>
+            <span class="tag">Vulnerability Assessment</span>
+            <span class="tag">Network Security</span>
+            <span class="tag">System Administration</span>
+            <span class="tag">Input Validation</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>Developer Tools &amp; Workflow</h3>
+          <div class="tag-list">
+            <span class="tag">Git &amp; GitHub</span>
+            <span class="tag">Postman API Testing</span>
+            <span class="tag">pgAdmin4</span>
+            <span class="tag">Agile / CI/CD Teamwork</span>
+            <span class="tag">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">02 // Portfolio Showcase</span>
+        <h2 class="section-title">Academic &amp; Technical Projects</h2>
+        <p class="section-desc">
+          Full-stack web applications and security assessments built during my Diploma in Information Technology at Singapore Polytechnic.
+        </p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects (3)</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack &amp; Backend</button>
+        <button class="filter-btn" data-filter="security">Cybersecurity</button>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: ByteMe -->
+        <article class="project-card" data-category="fullstack">
+          <div>
+            <div class="project-top">
+              <span class="module-pill">CI/CD · Agile Team Project</span>
+              <span class="role-pill">User Auth &amp; Study Rooms Lead</span>
+            </div>
+            <h3>ByteMe — Study Productivity &amp; Social Web App</h3>
+            <p class="project-summary">
+              A full-stack social study productivity platform combining Pomodoro focus timers, task planning, streaks, leaderboards, and collaborative group study rooms.
+            </p>
+            <ul class="project-bullets">
+              <li><strong>User Management &amp; Security:</strong> Engineered registration, login, JWT token issuance, bcrypt password hashing, and profile management with integrated streak &amp; points views.</li>
+              <li><strong>Group Study Rooms:</strong> Designed PostgreSQL tables (<code>study_rooms</code>, <code>study_room_members</code>, <code>study_room_messages</code>) and REST APIs for private invite codes, live study presence, and room chat.</li>
+            </ul>
+          </div>
+
+          <div class="project-footer">
+            <div class="tag-list">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">JWT &amp; bcrypt</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Postman</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                GitHub Repo ↗
+              </a>
+              <button class="btn btn-outline btn-sm" onclick="openProjectModal('byteme')">
+                🔍 Architecture &amp; DB Details
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: BED CA2 -->
+        <article class="project-card" data-category="fullstack">
+          <div>
+            <div class="project-top">
+              <span class="module-pill">Back-End Development (BED CA2)</span>
+              <span class="role-pill">Full-Stack Developer</span>
+            </div>
+            <h3>Gamified Wellness Challenge Web Application</h3>
+            <p class="project-summary">
+              An RPG-inspired full-stack web application that gamifies daily wellness challenges with houses, year-level progression, elemental spells, and collectible badges.
+            </p>
+            <ul class="project-bullets">
+              <li><strong>Gamified Reward Engine:</strong> Built MVC controllers &amp; MySQL models supporting elemental type multipliers (1.5× / 0.75×), spell inventories, and tiered badge multipliers (up to 1.4×).</li>
+              <li><strong>Anti-Farming &amp; Auth:</strong> Enforced challenge cooldown rules, automated random house assignment on JWT registration, and built user challenge review workflows.</li>
+            </ul>
+          </div>
+
+          <div class="project-footer">
+            <div class="tag-list">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">JWT &amp; bcrypt</span>
+              <span class="tag">MVC Pattern</span>
+              <span class="tag">HTML/CSS/JS</span>
+            </div>
+            <div class="project-links">
+              <button class="btn btn-primary btn-sm" onclick="openProjectModal('wellness')">
+                🔍 API &amp; Game Logic Details
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Ethical Hacking Report -->
+        <article class="project-card" data-category="security">
+          <div>
+            <div class="project-top">
+              <span class="module-pill">Cybersecurity Assessment</span>
+              <span class="role-pill">Security Analyst</span>
+            </div>
+            <h3>Ethical Hacking &amp; Vulnerability Assessment Report</h3>
+            <p class="project-summary">
+              Practical vulnerability assessment and penetration testing investigation examining network and application security posture within a controlled lab environment.
+            </p>
+            <ul class="project-bullets">
+              <li><strong>Reconnaissance &amp; Scanning:</strong> Performed structured enumeration and vulnerability analysis to uncover exploitable system and web weaknesses.</li>
+              <li><strong>Technical Security Reporting:</strong> Documented proof-of-concept exploitation steps, severity classifications, and defense-in-depth remediation controls.</li>
+            </ul>
+          </div>
+
+          <div class="project-footer">
+            <div class="tag-list">
+              <span class="tag">Ethical Hacking</span>
+              <span class="tag">Vulnerability Assessment</span>
+              <span class="tag">Network Security</span>
+              <span class="tag">Security Hardening</span>
+            </div>
+            <div class="project-links">
+              <button class="btn btn-outline btn-sm" onclick="openProjectModal('security')">
+                🔍 Assessment Methodology
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE, LEADERSHIP & EDUCATION SECTION -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">03 // Journey &amp; Character</span>
+        <h2 class="section-title">Experience, Education &amp; Leadership</h2>
+        <p class="section-desc">
+          Combining technical coursework with student leadership, overseas industry immersion, and fast-paced work experience.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Left Column: Education & Leadership -->
+        <div class="timeline-column">
+          <h3>🎓 Education &amp; Leadership</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Apr 2025 – Apr 2028 (Expected)</span>
+              <div class="timeline-title">Diploma in Information Technology</div>
+              <div class="timeline-org">Singapore Polytechnic</div>
+              <ul>
+                <li>Core focus in Full-Stack Web Development, Relational Databases, Python, CI/CD, and Cybersecurity.</li>
+                <li><strong>Class Chairman (Semester 2):</strong> Served as the primary liaison between lecturers and classmates, coordinating class initiatives and academic communications.</li>
+                <li><strong>SP Leadership Camp:</strong> Completed leadership and team-building training at Singapore Polytechnic.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Overseas Immersion Programme</span>
+              <div class="timeline-title">Shenzhen Tech &amp; University Study Trip</div>
+              <div class="timeline-org">Singapore Polytechnic · Shenzhen, China</div>
+              <ul>
+                <li>Visited <strong>The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen)</strong> for academic exchange and campus immersion.</li>
+                <li>Toured leading technology enterprises in Shenzhen to gain first-hand exposure to software innovation, hardware ecosystems, and global industry practices.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Secondary School (4 Years)</span>
+              <div class="timeline-title">Badminton Co-Curricular Activity (CCA)</div>
+              <div class="timeline-org">4-Year Member</div>
+              <ul>
+                <li>Demonstrated sustained discipline, resilience, and teamwork across four years of training and school representation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Work Experience -->
+        <div class="timeline-column">
+          <h3>💼 Work Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-date">Sep 2026 – Nov 2026</span>
+              <div class="timeline-title">Cook (Part-time)</div>
+              <div class="timeline-org">Universal Studios Singapore (USS) · Singapore</div>
+              <ul>
+                <li>Prepared high-volume food orders accurately in a fast-paced hospitality environment while strictly upholding food safety and hygiene standards.</li>
+                <li>Coordinated closely with kitchen crew during peak hours to maintain smooth workflows and timely service delivery.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Dec 2024 – Feb 2025</span>
+              <div class="timeline-title">Temporary Staff (Part-time)</div>
+              <div class="timeline-org">NTUC FairPrice · Singapore</div>
+              <ul>
+                <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
+                <li>Monitored shelf inventory levels, replenished stock, and maintained an organised retail floor for a smooth customer experience.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-date">Languages &amp; Certifications</span>
+              <div class="timeline-title">Communication &amp; Credentials</div>
+              <div class="timeline-org">Singaporean</div>
+              <ul>
+                <li><strong>Languages:</strong> English &amp; Tamil (Good spoken and written proficiency).</li>
+                <li><strong>Certifications:</strong> Rock Your LinkedIn.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <span class="section-eyebrow">04 // Get In Touch</span>
+        <h2 class="section-title">Looking for an Internship from March 2027</h2>
+        <p class="section-desc" style="margin: 0 auto;">
+          I am eager to learn through mentorship, take initiative on real-world software or cybersecurity projects, and contribute meaningful value to your engineering team.
+        </p>
+
+        <div class="contact-grid">
+          <a href="mailto:brianjeffrey1518@gmail.com" class="contact-item">
+            <span class="contact-label">✉️ Email</span>
+            <span class="contact-val">brianjeffrey1518@gmail.com</span>
+          </a>
+
+          <a href="tel:+6597227598" class="contact-item">
+            <span class="contact-label">📱 Phone</span>
+            <span class="contact-val">+65 9722 7598</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener" class="contact-item">
+            <span class="contact-label">🔗 LinkedIn</span>
+            <span class="contact-val">linkedin.com/in/brianjeffreyd</span>
+          </a>
+
+          <a href="resume.html" class="contact-item">
+            <span class="contact-label">📄 Resume / CV</span>
+            <span class="contact-val">View Printable Resume →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Brian Jeffrey · Built for GitHub Pages · Singapore Polytechnic (Diploma in Information Technology)</p>
+    </div>
+  </footer>
+
+  <!-- TECHNICAL ARCHITECTURE MODAL -->
+  <div class="modal-backdrop" id="projectModal" onclick="if(event.target === this) closeProjectModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <span class="section-eyebrow" id="modalEyebrow">Project Architecture</span>
+          <h3 id="modalTitle" style="font-size: 1.35rem; font-weight: 800;"></h3>
+        </div>
+        <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Dark / Light Theme Toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const htmlEl = document.documentElement;
+
+    themeToggle.addEventListener("click", () => {
+      const current = htmlEl.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      htmlEl.setAttribute("data-theme", next);
+      themeToggle.textContent = next === "dark" ? "☀️" : "🌙";
+    });
+
+    // Category Filter for Projects
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+
+        projectCards.forEach((card) => {
+          if (filter === "all" || card.getAttribute("data-category") === filter) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Project Technical Details Modal Data
+    const projectDetails = {
+      byteme: {
+        eyebrow: "CI/CD Agile Team Project · Brian's Feature Ownership",
+        title: "ByteMe — User Management & Group Study Rooms",
+        html: `
+          <p style="color: var(--text-secondary);">
+            In our 5-member agile project, I owned the end-to-end backend and frontend implementation for <strong>User Management &amp; Authentication</strong> and <strong>Group Study Rooms</strong>.
+          </p>
+          <h4>1. User Management &amp; JWT Security</h4>
+          <div class="code-snippet">POST /api/users/register  → bcrypt password hashing + account creation
+POST /api/users/login     → credential verification + signed JWT issuance
+GET  /api/users/profile   → protected route returning points, join date &amp; user info
+PUT  /api/users/profile   → update display_name with validation middleware</div>
+          <h4>2. Group Study Rooms &amp; Relational Schema</h4>
+          <div class="code-snippet">Tables Engineered in PostgreSQL:
+• study_rooms (id, name, room_code, creator_id, status, created_at)
+• study_room_members (id, room_id -> study_rooms.id, user_id -> users.id, presence_status)
+• study_room_messages (id, room_id -> study_rooms.id, user_id -> users.id, message, sent_at)</div>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Users can create private rooms, share an invite code, view active room members and live study timer presence, chat with group members, leave a room, or close the room as host.
+          </p>
+        `
+      },
+      wellness: {
+        eyebrow: "Back-End Development (BED CA2) · Full-Stack MVC",
+        title: "Gamified Wellness Challenge Application",
+        html: `
+          <p style="color: var(--text-secondary);">
+            A Node.js, Express, and MySQL web application that turns daily wellness habits into an RPG progression system with houses, spells, badges, and elemental multipliers.
+          </p>
+          <h4>Key Backend Endpoints</h4>
+          <div class="code-snippet">POST /api/register &amp; POST /api/login   → JWT auth + bcrypt + random House &amp; Year 1 init
+GET  /api/challenge &amp; POST /api/challenge/:id → Enforces cooldowns &amp; calculates reward multipliers
+GET  /api/shop/spells &amp; POST /api/shop/buy    → Point deduction &amp; user spell inventory tracking
+POST /api/badge/buy &amp; GET /api/badge/badges   → Death Eater set check before unlocking Voldemort badge</div>
+          <h4>Reward Calculation Mechanics</h4>
+          <div class="code-snippet">• Elemental Type Multipliers: Strong (1.5×) | Neutral (1.0×) | Weak (0.75×)
+• Badge Ownership Bonus: 0–2 (1.0×), 3–5 (1.1×), 6–8 (1.2×), 9–11 (1.3×), 12+ (1.4×)
+• Anti-Farming Cooldowns: Prevents repeated completions before cooldown expiry</div>
+        `
+      },
+      security: {
+        eyebrow: "Cybersecurity Coursework · Technical Report",
+        title: "Ethical Hacking & Vulnerability Assessment",
+        html: `
+          <p style="color: var(--text-secondary);">
+            Focused on identifying, analysing, and remediating security vulnerabilities across networked systems and web applications in a controlled lab environment.
+          </p>
+          <h4>Assessment Phases Covered</h4>
+          <div class="code-snippet">1. Reconnaissance &amp; Footprinting   → Discovering active hosts, open ports, and running services
+2. Vulnerability Scanning          → Identifying misconfigurations, outdated services, and weak controls
+3. Exploitation &amp; Verification     → Validating impact and risk severity of discovered weaknesses
+4. Remediation &amp; Hardening Report  → Recommending patching, access controls, and input sanitization</div>
+        `
+      }
+    };
+
+    function openProjectModal(key) {
+      const data = projectDetails[key];
+      if (!data) return;
+      document.getElementById("modalEyebrow").textContent = data.eyebrow;
+      document.getElementById("modalTitle").textContent = data.title;
+      document.getElementById("modalBody").innerHTML = data.html;
+      document.getElementById("projectModal").classList.add("open");
+    }
+
+    function closeProjectModal() {
+      document.getElementById("projectModal").classList.remove("open");
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeProjectModal();
+    });
+  </script>
+</body>
+</html>

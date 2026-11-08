@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian Jeffrey — Resume</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 15mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Calibri", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #222222;
+      background-color: #f4f6f8;
+      line-height: 1.38;
+      font-size: 10pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 14mm 16mm;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: auto;
+      }
+      .top-toolbar {
+        display: none !important;
+      }
+    }
+
+    .top-toolbar {
+      max-width: 210mm;
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .toolbar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 9.5pt;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #1e293b;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .toolbar-btn.primary {
+      background: #1b365d;
+      color: #ffffff;
+      border-color: #1b365d;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 23pt;
+      font-weight: 700;
+      color: #1b365d;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .headline {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1f4e79;
+      margin-bottom: 4px;
+    }
+
+    .contact-line {
+      font-size: 9.5pt;
+      color: #444444;
+      margin-bottom: 2px;
+    }
+
+    .contact-line a {
+      color: #444444;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .availability {
+      font-size: 9.5pt;
+      color: #595959;
+      margin-bottom: 10px;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 9px;
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1f4e79;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d0d7de;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+      letter-spacing: 0.2px;
+    }
+
+    p {
+      margin-bottom: 3px;
+      color: #2b2b2b;
+    }
+
+    .portfolio-link a {
+      color: #0563c1;
+      text-decoration: underline;
+    }
+
+    /* Entries */
+    .entry {
+      margin-bottom: 7px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .entry-subtitle {
+      font-size: 9.2pt;
+      color: #595959;
+      margin-top: 1px;
+      margin-bottom: 2px;
+    }
+
+    .entry-subtitle a {
+      color: #595959;
+      text-decoration: none;
+    }
+
+    .entry-subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 15px;
+      margin-top: 2px;
+    }
+
+    li {
+      margin-bottom: 2px;
+      color: #2b2b2b;
+    }
+
+    .skills-list p {
+      margin-bottom: 2.5px;
+    }
+
+    .skills-label {
+      font-weight: 600;
+      color: #111111;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-toolbar">
+    <a href="index.html" class="toolbar-btn">← Back to Portfolio Website</a>
+    <button onclick="window.print()" class="toolbar-btn primary">🖨️ Print / Save as PDF</button>
+  </div>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <h1>BRIAN JEFFREY</h1>
+      <div class="headline">Full-Stack Software Development &amp; Cybersecurity Internship Candidate | Singapore Polytechnic</div>
+      <div class="contact-line">
+        <a href="mailto:brianjeffrey1518@gmail.com">brianjeffrey1518@gmail.com</a> |
+        +65 9722 7598 |
+        <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank">https://www.linkedin.com/in/brianjeffreyd/</a> |
+        Singapore (Singaporean)
+      </div>
+      <div class="availability">Available for internships from March 2027</div>
+    </header>
+
+    <!-- PROFILE -->
+    <section class="section">
+      <div class="section-title">PROFILE</div>
+      <p>
+        Diploma in Information Technology student at Singapore Polytechnic with hands-on academic experience in full-stack web development (Node.js, Express.js, PostgreSQL, MySQL), Python, and ethical hacking. Passionate about building secure web applications, networking, and vulnerability assessment, complemented by leadership experience as Class Chairman and global industry exposure in Shenzhen. Eager to strengthen my technical skills through mentorship and real-world challenges to contribute meaningful value to the team.
+      </p>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section">
+      <div class="section-title">PORTFOLIO</div>
+      <p class="portfolio-link">
+        Link to portfolio: <a href="index.html">Brian Jeffrey — Full-Stack &amp; Cybersecurity Student Portfolio</a>
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-title">EDUCATION</div>
+      <div class="entry">
+        <div class="entry-title">Singapore Polytechnic | Diploma in Information Technology</div>
+        <div class="entry-subtitle">Apr 2025 – Apr 2028 (expected)</div>
+        <ul>
+          <li><strong>Leadership &amp; Global Exposure:</strong> Class Chairman (Semester 2); SP Leadership Camp Participant; Overseas Immersion Trip to Shenzhen, China (visited CUHK-Shenzhen and leading Shenzhen technology enterprises).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section skills-list">
+      <div class="section-title">TECHNICAL SKILLS</div>
+      <p><span class="skills-label">Programming &amp; Web:</span> JavaScript, Python, SQL, HTML, CSS, Node.js, Express.js, RESTful APIs</p>
+      <p><span class="skills-label">Databases &amp; Security:</span> PostgreSQL, MySQL, JWT Authentication, bcrypt Hashing, Ethical Hacking, Vulnerability Assessment</p>
+      <p><span class="skills-label">Tools &amp; Concepts:</span> Git, GitHub, Postman, pgAdmin4, Relational Database Design, Networking, System Administration</p>
+    </section>
+
+    <!-- ACADEMIC PROJECTS -->
+    <section class="section">
+      <div class="section-title">ACADEMIC PROJECTS</div>
+
+      <div class="entry">
+        <div class="entry-title">ByteMe — Study Productivity &amp; Social Web Application | Continuity &amp; Integration (CI/CD)</div>
+        <div class="entry-subtitle">
+          Node.js · Express.js · PostgreSQL · JavaScript · HTML/CSS · JWT · bcrypt |
+          <a href="https://github.com/soc-cicd/ay2627s1-project-class-2b26-byteme" target="_blank">github.com/soc-cicd/ay2627s1-project-class-2b26-byteme</a>
+        </div>
+        <ul>
+          <li>Spearheaded end-to-end development of <strong>User Management</strong> and <strong>Group Study Rooms</strong> within a 5-member agile team building a full-stack study productivity platform.</li>
+          <li>Engineered secure registration, login, and profile management workflows using JWT authentication, bcrypt password hashing, and route access control.</li>
+          <li>Architected PostgreSQL schemas and REST APIs for private Study Rooms, supporting invite-code joining, live study presence, real-time room chat messaging, and host controls.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">Gamified Wellness Challenge Web Application | Back-End Development (BED CA2)</div>
+        <div class="entry-subtitle">Node.js · Express.js · MySQL · JavaScript · HTML/CSS · JWT · bcrypt</div>
+        <ul>
+          <li>Built a full-stack gamified wellness web application where users complete challenges, progress through year levels, and spend points on consumable spells and collectible badges.</li>
+          <li>Designed MVC backend routes, controllers, and MySQL models supporting elemental type multipliers (1.5×/0.75×), tiered badge reward bonuses, challenge cooldown rules, and user reviews.</li>
+          <li>Implemented JWT-based authentication and bcrypt password encryption with automated user house assignment and inventory tracking.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">Ethical Hacking &amp; Vulnerability Assessment Report | Cybersecurity</div>
+        <div class="entry-subtitle">Ethical Hacking · Penetration Testing · Vulnerability Assessment · Network Security</div>
+        <ul>
+          <li>Conducted reconnaissance, vulnerability scanning, and security assessments in controlled environments to identify system and application security weaknesses.</li>
+          <li>Authored a technical assessment report detailing discovered attack vectors, risk severity analysis, and actionable security hardening recommendations.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="section">
+      <div class="section-title">WORK EXPERIENCE</div>
+
+      <div class="entry">
+        <div class="entry-title">Cook (Part-time) | Universal Studios Singapore (USS)</div>
+        <div class="entry-subtitle">Sep 2026 – Nov 2026 | Singapore</div>
+        <ul>
+          <li>Prepared high-volume food orders accurately in a fast-paced hospitality environment while strictly upholding food safety and hygiene standards.</li>
+          <li>Coordinated closely with kitchen team members during peak hours to maintain smooth kitchen workflows and timely service delivery.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-title">Temporary Staff (Part-time) | NTUC FairPrice</div>
+        <div class="entry-subtitle">Dec 2024 – Feb 2025 | Singapore</div>
+        <ul>
+          <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
+          <li>Monitored inventory levels, replenished stock, and maintained an organised retail floor to ensure a smooth shopping experience.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP, CO-CURRICULAR & LANGUAGES -->
+    <section class="section skills-list">
+      <div class="section-title">LEADERSHIP, CO-CURRICULAR &amp; LANGUAGES</div>
+      <p><span class="skills-label">Leadership &amp; CCA:</span> Class Chairman (Singapore Polytechnic, Sem 2); SP Leadership Camp; Shenzhen Tech Immersion Trip (CUHK-Shenzhen &amp; Tech Industry Visits); Secondary School Badminton CCA (4 Years)</p>
+      <p><span class="skills-label">Certifications:</span> Rock Your LinkedIn</p>
+      <p><span class="skills-label">Languages:</span> English and Tamil (Good spoken and written proficiency)</p>
+    </section>
+  </div>
+</body>
+</html>
