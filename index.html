@@ -82,7 +82,6 @@
       overflow-x: hidden;
     }
 
-    /* Subtle architectural grid background */
     body::before {
       content: "";
       position: fixed;
@@ -173,11 +172,6 @@
       height: 15px;
     }
 
-    .icon-lg {
-      width: 20px;
-      height: 20px;
-    }
-
     /* ==========================================================================
        2. LAYOUT & REUSABLE SURFACES
        ========================================================================== */
@@ -239,7 +233,6 @@
       color: var(--text-secondary);
     }
 
-    /* Standardized Card Component: Outer radius 12px, Inner radius 8px */
     .card {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-default);
@@ -260,7 +253,6 @@
       padding: 16px;
     }
 
-    /* Standardized Buttons (Radius 8px, never arbitrary pills) */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -307,7 +299,6 @@
       font-size: 0.8125rem;
     }
 
-    /* Standardized Technical Tag */
     .tag {
       display: inline-flex;
       align-items: center;
@@ -358,7 +349,7 @@
     }
 
     /* ==========================================================================
-       3. NAVIGATION BAR (Desktop & Accessible Mobile Drawer)
+       3. NAVIGATION BAR
        ========================================================================== */
     .navbar {
       position: sticky;
@@ -524,7 +515,6 @@
       gap: 12px;
     }
 
-    /* Interactive Backend & Security Inspector Workbench */
     .workbench {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-default);
@@ -700,6 +690,7 @@
     /* Featured Project Case Study */
     .featured-project {
       padding: 32px;
+      margin-bottom: 24px;
     }
 
     .project-meta-bar {
@@ -723,6 +714,20 @@
       letter-spacing: 0.05em;
     }
 
+    .meta-tag-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--success);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
     .featured-grid {
       display: grid;
       grid-template-columns: 1.08fr 1fr;
@@ -737,7 +742,7 @@
       margin-top: 10px;
     }
 
-    .arch-btn {
+    .arch-btn, .lt-arch-btn {
       padding: 8px 6px;
       border-radius: var(--radius-sm);
       background-color: var(--bg-base);
@@ -749,12 +754,12 @@
       transition: all 0.15s ease;
     }
 
-    .arch-btn:hover {
+    .arch-btn:hover, .lt-arch-btn:hover {
       color: var(--text-primary);
       border-color: var(--border-default);
     }
 
-    .arch-btn.active {
+    .arch-btn.active, .lt-arch-btn.active {
       background-color: var(--accent-subtle);
       border-color: var(--accent);
       color: var(--text-primary);
@@ -791,7 +796,6 @@
       line-height: 1.4;
     }
 
-    /* Case Study Tabs */
     .case-tabs {
       margin-top: 28px;
       display: flex;
@@ -800,7 +804,7 @@
       overflow-x: auto;
     }
 
-    .case-tab-btn {
+    .case-tab-btn, .lt-tab-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -813,23 +817,22 @@
       transition: color 0.15s ease;
     }
 
-    .case-tab-btn:hover {
+    .case-tab-btn:hover, .lt-tab-btn:hover {
       color: var(--text-primary);
     }
 
-    .case-tab-btn.active {
+    .case-tab-btn.active, .lt-tab-btn.active {
       color: var(--accent);
       border-bottom-color: var(--accent);
     }
 
     .case-tab-panel {
       padding-top: 20px;
-      min-height: 150px;
+      min-height: 145px;
     }
 
     /* Secondary Projects Grid */
     .projects-2col {
-      margin-top: 24px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
@@ -1146,7 +1149,7 @@
           </h1>
 
           <p class="hero-lead">
-            Diploma in Information Technology student at Singapore Polytechnic building Node.js, Express, PostgreSQL, and MySQL web applications with a focus on authentication security and vulnerability assessment.
+            Diploma in Information Technology student at Singapore Polytechnic building and deploying full-stack web applications with Node.js, Express, PostgreSQL, MySQL, automated Playwright test suites, and practical cybersecurity assessments.
           </p>
 
           <div class="hero-actions">
@@ -1156,20 +1159,18 @@
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
             </a>
+            <a href="https://brian1518.github.io/fitnessTracker/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M7 7h10v10" />
+              </svg>
+              <span>Live App: Lantern Training</span>
+            </a>
             <a href="https://github.com/brian1518" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
               <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                 <path d="M9 18c-4.51 2-5-2-7-2" />
               </svg>
               <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/brianjeffreyd/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect width="4" height="12" x="2" y="9" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              <span>LinkedIn</span>
             </a>
           </div>
         </div>
@@ -1184,15 +1185,15 @@
               </svg>
               <span>live_route_inspector.js</span>
             </span>
-            <span class="tag tabular-nums">Node.js · Express · SQL</span>
+            <span class="tag tabular-nums">Node.js · PostgreSQL · Zod</span>
           </div>
 
           <div class="workbench-tabs" role="tablist" aria-label="Select backend route to inspect">
             <button type="button" class="wb-tab active" role="tab" aria-selected="true" onclick="selectWorkbenchRoute(0, this)">
-              <span class="wb-method">POST</span>/api/rooms/join
+              <span class="wb-method">POST</span>/api/workouts
             </button>
             <button type="button" class="wb-tab" role="tab" aria-selected="false" onclick="selectWorkbenchRoute(1, this)">
-              <span class="wb-method">POST</span>/api/users/login
+              <span class="wb-method">POST</span>/api/rooms/join
             </button>
             <button type="button" class="wb-tab" role="tab" aria-selected="false" onclick="selectWorkbenchRoute(2, this)">
               <span class="wb-method">POST</span>/api/challenge/:id
@@ -1206,7 +1207,7 @@
                 <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M20 6 9 17l-5-5" />
                 </svg>
-                <span>200 OK · Verified in Postman</span>
+                <span>200 OK · Verified</span>
               </span>
               <button type="button" class="btn btn-secondary btn-sm" id="wbSimulateBtn" onclick="simulateRouteExecution()">
                 <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
@@ -1227,7 +1228,7 @@
       <div class="container">
         <div class="section-header">
           <p class="section-eyebrow"><span class="num">01</span> About Me</p>
-          <h2 class="section-title">Building reliable back-end systems with a security-first mindset.</h2>
+          <h2 class="section-title">Building reliable full-stack systems with a security-first mindset.</h2>
         </div>
 
         <div class="about-grid">
@@ -1236,10 +1237,10 @@
               I am <strong>Brian Jeffrey</strong>, a Year 2 Diploma in Information Technology student at Singapore Polytechnic focused on <strong>Full-Stack Software Development</strong> and <strong>Cybersecurity</strong>.
             </p>
             <p>
-              My interest in software engineering comes from understanding how data flows across an entire application: from the client interface, through authentication and validation middleware, down to normalized relational tables in PostgreSQL and MySQL.
+              My interest in software engineering comes from understanding how data flows across an entire application: from responsive frontend interfaces, through Zod schema validation, CSRF and session/JWT authentication middlewares, down to transactional SQL migrations in PostgreSQL and MySQL.
             </p>
             <p>
-              In school, I have built full-stack web applications using Node.js and Express, engineered JWT and bcrypt authentication workflows, and completed practical ethical hacking and vulnerability assessments. Alongside my technical modules, serving as <strong>Class Chairman</strong>, completing the <strong>SP Leadership Camp</strong>, and travelling to <strong>Shenzhen, China</strong> to visit CUHK-Shenzhen and technology enterprises taught me how to communicate clearly and collaborate effectively across teams.
+              Beyond coursework, I independently architected and deployed <strong>Lantern Training</strong>, a full-stack workout logger and progression platform hosted across GitHub Pages and Render with embedded local PGlite support, Playwright browser regression tests, and an optional xAI/Grok coaching integration. Alongside my technical work, serving as <strong>Class Chairman</strong>, completing the <strong>SP Leadership Camp</strong>, and travelling to <strong>Shenzhen, China</strong> to visit CUHK-Shenzhen and technology enterprises taught me how to communicate clearly and collaborate effectively across teams.
             </p>
             <p>
               I am seeking an internship starting in <strong>March 2027</strong> where I can contribute to production codebases, learn from experienced engineers, and take ownership of real engineering challenges.
@@ -1289,22 +1290,134 @@
     </section>
 
     <!-- ========================================================================
-         02. ACADEMIC PROJECTS (#projects)
+         02. PROJECTS (#projects)
          ======================================================================== -->
     <section id="projects" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">02</span> Academic Projects</p>
-          <h2 class="section-title">Selected engineering and security coursework.</h2>
+          <p class="section-eyebrow"><span class="num">02</span> Engineering Projects</p>
+          <h2 class="section-title">Production full-stack applications and security assessments.</h2>
           <p class="section-desc">
-            Full-stack applications and vulnerability assessments developed during my diploma at Singapore Polytechnic.
+            Four projects spanning deployed cloud applications, agile team platforms, MVC backends, and vulnerability assessments.
           </p>
         </div>
 
-        <!-- FEATURED PROJECT: ByteMe -->
+        <!-- ====================================================================
+             FLAGSHIP PROJECT 1: LANTERN TRAINING (LIVE FULL-STACK APP)
+             ==================================================================== -->
         <article class="card featured-project">
           <div class="project-meta-bar">
-            <span class="meta-tag-primary">Featured Project</span>
+            <span class="meta-tag-primary">Featured Production App</span>
+            <span class="meta-tag-live">Live on GitHub Pages + Render</span>
+            <span class="tag">End-to-End Solo Architecture</span>
+          </div>
+
+          <div class="featured-grid">
+            <!-- Left: Interactive Architecture Viewer for Lantern Training -->
+            <div>
+              <div class="surface-inner">
+                <pre class="wb-code" id="ltArchScreen" style="min-height: 215px; border: none; padding: 4px;"></pre>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                  <p id="ltArchTitle" style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--text-primary);"></p>
+                  <p id="ltArchCaption" style="margin-top: 4px; font-size: 0.84rem; color: var(--text-secondary);"></p>
+                </div>
+              </div>
+
+              <div class="arch-switcher-nav" role="tablist" aria-label="Lantern Training technical views">
+                <button type="button" class="lt-arch-btn active" onclick="setLtArchSlide(0)">1. Workout Logger</button>
+                <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(1)">2. Auth &amp; Security</button>
+                <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(2)">3. Dual PostgreSQL</button>
+                <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(3)">4. Progression</button>
+                <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(4)">5. AI &amp; Testing</button>
+              </div>
+            </div>
+
+            <!-- Right: Lantern Training Overview -->
+            <div>
+              <h3 style="font-size: 1.55rem; line-height: 1.25; font-weight: 700;">
+                Lantern Training: Full-Stack Workout Logger &amp; Progression Platform
+              </h3>
+
+              <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                A full-stack fitness tracker for logging workouts across 181 exercises, generating deterministic next-session load/rep targets, tracking body measurements, and querying an optional xAI/Grok training coach. Deployed with a GitHub Pages frontend and a Render Express + PostgreSQL backend.
+              </p>
+
+              <div class="surface-inner" style="margin-top: 18px;">
+                <p style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px;">
+                  Key Engineering Highlights
+                </p>
+                <ul class="bullet-list">
+                  <li><strong>Dual-Database Architecture:</strong> Adapts seamlessly between embedded local PostgreSQL (<code>@electric-sql/pglite</code>) and hosted Render PostgreSQL with versioned, transactional SQL migrations.</li>
+                  <li><strong>Hardened Security &amp; Concurrency:</strong> Uses <code>scrypt</code> password hashing, hashed 7-day session tokens, CSRF write tokens, <code>Zod</code> request validation, and optimistic concurrency version checks.</li>
+                  <li><strong>Automated Quality Gates:</strong> Tested with Node.js test runner, JSDOM, and Playwright browser regression checks.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tag">Node.js 22+</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">PostgreSQL &amp; PGlite</span>
+                <span class="tag">Zod</span>
+                <span class="tag">scrypt &amp; CSRF</span>
+                <span class="tag">Playwright &amp; JSDOM</span>
+                <span class="tag">xAI / Grok API</span>
+                <span class="tag">GitHub Actions &amp; Render</span>
+              </div>
+
+              <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="https://brian1518.github.io/fitnessTracker/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 17 17 7M7 7h10v10" />
+                  </svg>
+                  <span>Open Live Application</span>
+                </a>
+                <a href="https://github.com/brian1518/fitnessTracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                  </svg>
+                  <span>Source Code</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-number">181 Exercises</span>
+              <span class="metric-caption">Searchable by muscle group and equipment plus custom account exercises</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">Dual DB Mode</span>
+              <span class="metric-caption">Embedded PGlite for zero-setup local dev and Render PostgreSQL in production</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">scrypt + CSRF</span>
+              <span class="metric-caption">Hashed session tokens, CSRF verification, and idempotent retry IDs</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">Playwright CI</span>
+              <span class="metric-caption">Automated API, database, deterministic logic, and browser regression suites</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="case-tabs" role="tablist" aria-label="Lantern Training breakdown">
+              <button type="button" class="lt-tab-btn active" onclick="setLtTab('features', this)">Key Features</button>
+              <button type="button" class="lt-tab-btn" onclick="setLtTab('security', this)">Security &amp; Database</button>
+              <button type="button" class="lt-tab-btn" onclick="setLtTab('ai', this)">Progression &amp; AI Coach</button>
+              <button type="button" class="lt-tab-btn" onclick="setLtTab('testing', this)">Testing &amp; Deployment</button>
+            </div>
+            <div class="case-tab-panel" id="ltTabPanel"></div>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             FLAGSHIP PROJECT 2: BYTEME (5-MEMBER AGILE CI/CD PLATFORM)
+             ==================================================================== -->
+        <article class="card featured-project">
+          <div class="project-meta-bar">
+            <span class="meta-tag-primary">Featured Team Project</span>
             <span class="tag">Continuity &amp; Integration (CI/CD)</span>
             <span class="tag tabular-nums">5-Member Agile Team</span>
           </div>
@@ -1372,7 +1485,6 @@
             </div>
           </div>
 
-          <!-- Verified Project Metrics -->
           <div class="metrics-bar">
             <div class="metric-item">
               <span class="metric-number">9 Tables</span>
@@ -1392,7 +1504,6 @@
             </div>
           </div>
 
-          <!-- 5 Case Study Tabs -->
           <div>
             <div class="case-tabs" role="tablist" aria-label="ByteMe breakdown">
               <button type="button" class="case-tab-btn active" onclick="setFeaturedTab('features', this)">Key Features</button>
@@ -1407,7 +1518,7 @@
 
         <!-- SECONDARY PROJECTS GRID -->
         <div class="projects-2col">
-          <!-- Project 2: BED CA2 -->
+          <!-- Project 3: BED CA2 -->
           <article class="card card-interactive project-card">
             <div class="project-code-header">// BED CA2 Reward &amp; Cooldown Pipeline
 POST /api/challenge/:challenge_id
@@ -1464,7 +1575,7 @@ POST /api/challenge/:challenge_id
             </div>
           </article>
 
-          <!-- Project 3: Ethical Hacking Report -->
+          <!-- Project 4: Ethical Hacking Report -->
           <article class="card card-interactive project-card">
             <div class="project-code-header">// Vulnerability Assessment Methodology
 Phase 1: Host Discovery &amp; Port/Service Enumeration
@@ -1528,7 +1639,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
           <p class="section-eyebrow"><span class="num">03</span> Technical Skills</p>
           <h2 class="section-title">Core stack and security toolkit.</h2>
           <p class="section-desc">
-            Technologies applied in academic projects alongside areas I am actively studying next.
+            Technologies applied in academic and deployed projects alongside areas I am actively studying next.
           </p>
         </div>
 
@@ -1540,7 +1651,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               </span>
               <div>
                 <h3 style="font-size: 1.1rem; font-weight: 600;">Programming &amp; Web Development</h3>
-                <p style="font-size: 0.84rem; color: var(--text-muted);">Languages and frameworks used across coursework</p>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Languages, APIs, and validation libraries</p>
               </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -1549,8 +1660,8 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               <span class="tag">SQL</span>
               <span class="tag">Node.js</span>
               <span class="tag">Express.js</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
+              <span class="tag">Zod Validation</span>
+              <span class="tag">HTML5 &amp; CSS3</span>
               <span class="tag">RESTful APIs</span>
             </div>
           </div>
@@ -1561,16 +1672,16 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
               </span>
               <div>
-                <h3 style="font-size: 1.1rem; font-weight: 600;">Databases &amp; Authentication</h3>
-                <p style="font-size: 0.84rem; color: var(--text-muted);">Relational schema design and access control</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Databases &amp; Data Integrity</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Relational schema design and transactional migrations</p>
               </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag">PostgreSQL</span>
+              <span class="tag">PGlite (Embedded Postgres)</span>
               <span class="tag">MySQL</span>
-              <span class="tag">Relational Schema Design</span>
-              <span class="tag">JWT Authentication</span>
-              <span class="tag">bcrypt Password Hashing</span>
+              <span class="tag">SQL Migrations</span>
+              <span class="tag">Transactional Writes</span>
               <span class="tag">MVC Architecture</span>
             </div>
           </div>
@@ -1581,16 +1692,17 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </span>
               <div>
-                <h3 style="font-size: 1.1rem; font-weight: 600;">Cybersecurity &amp; Systems</h3>
-                <p style="font-size: 0.84rem; color: var(--text-muted);">Offensive and defensive security foundations</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Cybersecurity &amp; Authentication</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Application security and vulnerability assessment</p>
               </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag">Ethical Hacking</span>
               <span class="tag">Vulnerability Assessment</span>
+              <span class="tag">scrypt &amp; bcrypt Hashing</span>
+              <span class="tag">JWT &amp; Session Auth</span>
+              <span class="tag">CSRF Protection</span>
               <span class="tag">Network Fundamentals</span>
-              <span class="tag">System Administration</span>
-              <span class="tag tag-exploring">Exploring: Web App Pentesting</span>
               <span class="tag tag-exploring">Exploring: DevSecOps</span>
             </div>
           </div>
@@ -1601,17 +1713,17 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </span>
               <div>
-                <h3 style="font-size: 1.1rem; font-weight: 600;">Developer Tools &amp; Workflow</h3>
-                <p style="font-size: 0.84rem; color: var(--text-muted);">Version control, API verification, and team workflows</p>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Testing, AI &amp; Cloud Deployment</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Automated testing, LLM APIs, and CI/CD hosting</p>
               </div>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-              <span class="tag">Git &amp; GitHub</span>
-              <span class="tag">Postman</span>
-              <span class="tag">pgAdmin4</span>
-              <span class="tag">Agile CI/CD Collaboration</span>
-              <span class="tag tag-exploring">Exploring: Docker</span>
-              <span class="tag tag-exploring">Exploring: Automated Testing</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">Node.js Test Runner &amp; JSDOM</span>
+              <span class="tag">xAI / Grok API</span>
+              <span class="tag">Git &amp; GitHub Actions</span>
+              <span class="tag">Render &amp; GitHub Pages</span>
+              <span class="tag">Postman &amp; pgAdmin4</span>
             </div>
           </div>
         </div>
@@ -1627,7 +1739,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
           <p class="section-eyebrow" style="justify-content: center;"><span class="num">04</span> Progression</p>
           <h2 class="section-title">Learning, building, and leading.</h2>
           <p class="section-desc">
-            Key milestones across my technical coursework, leadership roles, and industry immersion at Singapore Polytechnic.
+            Key milestones across my technical coursework, deployed personal engineering projects, leadership roles, and industry immersion.
           </p>
         </div>
 
@@ -1684,8 +1796,8 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
 
             <li class="timeline-item left">
               <div class="card timeline-card">
-                <h3 style="font-size: 1.05rem; font-weight: 600;">Bridging Full-Stack &amp; Security</h3>
-                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Combining backend engineering with security principles to build applications with strong access control and data integrity.</p>
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Deploying Lantern Training to Production</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Architected and deployed a full-stack fitness platform across GitHub Pages and Render with PostgreSQL, PGlite, Zod, scrypt/CSRF security, Playwright tests, and xAI coaching.</p>
               </div>
               <span class="timeline-step-badge">07</span>
             </li>
@@ -1728,7 +1840,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               </span>
               <h3 style="font-size: 1rem; font-weight: 600;">Security by Design</h3>
-              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">From bcrypt password hashing and JWT verification to input validation, access control belongs in the core architecture.</p>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">From scrypt/bcrypt password hashing and CSRF tokens to Zod schema validation, access control belongs in the core architecture.</p>
             </div>
 
             <div class="card card-interactive">
@@ -1736,7 +1848,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
               </span>
               <h3 style="font-size: 1rem; font-weight: 600;">First-Principles Understanding</h3>
-              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">I trace through API controllers and SQL joins step by step so I can debug and explain every part of my code.</p>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">I trace through API controllers and SQL transactions step by step so I can debug and explain every part of my code.</p>
             </div>
 
             <div class="card card-interactive">
@@ -1744,7 +1856,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
               </span>
               <h3 style="font-size: 1rem; font-weight: 600;">Systematic Verification</h3>
-              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Testing endpoints in Postman and inspecting table state in pgAdmin4 across both valid requests and failure cases.</p>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Writing automated Node.js, JSDOM, and Playwright tests alongside Postman and pgAdmin4 verification.</p>
             </div>
 
             <div class="card card-interactive">
@@ -1752,7 +1864,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </span>
               <h3 style="font-size: 1rem; font-weight: 600;">Reliable Ownership</h3>
-              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Writing clear API documentation and keeping shared schemas stable so teammates can integrate without friction.</p>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Writing clear API documentation and deployment guides so projects remain maintainable and reproducible.</p>
             </div>
           </div>
         </div>
@@ -1907,8 +2019,8 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
           <div class="card">
             <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 14px;">What I Will Bring to the Team</h3>
             <ul class="bullet-list">
-              <li>Practical experience building Node.js and Express APIs, PostgreSQL and MySQL schemas, and JWT/bcrypt authentication.</li>
-              <li>A security-aware mindset grounded in ethical hacking and vulnerability assessment coursework.</li>
+              <li>Practical experience building and deploying Node.js/Express APIs, PostgreSQL and MySQL schemas, and Playwright test suites.</li>
+              <li>A security-aware mindset grounded in scrypt/JWT/CSRF authentication and ethical hacking coursework.</li>
               <li>Strong initiative, clear communication, and leadership experience from serving as Class Chairman.</li>
               <li>Ownership of assigned tasks, eagerness to learn new technologies quickly, and openness to mentorship.</li>
             </ul>
@@ -2042,8 +2154,26 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
       }
     });
 
-    // 2. Hero Interactive Route Workbench (Real code from ByteMe & BED CA2)
+    // 2. Hero Interactive Route Workbench (Lantern Training, ByteMe & BED CA2)
     const workbenchRoutes = [
+      {
+        code: `// Lantern Training: Save Workout Transactionally (workoutModel.js)
+POST /api/workouts
+Middleware: verifySession (scrypt) -> verifyCsrf -> Zod.parse(workoutSchema)
+
+PostgreSQL Transaction (PGlite / Render PostgreSQL):
+BEGIN;
+INSERT INTO workouts (id, user_id, title, version) VALUES ($1, $2, $3, 1);
+INSERT INTO workout_sets (workout_id, exercise_id, weight, reps, rpe) ...;
+COMMIT;`,
+        response: `// Response: 201 Created (29ms)
+{
+  "workoutId": "wk_01J9X8A7B2",
+  "workingVolumeKg": 4820,
+  "estimated1RM": { "Bench Press": "92.5 kg (Epley)" },
+  "nextSessionTarget": { "weightKg": 82.5, "repRange": "6-8" }
+}`
+      },
       {
         code: `// ByteMe: Join Private Study Room (studyRoomController.js)
 POST /api/study-rooms/join
@@ -2059,22 +2189,7 @@ VALUES ($1, $2, 'studying') RETURNING *;`,
 {
   "status": "success",
   "room": { "id": 14, "name": "2B26 Exam Prep", "code": "BYTE-8492" },
-  "member": { "userId": 4, "presence": "studying", "joinedAt": "2026-11-08T19:00:00Z" }
-}`
-      },
-      {
-        code: `// ByteMe: User Authentication (userController.js)
-POST /api/users/login
-Middleware: validateLoginBody -> comparePassword (bcrypt) -> signToken (JWT)
-
-SQL Query (PostgreSQL):
-SELECT id, username, display_name, password_hash, points
-FROM users WHERE username = $1;`,
-        response: `// Response: 200 OK (44ms)
-{
-  "message": "Login successful",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": { "id": 4, "username": "brian_j", "points": 340 }
+  "member": { "userId": 4, "presence": "studying" }
 }`
       },
       {
@@ -2119,19 +2234,132 @@ MySQL Logic:
       const statusEl = document.getElementById("wbStatusText");
       const route = workbenchRoutes[currentWbIndex];
 
-      statusEl.textContent = "Executing middleware & SQL query...";
+      statusEl.textContent = "Executing middleware & SQL transaction...";
       setTimeout(() => {
         codeEl.textContent = route.code + "\n\n" + route.response;
         statusEl.innerHTML = `
           <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>200 OK · Sample payload returned</span>
+          <span>201 Created · Sample payload returned</span>
         `;
       }, 220);
     }
 
     selectWorkbenchRoute(0, document.querySelector(".wb-tab"));
 
-    // 3. Featured Project (ByteMe) 5-Slide Architecture Switcher
+    // 3. Flagship Project 1 (Lantern Training) 5-Slide Architecture Switcher
+    const ltArchSlides = [
+      {
+        title: "1. Hevy-Inspired Workout Logger & 181-Exercise Engine",
+        caption: "Multiple exercise cards, previous set history, warm-up vs working sets, optional RPE/RIR, and automatic rest timers.",
+        code: `┌──────────────────────────────────────────────────────────┐
+│  TODAY'S WORKOUT: Upper A              [Rest Timer 01:45]│
+├──────────────────────────────────────────────────────────┤
+│  Barbell Bench Press (Chest · Barbell)   Target: 80kgx8  │
+│  Set   Prev       Weight(kg)   Reps   RPE   Completed    │
+│  W1    60 x 8     60           8      -     [x]          │
+│  1     80 x 8     80           8      8.0   [x]          │
+│  2     80 x 7     80           8      8.5   [x]          │
+└──────────────────────────────────────────────────────────┘`
+      },
+      {
+        title: "2. Authentication, CSRF & Concurrency Protection",
+        caption: "scrypt password hashes, hashed 7-day session tokens, CSRF write verification, and optimistic version checks.",
+        code: `Auth Flow:
+• Password Hashing   -> crypto.scrypt with unique per-user salt
+• Session Storage    -> Hashed token in DB (7-day expiry + revocation)
+• Write Protection   -> CSRF token validation + CORS origin lock
+• Retry & Edit Safety-> Stable client workout IDs + version checks`
+      },
+      {
+        title: "3. Dual PostgreSQL Adapter & Versioned SQL Migrations",
+        caption: "Runs embedded @electric-sql/pglite locally (.fitness-db) and external Render PostgreSQL in production.",
+        code: `src/backend/db.js:
+├── DATABASE_MODE=embedded -> @electric-sql/pglite (.fitness-db + process lock)
+└── DATABASE_MODE=postgres -> pg Pool (Render PostgreSQL + /healthz check)
+
+Startup Pipeline:
+Apply transactional SQL migrations -> Seed 181 exercises -> Start Express`
+      },
+      {
+        title: "4. Deterministic Progression & Epley 1RM Analytics",
+        caption: "Calculates working volume, estimated 1RM (sets <= 10 reps), and next-session load/rep targets.",
+        code: `Progression Engine (src/backend/services/progression):
+• Working Sets Only  -> Warm-up sets excluded from volume & 1RM
+• Epley 1RM Formula  -> weight * (1 + reps / 30) for reps <= 10
+• Load Increment     -> Triggered when top of rep range is met at manageable RPE
+• Safety Guards      -> Adjusts or holds targets on high fatigue or training gaps`
+      },
+      {
+        title: "5. xAI / Grok Coaching Adapter & Automated Test Suites",
+        caption: "Schema-validated AI coaching with daily caps and deterministic fallback, verified via Playwright and Node tests.",
+        code: `AI Adapter:
+• xAI Chat Completions (grok-4.7) + JSON Schema output validation + 25s timeout
+• Privacy-scoped context (no account name/email sent) + 10 req/day cap in ai_usage
+• Deterministic template fallback when AI is disabled or at limit
+
+Verification:
+• npm test (Node test runner + JSDOM) | npm run test:browser (Playwright + Edge)`
+      }
+    ];
+
+    function setLtArchSlide(idx) {
+      const s = ltArchSlides[idx];
+      document.getElementById("ltArchScreen").textContent = s.code;
+      document.getElementById("ltArchTitle").textContent = s.title;
+      document.getElementById("ltArchCaption").textContent = s.caption;
+      document.querySelectorAll(".lt-arch-btn").forEach((btn, i) => {
+        btn.classList.toggle("active", i === idx);
+      });
+    }
+    setLtArchSlide(0);
+
+    // 4. Flagship Project 1 (Lantern Training) 4-Tab Case Study Switcher
+    const ltTabs = {
+      features: [
+        "Hevy-inspired multi-card workout logger supporting warm-up sets, working sets, previous set references, optional RPE/RIR, notes, and automatic rest timers.",
+        "Searchable library of 181 exercises filterable by muscle group and equipment, plus custom user-created exercises.",
+        "Deterministic progression engine suggesting next-session load and rep targets based on completed working sets, effort, fatigue, and training gaps.",
+        "Comprehensive progress analytics tracking working volume, Epley estimated 1RM trends, bodyweight and waist measurements, and frequency/strength goals.",
+        "Isolated local demo seed (24 workouts across 6 weeks, 12 body measurements, Upper/Lower routine) for instant exploration without affecting personal data."
+      ],
+      security: [
+        "Authentication built with scrypt password hashing and hashed session tokens that expire after 7 days and revoke cleanly on sign-out.",
+        "Dual-environment session transport: HttpOnly cookies for local development and tab-scoped sessionStorage on GitHub Pages to avoid third-party cookie blocks.",
+        "All state-changing API endpoints enforce CSRF token validation, strict CORS origin allowlisting, and Zod schema validation.",
+        "Whole workout sessions save transactionally in workoutModel.js with stable client IDs for retry idempotency and version checks for concurrent edits.",
+        "Dual-mode database adapter (db.js) supporting zero-install embedded PostgreSQL (PGlite) locally and external PostgreSQL on Render in production."
+      ],
+      ai: [
+        "Optional xAI (grok-4.7) coaching adapter that combines training profile, recent sessions, analytics, goals, and bodyweight trends into structured JSON-schema advice.",
+        "Privacy-by-design prompt construction: strips personal identifiers (name and email) before sending training context to the backend AI service.",
+        "Enforces a 25-second timeout, per-account daily token/request limits tracked in the ai_usage table, and zero automatic retries on billable calls.",
+        "Works 100% offline or without AI keys via a deterministic recorded-data fallback generator."
+      ],
+      testing: [
+        "Split cloud deployment: static frontend packaged via GitHub Actions (.github/workflows/pages.yml) to GitHub Pages, paired with Express API and PostgreSQL on Render (render.yaml).",
+        "Automated test suite using the native Node.js test runner and JSDOM covering API routes, database transactions, and deterministic progression math.",
+        "End-to-end browser regression suite powered by Playwright running against an isolated in-memory database."
+      ]
+    };
+
+    function setLtTab(key, btnEl) {
+      document.querySelectorAll(".lt-tab-btn").forEach((b) => b.classList.remove("active"));
+      if (btnEl) btnEl.classList.add("active");
+      const items = ltTabs[key] || [];
+      const ul = document.createElement("ul");
+      ul.className = "bullet-list";
+      items.forEach((txt) => {
+        const li = document.createElement("li");
+        li.textContent = txt;
+        ul.appendChild(li);
+      });
+      const panel = document.getElementById("ltTabPanel");
+      panel.innerHTML = "";
+      panel.appendChild(ul);
+    }
+    setLtTab("features", document.querySelector(".lt-tab-btn"));
+
+    // 5. Flagship Project 2 (ByteMe) 5-Slide Architecture Switcher
     const archSlides = [
       {
         title: "1. Group Study Rooms & Live Presence (My Feature)",
@@ -2198,7 +2426,7 @@ Protected Pages:  dashboard.html | profile.html | study_room.html
     }
     setArchSlide(0);
 
-    // 4. Featured Project 5-Tab Case Study Switcher
+    // 6. Flagship Project 2 (ByteMe) 5-Tab Case Study Switcher
     const featuredTabs = {
       features: [
         "User registration and login secured with bcrypt password hashing and signed JWT bearer tokens.",
@@ -2248,7 +2476,7 @@ Protected Pages:  dashboard.html | profile.html | study_room.html
     }
     setFeaturedTab("features", document.querySelector(".case-tab-btn"));
 
-    // 5. Secondary Project Drawer Toggles
+    // 7. Secondary Project Drawer Toggles
     function toggleDrawer(id, btn) {
       const el = document.getElementById(id);
       const isOpen = el.classList.toggle("open");
@@ -2258,7 +2486,7 @@ Protected Pages:  dashboard.html | profile.html | study_room.html
         : "Inspect features, learnings & architecture";
     }
 
-    // 6. Copy Email with Feedback State
+    // 8. Copy Email with Feedback State
     async function copyEmailAddress() {
       const textEl = document.getElementById("copyEmailText");
       try {
