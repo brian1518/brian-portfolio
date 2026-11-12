@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brian Jeffrey | Full-Stack Software &amp; Cybersecurity Portfolio</title>
   <meta name="description" content="Portfolio of Brian Jeffrey, Diploma in Information Technology student at Singapore Polytechnic specializing in Node.js, PostgreSQL, MySQL, CI/CD, requirements engineering, and Cybersecurity. Available for internships from March 2027." />
-  <meta name="theme-color" content="#090A0D" />
+  <meta name="theme-color" content="#050506" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090A0D' stroke='%23EF4444' stroke-width='1.5'/%3E%3Cpath d='M16 7.5L12.5 3.5L9.2 9.2L3 7L7.2 14.5L4 19.8L11.4 18.2L16 27.5L20.6 18.2L28 19.8L24.8 14.5L29 7L22.8 9.2L19.5 3.5L16 7.5Z' fill='%23EF4444'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,10 +15,10 @@
        1. DESIGN SYSTEM TOKENS (Restrained Obsidian, Gunmetal & Red Hood Crimson)
        ========================================================================== */
     :root {
-      --bg-base: #090a0d;
-      --bg-surface: #0f1116;
-      --bg-elevated: #151820;
-      --bg-interactive: #1c202a;
+      --bg-base: #050506;
+      --bg-surface: #151517;
+      --bg-elevated: #1d1d20;
+      --bg-interactive: #26262a;
 
       --text-primary: #f4f6f9;
       --text-secondary: #a8b2c1;
@@ -36,9 +36,9 @@
       --success: #10b981;
 
       /* Geometric Corner Radius System: Outer (12px) -> Inner (8px / 6px) */
-      --radius-lg: 12px;
-      --radius-md: 8px;
-      --radius-sm: 6px;
+      --radius-lg: 28px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
 
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-display: "Space Grotesk", "Inter", sans-serif;
@@ -1263,6 +1263,162 @@
        6. RESPONSIVE BREAKPOINTS
        ========================================================================== */
     /* ==========================================================================
+       TILE CARDS: borderless rounded tiles on a near-black page, pill controls,
+       gentle hover lift, and reveal-on-scroll
+       ========================================================================== */
+    .card {
+      border: none;
+      padding: 32px;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.5s ease;
+    }
+
+    .featured-project {
+      padding: 44px;
+      margin-bottom: 28px;
+    }
+
+    .card-interactive:hover {
+      background-color: var(--bg-elevated);
+      transform: scale(1.012);
+      box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.9);
+    }
+
+    .contact-card {
+      padding: 22px 26px;
+    }
+
+    .timeline-card {
+      padding: 26px;
+    }
+
+    .surface-inner,
+    .metric-item,
+    .project-code-header {
+      border: none;
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .metric-item {
+      padding: 22px;
+    }
+
+    .metric-number {
+      font-size: 1.85rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .surface-inner .wb-code {
+      background-color: transparent;
+    }
+
+    .btn,
+    .tag,
+    .meta-tag-primary,
+    .meta-tag-live,
+    .grade-tag,
+    .lt-tab-btn,
+    .case-tab-btn {
+      border-radius: 980px;
+    }
+
+    .tag {
+      padding: 5px 12px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    /* Segmented pill tabs inside project tiles */
+    .case-tabs {
+      gap: 8px;
+      padding-bottom: 4px;
+      border-bottom: none;
+    }
+
+    .case-tab-btn,
+    .lt-tab-btn {
+      padding: 9px 18px;
+      border-bottom: none;
+      background-color: rgba(255, 255, 255, 0.06);
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .case-tab-btn.active,
+    .lt-tab-btn.active {
+      color: #0b0b0c;
+      background-color: var(--text-primary);
+    }
+
+    .arch-btn,
+    .lt-arch-btn {
+      border-color: transparent;
+      border-radius: 14px;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .drawer-toggle {
+      padding: 13px 20px;
+      border: none;
+      border-radius: 980px;
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .tag.tag-exploring {
+      border: 1px dashed var(--border-strong);
+      background-color: transparent;
+    }
+
+    .workbench,
+    .live-frame,
+    .xp-table {
+      border-color: transparent;
+      background-color: var(--bg-surface);
+    }
+
+    .xp-table {
+      border: none;
+      border-radius: var(--radius-lg);
+    }
+
+    .xp-table .tag {
+      white-space: nowrap;
+    }
+
+    /* Reveal-on-scroll (class added by script, so content shows without JS) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px) scale(0.985);
+    }
+
+    .reveal.reveal-ready {
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .card-interactive:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .card,
+      .featured-project {
+        padding: 22px;
+      }
+    }
+
+    /* ==========================================================================
        SIDE NAVIGATION (desktop) + START-SCREEN MOTION
        ========================================================================== */
     .side-nav {
@@ -1397,8 +1553,7 @@
         width: 200px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 28px 0;
+        padding: 28px 0 62px;
         border-right: 1px solid var(--border-subtle);
         background-color: rgba(9, 10, 13, 0.72);
         backdrop-filter: blur(10px);
@@ -1420,6 +1575,7 @@
 
       .side-list {
         list-style: none;
+        margin: auto 0;
         display: flex;
         flex-direction: column;
         gap: 14px;
@@ -1489,12 +1645,6 @@
         background-color: var(--accent);
       }
 
-      .side-cta {
-        align-self: flex-start;
-        margin-left: 24px;
-        animation: side-in 0.5s ease 0.95s both;
-      }
-
       /* Full-height start screen */
       .hero {
         position: relative;
@@ -1560,7 +1710,6 @@
       .hero .workbench,
       .side-brand,
       .side-list li,
-      .side-cta,
       .scroll-cue {
         animation: none;
       }
@@ -1705,7 +1854,6 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
           <svg class="icon" viewBox="0 0 24 24" id="menuIconOpen">
             <line x1="4" y1="7" x2="20" y2="7" />
@@ -1756,7 +1904,6 @@
       <li style="--i: 9"><a href="#contact" class="side-link"><span class="side-line" aria-hidden="true"></span><span class="side-index">09</span><span>Contact</span></a></li>
     </ol>
 
-    <a href="#contact" class="btn btn-primary btn-sm side-cta">Get in Touch</a>
   </nav>
 
   <main id="main-content">
@@ -3011,6 +3158,39 @@ POST /api/challenge/:challenge_id
       byId.forEach((_, id) => {
         const section = document.getElementById(id);
         if (section) observer.observe(section);
+      });
+    })();
+
+    // 0c. Reveal tiles as they scroll into view
+    (function revealOnScroll() {
+      if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const targets = Array.from(
+        document.querySelectorAll("main .section .card, main .section .section-header, main .section .xp-table")
+      );
+      const viewport = window.innerHeight;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+            // once shown, drop the helper classes so hover transitions are not delayed
+            setTimeout(() => {
+              entry.target.classList.remove("reveal", "reveal-ready", "in-view");
+              entry.target.style.removeProperty("--reveal-delay");
+            }, 1400);
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      );
+      targets.forEach((el) => {
+        // anything already on screen at load stays put; only animate what is below the fold
+        if (el.getBoundingClientRect().top < viewport * 0.92) return;
+        const siblings = Array.from(el.parentElement.children).filter((c) => targets.includes(c));
+        el.style.setProperty("--reveal-delay", Math.min(siblings.indexOf(el), 3) * 90 + "ms");
+        el.classList.add("reveal");
+        requestAnimationFrame(() => el.classList.add("reveal-ready"));
+        observer.observe(el);
       });
     })();
 
