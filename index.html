@@ -1900,10 +1900,122 @@
           </div>
         </article>
 
+        <!-- ====================================================================
+             FLAGSHIP PROJECT 4: ETHICAL HACKING ESSENTIALS (ST2422)
+             ==================================================================== -->
+        <article class="card featured-project">
+          <div class="project-meta-bar">
+            <span class="meta-tag-primary">Featured Security Work</span>
+            <span class="tag">ST2422 Ethical Hacking Essentials</span>
+            <span class="tag">Kali Linux Lab</span>
+          </div>
+
+          <div class="featured-grid">
+            <!-- Left: real enumeration output from the server14 assessment -->
+            <div>
+              <div class="surface-inner">
+                <pre class="wb-code" style="min-height: 215px; border: none; padding: 4px;">$ nmap -sV -O 192.168.96.143        # server14 (lab VM)
+
+PORT    STATE  SERVICE  VERSION
+21/tcp  open   ftp      vsftpd 3.0.2
+22/tcp  open   ssh      OpenSSH 7.4
+80/tcp  open   http     Apache httpd 2.4.6
+OS: Linux
+
+$ nmap --script ftp-anon -p21 192.168.96.143
+230 Anonymous access granted   ← finding #1
+
+OpenVAS: SSH weak CBC ciphers (CVSS 4.3, QoD 95%)</pre>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                  <p style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--text-primary);">Enumerate, validate, then report</p>
+                  <p style="margin-top: 4px; font-size: 0.84rem; color: var(--text-secondary);">Automated results were confirmed by hand, such as a manual FTP login, before they went into the report.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: overview -->
+            <div>
+              <h3 style="font-size: 1.55rem; line-height: 1.25; font-weight: 700;">
+                Ethical Hacking Essentials: Lab Practicals &amp; server14 Vulnerability Assessment
+              </h3>
+
+              <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                Hands-on work in an isolated Kali Linux lab: five practicals covering cyber law, network traffic, OS vulnerabilities, reconnaissance, and social engineering, plus a group research report where I assessed the server14 virtual machine from first scan to remediation plan.
+              </p>
+
+              <div class="surface-inner" style="margin-top: 18px;">
+                <p style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px;">
+                  server14 Assessment: OS Vulnerabilities &amp; Enumeration
+                </p>
+                <ul class="bullet-list">
+                  <li>Fingerprinted the host and its services with <strong>Nmap</strong> (<code>-sV -O</code>) and NSE scripts for FTP, SSH, and HTTP.</li>
+                  <li>Ran an <strong>OpenVAS / Greenbone</strong> vulnerability scan, validated each result manually, and researched matching <strong>CVEs on the NVD</strong>.</li>
+                  <li>Wrote up 4 findings with CVSS scores, MITRE ATT&amp;CK mapping, and concrete fixes such as <code>anonymous_enable=NO</code>, SFTP, patching, and removing CBC ciphers.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tag">Kali Linux</span>
+                <span class="tag">Nmap &amp; NSE</span>
+                <span class="tag">OpenVAS</span>
+                <span class="tag">Wireshark</span>
+                <span class="tag">CVE / CVSS</span>
+                <span class="tag">MITRE ATT&amp;CK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-number">3 Services</span>
+              <span class="metric-caption">FTP, SSH, and HTTP enumerated and version-fingerprinted</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">4 Findings</span>
+              <span class="metric-caption">2 High and 2 Medium, each with evidence and a remediation plan</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">7 CVEs</span>
+              <span class="metric-caption">Researched on the NVD, including Optionsbleed (CVE-2017-9798)</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">5 Practicals</span>
+              <span class="metric-caption">Law, traffic analysis, OS vulns, recon, and social engineering</span>
+            </div>
+          </div>
+
+          <button type="button" class="drawer-toggle" aria-expanded="false" onclick="toggleDrawer('drawer-sec', this)">
+            <span>Inspect findings &amp; all five practicals</span>
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+
+          <div class="drawer-body" id="drawer-sec">
+            <div>
+              <h4 class="drawer-heading">server14 Findings</h4>
+              <ul class="bullet-list">
+                <li><strong>High · CVSS 7.5:</strong> Anonymous FTP login allowed on vsftpd 3.0.2, confirmed by Nmap (code 230) and a manual login. Fix: disable anonymous access and move to SFTP or FTPS.</li>
+                <li><strong>High · CVSS 7.5:</strong> Outdated Apache httpd 2.4.6, linked to CVE-2017-9798 (Optionsbleed), CVE-2017-7668, CVE-2017-3167, and CVE-2016-0736. Fix: patch, trim modules, consider a WAF.</li>
+                <li><strong>Medium · CVSS 5.3:</strong> Outdated OpenSSH 7.4, exposed to username enumeration (CVE-2018-15473). Fix: upgrade, key-based auth, brute-force protection.</li>
+                <li><strong>Medium · CVSS 4.3:</strong> SSH still offers legacy CBC ciphers (3des-cbc, aes-cbc, blowfish-cbc). Fix: allow only modern ciphers.</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="drawer-heading">Lab Practicals</h4>
+              <ul class="bullet-list">
+                <li><strong>Laws of the Land:</strong> Mapped essential services under Singapore's Cybersecurity Act and offences under the Computer Misuse Act.</li>
+                <li><strong>Ports &amp; Wireshark:</strong> Read <code>netstat</code> output to decide which services to disable (Telnet, RDP) and captured a TCP 3-way handshake for an HTTPS session.</li>
+                <li><strong>OS Vulnerabilities:</strong> Scanned a web server with OpenVAS, including log-level results, and captured FLAG1 on a lab VM by spotting a weak-password hint and logging in over SSH.</li>
+                <li><strong>Recon &amp; Port Scanning:</strong> Passive footprinting with Whois, full-range SYN scans (<code>nmap -sS -p-</code>), <code>--scan-delay</code> for rate limits and IDS evasion, and identified a SYN stealth scan in a packet capture.</li>
+                <li><strong>Social Engineering:</strong> Analysed real shoulder-surfing, dumpster-diving, and phishing cases and proposed controls such as privacy filters, shredding policy, MFA, and awareness training.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
         <!-- SECONDARY PROJECTS GRID -->
         <div class="projects-2col">
           <!-- Project 3: BED CA2 -->
-          <article class="card card-interactive project-card">
+          <article class="card card-interactive project-card" style="grid-column: 1 / -1;">
             <div class="project-code-header">// BED CA2 Reward &amp; Cooldown Pipeline
 POST /api/challenge/:challenge_id
 1. Validate JWT &amp; check last completion cooldown
@@ -1954,58 +2066,6 @@ POST /api/challenge/:challenge_id
                 <ul class="bullet-list">
                   <li>Structured routes, controllers, models, and services cleanly so multi-step reward calculations remained testable.</li>
                   <li>Designed relational MySQL schemas for inventories, completion logs, type charts, and year thresholds.</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project 4: Ethical Hacking Report -->
-          <article class="card card-interactive project-card">
-            <div class="project-code-header">// Vulnerability Assessment Methodology
-Phase 1: Host Discovery &amp; Port/Service Enumeration
-Phase 2: Vulnerability Identification &amp; Analysis
-Phase 3: Controlled Proof-of-Concept Exploitation
-Phase 4: Risk Rating &amp; Remediation Specification</div>
-
-            <div class="project-meta-bar">
-              <span class="tag">Cybersecurity Module</span>
-              <span class="tag">Security Assessment</span>
-            </div>
-
-            <h3 style="font-size: 1.3rem; font-weight: 700;">
-              Ethical Hacking &amp; Vulnerability Assessment Report
-            </h3>
-
-            <p style="margin-top: 10px; font-size: 0.9375rem; color: var(--text-secondary);">
-              A technical security assessment examining how network and application vulnerabilities can be enumerated, validated in a controlled lab environment, and mitigated through defense-in-depth hardening controls.
-            </p>
-
-            <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px;">
-              <span class="tag">Ethical Hacking</span>
-              <span class="tag">Vulnerability Assessment</span>
-              <span class="tag">Network Security</span>
-              <span class="tag">System Hardening</span>
-            </div>
-
-            <button type="button" class="drawer-toggle" aria-expanded="false" onclick="toggleDrawer('drawer-sec', this)">
-              <span>Inspect scope, findings &amp; takeaways</span>
-              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-
-            <div class="drawer-body" id="drawer-sec">
-              <div>
-                <h4 class="drawer-heading">Assessment Deliverables</h4>
-                <ul class="bullet-list">
-                  <li>Executed structured reconnaissance and port scanning to identify exposed services and system entry points.</li>
-                  <li>Documented step-by-step proof-of-concept validation and severity ratings for discovered vulnerabilities.</li>
-                  <li>Formulated remediation steps covering patch management, access control enforcement, and input validation.</li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="drawer-heading">Engineering Takeaways</h4>
-                <ul class="bullet-list">
-                  <li>Understanding offensive techniques directly improves how I write authentication middleware and SQL queries in my full-stack projects.</li>
-                  <li>Security documentation must translate technical findings into clear, prioritized fixes for engineering teams.</li>
                 </ul>
               </div>
             </div>
@@ -2088,6 +2148,10 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               <span class="tag">JWT &amp; Session Auth</span>
               <span class="tag">CSRF Protection</span>
               <span class="tag">Network Fundamentals</span>
+              <span class="tag">Nmap, OpenVAS &amp; Wireshark</span>
+              <span class="tag">CVE / CVSS Analysis</span>
+              <span class="tag">Kali Linux</span>
+              <span class="tag">Singapore CMA &amp; Cybersecurity Act</span>
               <span class="tag tag-exploring">Exploring: DevSecOps</span>
             </div>
           </div>
@@ -2181,7 +2245,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               <span class="timeline-step-badge">04</span>
               <div class="card timeline-card">
                 <h3 style="font-size: 1.05rem; font-weight: 600;">Ethical Hacking &amp; Vulnerability Analysis</h3>
-                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Conducted reconnaissance, vulnerability scanning, and remediation reporting in controlled cybersecurity lab environments.</p>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Worked through five Kali Linux practicals, then assessed the server14 VM with Nmap and OpenVAS and reported 4 findings backed by CVE research.</p>
               </div>
             </li>
 
@@ -2372,7 +2436,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <span class="tag">Continuity &amp; Integration (CI/CD)</span>
                 <span class="tag">Software Engineering Practice (SEP)</span>
                 <span class="tag">Back-End Development (BED)</span>
-                <span class="tag">Ethical Hacking &amp; Security</span>
+                <span class="tag">Ethical Hacking Essentials (ST2422)</span>
                 <span class="tag">Relational Database Systems</span>
                 <span class="tag">Python Programming</span>
               </div>
