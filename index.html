@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brian Jeffrey | Full-Stack Software &amp; Cybersecurity Portfolio</title>
-  <meta name="description" content="Portfolio of Brian Jeffrey, Diploma in Information Technology student at Singapore Polytechnic specializing in Node.js, PostgreSQL, MySQL, and Cybersecurity. Available for internships from March 2027." />
+  <meta name="description" content="Portfolio of Brian Jeffrey, Diploma in Information Technology student at Singapore Polytechnic specializing in Node.js, PostgreSQL, MySQL, CI/CD, requirements engineering, and Cybersecurity. Available for internships from March 2027." />
   <meta name="theme-color" content="#090A0D" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090A0D' stroke='%23EF4444' stroke-width='1.5'/%3E%3Cpath d='M16 7.5L12.5 3.5L9.2 9.2L3 7L7.2 14.5L4 19.8L11.4 18.2L16 27.5L20.6 18.2L28 19.8L24.8 14.5L29 7L22.8 9.2L19.5 3.5L16 7.5Z' fill='%23EF4444'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -742,6 +742,15 @@
       margin-top: 10px;
     }
 
+    .arch-switcher-nav.six {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Let wide code blocks scroll inside their card instead of widening the page on phones */
+    .featured-grid > * {
+      min-width: 0;
+    }
+
     .arch-btn, .lt-arch-btn {
       padding: 8px 6px;
       border-radius: var(--radius-sm);
@@ -1064,7 +1073,8 @@
         grid-template-columns: 1fr;
       }
 
-      .arch-switcher-nav {
+      .arch-switcher-nav,
+      .arch-switcher-nav.six {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1149,7 +1159,7 @@
           </h1>
 
           <p class="hero-lead">
-            Diploma in Information Technology student at Singapore Polytechnic building and deploying full-stack web applications with Node.js, Express, PostgreSQL, MySQL, automated Playwright test suites, and practical cybersecurity assessments.
+            Diploma in Information Technology student at Singapore Polytechnic building and deploying full-stack web applications with Node.js, Express, PostgreSQL, and MySQL, backed by automated testing (Playwright, JSDOM), CI/CD pipelines, requirements engineering, and practical cybersecurity assessments.
           </p>
 
           <div class="hero-actions">
@@ -1243,6 +1253,9 @@
               Beyond coursework, I independently architected and deployed <strong>Lantern Training</strong>, a full-stack workout logger and progression platform hosted across GitHub Pages and Render with embedded local PGlite support, Playwright browser regression tests, and an optional xAI/Grok coaching integration. Alongside my technical work, serving as <strong>Class Chairman</strong>, completing the <strong>SP Leadership Camp</strong>, and travelling to <strong>Shenzhen, China</strong> to visit CUHK-Shenzhen and technology enterprises taught me how to communicate clearly and collaborate effectively across teams.
             </p>
             <p>
+              In my <strong>SEP module</strong>, I led requirements engineering for a 4-member team designing a <strong>Food Delivery Order System</strong>: interviewing the Product Owner, writing 22 testable functional and 8 measurable non-functional requirements, and tracing every one of them into UML diagrams built with PlantUML.
+            </p>
+            <p>
               I am seeking an internship starting in <strong>March 2027</strong> where I can contribute to production codebases, learn from experienced engineers, and take ownership of real engineering challenges.
             </p>
           </div>
@@ -1298,7 +1311,7 @@
           <p class="section-eyebrow"><span class="num">02</span> Engineering Projects</p>
           <h2 class="section-title">Production full-stack applications and security assessments.</h2>
           <p class="section-desc">
-            Four projects spanning deployed cloud applications, agile team platforms, MVC backends, and vulnerability assessments.
+            Five projects spanning deployed cloud applications, agile team platforms, requirements engineering, MVC backends, and vulnerability assessments.
           </p>
         </div>
 
@@ -1323,12 +1336,13 @@
                 </div>
               </div>
 
-              <div class="arch-switcher-nav" role="tablist" aria-label="Lantern Training technical views">
+              <div class="arch-switcher-nav six" role="tablist" aria-label="Lantern Training technical views">
                 <button type="button" class="lt-arch-btn active" onclick="setLtArchSlide(0)">1. Workout Logger</button>
                 <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(1)">2. Auth &amp; Security</button>
                 <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(2)">3. Dual PostgreSQL</button>
                 <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(3)">4. Progression</button>
                 <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(4)">5. AI &amp; Testing</button>
+                <button type="button" class="lt-arch-btn" onclick="setLtArchSlide(5)">6. CI/CD Pipeline</button>
               </div>
             </div>
 
@@ -1349,7 +1363,7 @@
                 <ul class="bullet-list">
                   <li><strong>Dual-Database Architecture:</strong> Adapts seamlessly between embedded local PostgreSQL (<code>@electric-sql/pglite</code>) and hosted Render PostgreSQL with versioned, transactional SQL migrations.</li>
                   <li><strong>Hardened Security &amp; Concurrency:</strong> Uses <code>scrypt</code> password hashing, hashed 7-day session tokens, CSRF write tokens, <code>Zod</code> request validation, and optimistic concurrency version checks.</li>
-                  <li><strong>Automated Quality Gates:</strong> Tested with Node.js test runner, JSDOM, and Playwright browser regression checks.</li>
+                  <li><strong>Gated CI/CD Pipeline:</strong> Every push to <code>main</code> runs a GitHub Actions workflow that installs, tests, syntax-checks, and packages the app, and only deploys to GitHub Pages when every step passes, backed by a local Playwright browser regression suite.</li>
                 </ul>
               </div>
 
@@ -1396,8 +1410,8 @@
               <span class="metric-caption">Hashed session tokens, CSRF verification, and idempotent retry IDs</span>
             </div>
             <div class="metric-item">
-              <span class="metric-number">Playwright CI</span>
-              <span class="metric-caption">Automated API, database, deterministic logic, and browser regression suites</span>
+              <span class="metric-number">Gated CI/CD</span>
+              <span class="metric-caption">GitHub Actions tests every push to main and deploys only when all checks pass</span>
             </div>
           </div>
 
@@ -1406,7 +1420,7 @@
               <button type="button" class="lt-tab-btn active" onclick="setLtTab('features', this)">Key Features</button>
               <button type="button" class="lt-tab-btn" onclick="setLtTab('security', this)">Security &amp; Database</button>
               <button type="button" class="lt-tab-btn" onclick="setLtTab('ai', this)">Progression &amp; AI Coach</button>
-              <button type="button" class="lt-tab-btn" onclick="setLtTab('testing', this)">Testing &amp; Deployment</button>
+              <button type="button" class="lt-tab-btn" onclick="setLtTab('testing', this)">CI/CD &amp; Testing</button>
             </div>
             <div class="case-tab-panel" id="ltTabPanel"></div>
           </div>
@@ -1513,6 +1527,90 @@
               <button type="button" class="case-tab-btn" onclick="setFeaturedTab('next', this)">Next Steps</button>
             </div>
             <div class="case-tab-panel" id="featuredTabPanel"></div>
+          </div>
+        </article>
+
+        <!-- ====================================================================
+             FLAGSHIP PROJECT 3: SEP FOOD DELIVERY ORDER SYSTEM (REQUIREMENTS & UML)
+             ==================================================================== -->
+        <article class="card featured-project">
+          <div class="project-meta-bar">
+            <span class="meta-tag-primary">Featured Team Project</span>
+            <span class="tag">SEP Module</span>
+            <span class="tag tabular-nums">4-Member Team · Requirements Lead</span>
+          </div>
+
+          <div class="featured-grid">
+            <!-- Left: Requirements-to-design traceability flow -->
+            <div>
+              <div class="surface-inner">
+                <pre class="wb-code" style="min-height: 215px; border: none; padding: 4px;">// Requirements Engineering Pipeline
+
+1. ELICIT     Product Owner interview
+              └─ needs, constraints, priorities
+2. SPECIFY    22 functional requirements   (testable)
+               8 non-functional requirements (measurable)
+3. MODEL      PlantUML diagrams
+              ├─ Use Case   (who does what)
+              ├─ Sequence   (how objects interact)
+              └─ Activity   (end-to-end order flow)
+4. TRACE      every requirement ─▶ its UML model
+              no orphan requirements, no orphan diagrams</pre>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-subtle);">
+                  <p style="font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; color: var(--text-primary);">From stakeholder conversation to traceable design</p>
+                  <p style="margin-top: 4px; font-size: 0.84rem; color: var(--text-secondary);">Each requirement is written so it can be verified, then linked to the diagram that realises it.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Project Details & Ownership -->
+            <div>
+              <h3 style="font-size: 1.55rem; line-height: 1.25; font-weight: 700;">
+                Food Delivery Order System: Requirements Engineering &amp; UML Design
+              </h3>
+
+              <p style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                A software engineering project for my SEP module where our team specified and modelled a food delivery ordering system before any code was written. I led the requirements work end to end and know every requirement and diagram in it.
+              </p>
+
+              <div class="surface-inner" style="margin-top: 18px;">
+                <p style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 10px;">
+                  My Ownership: Requirements Engineering Lead
+                </p>
+                <ul class="bullet-list">
+                  <li>Planned and ran the <strong>Product Owner interview</strong> to elicit what the system had to do, for whom, and under which constraints.</li>
+                  <li>Wrote <strong>22 testable functional</strong> and <strong>8 measurable non-functional requirements</strong>, phrased so each one has a clear pass or fail condition.</li>
+                  <li>Built the <strong>requirements traceability</strong> that links every requirement to Use Case, Sequence, and Activity diagrams drawn in <strong>PlantUML</strong>.</li>
+                </ul>
+              </div>
+
+              <div style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px;">
+                <span class="tag">Requirements Engineering</span>
+                <span class="tag">Stakeholder Interviews</span>
+                <span class="tag">Requirements Traceability</span>
+                <span class="tag">UML</span>
+                <span class="tag">PlantUML</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-number">22 FRs</span>
+              <span class="metric-caption">Testable functional requirements, each with a verifiable outcome</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">8 NFRs</span>
+              <span class="metric-caption">Measurable non-functional requirements for quality attributes</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">100% Traced</span>
+              <span class="metric-caption">Every requirement mapped to the UML diagram that realises it</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-number">3 UML Views</span>
+              <span class="metric-caption">Use Case, Sequence, and Activity diagrams written in PlantUML</span>
+            </div>
           </div>
         </article>
 
@@ -1656,13 +1754,14 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag">JavaScript (ES6+)</span>
-              <span class="tag">Python</span>
+              <span class="tag">Python (Basic)</span>
               <span class="tag">SQL</span>
               <span class="tag">Node.js</span>
               <span class="tag">Express.js</span>
               <span class="tag">Zod Validation</span>
               <span class="tag">HTML5 &amp; CSS3</span>
               <span class="tag">RESTful APIs</span>
+              <span class="tag tag-exploring">Learning: C++</span>
             </div>
           </div>
 
@@ -1720,10 +1819,32 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
             <div style="display: flex; flex-wrap: wrap; gap: 8px;">
               <span class="tag">Playwright</span>
               <span class="tag">Node.js Test Runner &amp; JSDOM</span>
+              <span class="tag">Jest &amp; SuperTest</span>
+              <span class="tag">Test Design: EP &amp; BVA</span>
               <span class="tag">xAI / Grok API</span>
-              <span class="tag">Git &amp; GitHub Actions</span>
+              <span class="tag">GitHub Actions CI/CD</span>
               <span class="tag">Render &amp; GitHub Pages</span>
               <span class="tag">Postman &amp; pgAdmin4</span>
+            </div>
+          </div>
+
+          <div class="card card-interactive" style="grid-column: 1 / -1;">
+            <div class="skill-header">
+              <span class="fact-icon-box" aria-hidden="true">
+                <svg class="icon" viewBox="0 0 24 24"><rect width="8" height="6" x="2" y="3" rx="1"/><rect width="8" height="6" x="14" y="15" rx="1"/><path d="M6 9v4a2 2 0 0 0 2 2h6"/></svg>
+              </span>
+              <div>
+                <h3 style="font-size: 1.1rem; font-weight: 600;">Software Engineering &amp; Design</h3>
+                <p style="font-size: 0.84rem; color: var(--text-muted);">Turning stakeholder needs into testable, traceable designs</p>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <span class="tag">Requirements Engineering</span>
+              <span class="tag">Stakeholder Interviews</span>
+              <span class="tag">Requirements Traceability</span>
+              <span class="tag">UML: Use Case, Sequence, Activity</span>
+              <span class="tag">PlantUML</span>
+              <span class="tag">Agile Teamwork &amp; Git Workflow</span>
             </div>
           </div>
         </div>
@@ -1796,19 +1917,27 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
 
             <li class="timeline-item left">
               <div class="card timeline-card">
-                <h3 style="font-size: 1.05rem; font-weight: 600;">Deploying Lantern Training to Production</h3>
-                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Architected and deployed a full-stack fitness platform across GitHub Pages and Render with PostgreSQL, PGlite, Zod, scrypt/CSRF security, Playwright tests, and xAI coaching.</p>
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Requirements Engineering Lead (SEP)</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Led a 4-member team's requirements for a Food Delivery Order System: Product Owner interview, 22 functional and 8 non-functional requirements, all traced to PlantUML diagrams.</p>
               </div>
               <span class="timeline-step-badge">07</span>
             </li>
 
             <li class="timeline-item right">
               <span class="timeline-step-badge">08</span>
+              <div class="card timeline-card">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">Shipping Lantern Training with CI/CD</h3>
+                <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Architected and deployed a full-stack fitness platform on GitHub Pages and Render, released through a GitHub Actions pipeline that tests every push before it deploys.</p>
+              </div>
+            </li>
+
+            <li class="timeline-item left">
               <div class="card timeline-card" style="border-style: dashed; border-color: var(--accent-border);">
                 <span class="tag" style="color: var(--accent); border-color: var(--accent-border); margin-bottom: 8px;">Next Milestone · March 2027</span>
                 <h3 style="font-size: 1.05rem; font-weight: 600;">Industry Internship</h3>
                 <p style="margin-top: 6px; font-size: 0.88rem; color: var(--text-secondary);">Ready to contribute to a software engineering or cybersecurity team while learning production practices from senior engineers.</p>
               </div>
+              <span class="timeline-step-badge">09</span>
             </li>
           </ol>
         </div>
@@ -1856,7 +1985,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <svg class="icon" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
               </span>
               <h3 style="font-size: 1rem; font-weight: 600;">Systematic Verification</h3>
-              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Writing automated Node.js, JSDOM, and Playwright tests alongside Postman and pgAdmin4 verification.</p>
+              <p style="margin-top: 6px; font-size: 0.875rem; color: var(--text-secondary);">Designing test cases with equivalence partitioning and boundary value analysis, automating them with Node.js, JSDOM, and Playwright, and gating every deploy behind CI.</p>
             </div>
 
             <div class="card card-interactive">
@@ -1958,6 +2087,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               </p>
               <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                 <span class="tag">Continuity &amp; Integration (CI/CD)</span>
+                <span class="tag">SEP: Requirements &amp; UML</span>
                 <span class="tag">Back-End Development (BED)</span>
                 <span class="tag">Ethical Hacking &amp; Security</span>
                 <span class="tag">Relational Database Systems</span>
@@ -1985,7 +2115,18 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
                 <li><strong>SP Leadership Camp:</strong> Completed student leadership and team-building training.</li>
                 <li><strong>Badminton CCA (4 Years, Secondary School):</strong> Sustained commitment, discipline, and teamwork.</li>
                 <li><strong>Languages:</strong> English and Tamil (good spoken and written proficiency).</li>
+                <li><strong>Certification:</strong> Rock Your LinkedIn.</li>
               </ul>
+            </article>
+
+            <article class="card">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+                <h3 style="font-size: 1.05rem; font-weight: 600;">GCE O-Level · Secondary School</h3>
+                <span class="tag tabular-nums">2021 – 2024</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                Completed the GCE O-Level while committing four years to the Badminton CCA.
+              </p>
             </article>
           </div>
         </div>
@@ -2019,7 +2160,8 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
           <div class="card">
             <h3 style="font-size: 1.15rem; font-weight: 600; margin-bottom: 14px;">What I Will Bring to the Team</h3>
             <ul class="bullet-list">
-              <li>Practical experience building and deploying Node.js/Express APIs, PostgreSQL and MySQL schemas, and Playwright test suites.</li>
+              <li>Practical experience building and deploying Node.js/Express APIs, PostgreSQL and MySQL schemas, Playwright test suites, and GitHub Actions CI/CD pipelines.</li>
+              <li>Requirements engineering experience: turning stakeholder interviews into testable requirements and traceable UML designs.</li>
               <li>A security-aware mindset grounded in scrypt/JWT/CSRF authentication and ethical hacking coursework.</li>
               <li>Strong initiative, clear communication, and leadership experience from serving as Class Chairman.</li>
               <li>Ownership of assigned tasks, eagerness to learn new technologies quickly, and openness to mentorship.</li>
@@ -2299,6 +2441,24 @@ Apply transactional SQL migrations -> Seed 181 exercises -> Start Express`
 
 Verification:
 • npm test (Node test runner + JSDOM) | npm run test:browser (Playwright + Edge)`
+      },
+      {
+        title: "6. GitHub Actions CI/CD Pipeline",
+        caption: "Every push to main is installed, tested, syntax-checked, and packaged; the deploy job only runs when the build job passes.",
+        code: `push to main ─▶ .github/workflows/pages.yml
+
+BUILD job (ubuntu-latest · Node 22)
+  1. npm ci             cached, lockfile-exact install
+  2. npm test           API, auth, persistence, progression, CSRF
+  3. npm run build      node --check on every .js file
+  4. build:pages        HTTPS-only API origin + public allowlist
+  5. upload artifact    dist-pages/
+        │ only if every step passes
+        ▼
+DEPLOY job (pages: write · id-token: write)
+  6. deploy-pages  ─▶  brian1518.github.io/fitnessTracker
+
+API: render.yaml ─▶ Render (Express + PostgreSQL, /healthz)`
       }
     ];
 
@@ -2336,9 +2496,12 @@ Verification:
         "Works 100% offline or without AI keys via a deterministic recorded-data fallback generator."
       ],
       testing: [
-        "Split cloud deployment: static frontend packaged via GitHub Actions (.github/workflows/pages.yml) to GitHub Pages, paired with Express API and PostgreSQL on Render (render.yaml).",
-        "Automated test suite using the native Node.js test runner and JSDOM covering API routes, database transactions, and deterministic progression math.",
-        "End-to-end browser regression suite powered by Playwright running against an isolated in-memory database."
+        "Continuous integration in GitHub Actions (.github/workflows/pages.yml): every push to main, or a manual run, triggers npm ci on Node 22 with a cached dependency install.",
+        "Quality gate before any release: the Node.js test runner covers authentication, account ownership, workouts, goals, persistence, progression math, and Pages-specific CSRF and origin rules, followed by a node --check syntax pass over every source file.",
+        "Secure packaging: the Pages build only accepts an HTTPS API origin with no credentials or query string, and copies an explicit allowlist of public files, so the repository and .env are never published.",
+        "Continuous deployment: a separate deploy job runs only after the build job succeeds, with least-privilege permissions (pages: write, id-token: write) and a concurrency group so releases never overlap.",
+        "Backend infrastructure as code: render.yaml defines the Express API and managed PostgreSQL on Render, with production-only installs, a /healthz health check, and AI disabled by default behind a daily cap.",
+        "Local Playwright browser regression suite (npm run test:browser) drives the real UI against an isolated database, complementing the JSDOM frontend tests that run in CI."
       ]
     };
 
