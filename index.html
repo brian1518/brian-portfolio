@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23090A0D' stroke='%23EF4444' stroke-width='1.5'/%3E%3Cpath d='M16 7.5L12.5 3.5L9.2 9.2L3 7L7.2 14.5L4 19.8L11.4 18.2L16 27.5L20.6 18.2L28 19.8L24.8 14.5L29 7L22.8 9.2L19.5 3.5L16 7.5Z' fill='%23EF4444'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ==========================================================================
        1. DESIGN SYSTEM TOKENS (Restrained Obsidian, Gunmetal & Red Hood Crimson)
@@ -43,6 +43,7 @@
       --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-display: "Space Grotesk", "Inter", sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      --font-poster: "Oswald", "Arial Narrow", Impact, sans-serif;
 
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
       --shadow-md: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
@@ -196,35 +197,41 @@
       margin-bottom: 48px;
     }
 
+    /* Poster-style section headings: numbered badge + oversized condensed label */
     .section-eyebrow {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      gap: 16px;
+      font-family: var(--font-poster);
+      font-size: clamp(2.6rem, 6.5vw, 4.75rem);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: 0.005em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
+      color: var(--text-primary);
+      margin-bottom: 18px;
       font-variant-numeric: tabular-nums;
     }
 
     .section-eyebrow span.num {
-      color: var(--text-muted);
-    }
-
-    .section-eyebrow::after {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background-color: var(--accent-border);
+      flex: none;
+      display: inline-grid;
+      place-items: center;
+      width: 1.9em;
+      height: 1.9em;
+      font-family: var(--font-mono);
+      font-size: 0.34em;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: var(--accent);
+      border-radius: var(--radius-sm);
     }
 
     .section-title {
-      font-size: clamp(1.75rem, 3vw, 2.35rem);
-      line-height: 1.15;
-      font-weight: 700;
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+      line-height: 1.35;
+      font-weight: 600;
+      color: var(--text-secondary);
     }
 
     .section-desc {
@@ -500,6 +507,171 @@
 
     .hero-title span.accent {
       color: var(--accent);
+    }
+
+    .hero-poster {
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-poster);
+      font-size: clamp(4.25rem, 10vw, 8.5rem);
+      line-height: 0.88;
+      font-weight: 700;
+      letter-spacing: -0.005em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-role {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-default);
+    }
+
+    .hero-stats dt {
+      font-family: var(--font-poster);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hero-stats dd {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      color: var(--text-muted);
+    }
+
+    /* Browser-framed preview of a live deployment */
+    .live-frame {
+      display: block;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: var(--bg-base);
+      text-decoration: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .live-frame:hover {
+      border-color: var(--accent-border);
+    }
+
+    .live-frame-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 14px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background-color: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .live-frame-url {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .live-chip {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--success);
+    }
+
+    .live-chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--success);
+    }
+
+    .live-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* Work experience as a scannable table */
+    .xp-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      font-size: 0.92rem;
+    }
+
+    .xp-table th {
+      padding: 12px 18px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background-color: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .xp-table td {
+      padding: 20px 18px;
+      vertical-align: top;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .xp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .xp-when {
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .xp-role {
+      font-family: var(--font-poster);
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .xp-org {
+      margin-top: 2px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .xp-table .bullet-list {
+      margin: 0;
     }
 
     .hero-lead {
@@ -1081,6 +1253,43 @@
       .featured-project {
         padding: 20px;
       }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Stack the experience table into labelled cards on narrow screens */
+    @media (max-width: 720px) {
+      .xp-table thead {
+        display: none;
+      }
+
+      .xp-table,
+      .xp-table tbody,
+      .xp-table tr,
+      .xp-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .xp-table tr {
+        padding: 18px;
+        border-bottom: 1px solid var(--border-default);
+      }
+
+      .xp-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .xp-table td {
+        padding: 0;
+        border-bottom: none;
+      }
+
+      .xp-table td + td {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -1153,10 +1362,11 @@
             <span>Singapore Polytechnic · Internship Availability: March 2027</span>
           </div>
 
-          <h1 class="hero-title">
-            Brian Jeffrey.<br />
-            <span class="accent">Full-Stack Software</span> &amp; Cybersecurity Student.
+          <h1 class="hero-title hero-poster">
+            <span>Brian</span>
+            <span class="accent">Jeffrey</span>
           </h1>
+          <p class="hero-role">Full-stack software &amp; cybersecurity student.</p>
 
           <p class="hero-lead">
             Diploma in Information Technology student at Singapore Polytechnic building and deploying full-stack web applications with Node.js, Express, PostgreSQL, and MySQL, backed by automated testing (Playwright, JSDOM), CI/CD pipelines, requirements engineering, and practical cybersecurity assessments.
@@ -1183,6 +1393,13 @@
               <span>GitHub</span>
             </a>
           </div>
+
+          <dl class="hero-stats">
+            <div><dt>1</dt><dd>app live on the web</dd></div>
+            <div><dt>22 + 8</dt><dd>requirements written for SEP</dd></div>
+            <div><dt>5</dt><dd>projects on this page</dd></div>
+            <div><dt>2028</dt><dd>expected graduation</dd></div>
+          </dl>
         </div>
 
         <!-- Interactive Endpoint & Architecture Inspector demonstrating real project work -->
@@ -1237,7 +1454,7 @@
     <section id="about" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">01</span> About Me</p>
+          <p class="section-eyebrow"><span class="num">01</span> About</p>
           <h2 class="section-title">Building reliable full-stack systems with a security-first mindset.</h2>
         </div>
 
@@ -1308,7 +1525,7 @@
     <section id="projects" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">02</span> Engineering Projects</p>
+          <p class="section-eyebrow"><span class="num">02</span> Projects</p>
           <h2 class="section-title">Production full-stack applications and security assessments.</h2>
           <p class="section-desc">
             Five projects spanning deployed cloud applications, agile team platforms, requirements engineering, MVC backends, and vulnerability assessments.
@@ -1324,6 +1541,14 @@
             <span class="meta-tag-live">Live on GitHub Pages + Render</span>
             <span class="tag">End-to-End Solo Architecture</span>
           </div>
+
+          <a class="live-frame" href="https://brian1518.github.io/fitnessTracker/" target="_blank" rel="noopener noreferrer" aria-label="Open Lantern Training live app">
+            <span class="live-frame-bar">
+              <span class="live-frame-url">brian1518.github.io/fitnessTracker</span>
+              <span class="live-chip">live</span>
+            </span>
+            <img src="assets/lantern-live.jpg" width="1280" height="720" loading="lazy" alt="Lantern Training homepage showing the workout logger with a suggested next-set target of 62.5 kg for 3 sets of 8 on bench press" />
+          </a>
 
           <div class="featured-grid">
             <!-- Left: Interactive Architecture Viewer for Lantern Training -->
@@ -1734,7 +1959,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
     <section id="skills" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">03</span> Technical Skills</p>
+          <p class="section-eyebrow"><span class="num">03</span> Skills</p>
           <h2 class="section-title">Core stack and security toolkit.</h2>
           <p class="section-desc">
             Technologies applied in academic and deployed projects alongside areas I am actively studying next.
@@ -1857,7 +2082,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
     <section id="journey" class="section section-alt">
       <div class="container">
         <div class="section-header" style="margin-left: auto; margin-right: auto; text-align: center;">
-          <p class="section-eyebrow" style="justify-content: center;"><span class="num">04</span> Progression</p>
+          <p class="section-eyebrow" style="justify-content: center;"><span class="num">04</span> Journey</p>
           <h2 class="section-title">Learning, building, and leading.</h2>
           <p class="section-desc">
             Key milestones across my technical coursework, deployed personal engineering projects, leadership roles, and industry immersion.
@@ -1952,7 +2177,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
         <div class="perspective-grid">
           <div>
             <div class="section-header" style="margin-bottom: 24px;">
-              <p class="section-eyebrow"><span class="num">05</span> Engineering Philosophy</p>
+              <p class="section-eyebrow"><span class="num">05</span> Philosophy</p>
               <h2 class="section-title">How I approach software and security.</h2>
             </div>
 
@@ -2006,56 +2231,53 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
     <section id="experience" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">06</span> Work Experience</p>
+          <p class="section-eyebrow"><span class="num">06</span> Experience</p>
           <h2 class="section-title">Performing reliably in fast-paced teams.</h2>
           <p class="section-desc">
             Part-time roles in high-volume hospitality and retail operations that strengthened my discipline, communication, and composure under pressure.
           </p>
         </div>
 
-        <div class="projects-2col">
-          <article class="card card-interactive">
-            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
-              <div>
-                <h3 style="font-size: 1.2rem; font-weight: 700;">Universal Studios Singapore (USS)</h3>
-                <p style="font-size: 0.9rem; color: var(--accent); font-weight: 500;">Cook · Part-time</p>
-              </div>
-              <span class="tag tabular-nums">Sep 2026 – Nov 2026</span>
-            </div>
-
-            <ul class="bullet-list">
-              <li>Prepared high-volume food orders accurately in a fast-paced hospitality environment while upholding strict food safety and hygiene standards.</li>
-              <li>Coordinated closely with kitchen crew during peak hours to maintain smooth workflows and timely order delivery.</li>
-            </ul>
-
-            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px;">
-              <span class="tag">Teamwork Under Pressure</span>
-              <span class="tag">Operational Discipline</span>
-              <span class="tag">Time Management</span>
-            </div>
-          </article>
-
-          <article class="card card-interactive">
-            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
-              <div>
-                <h3 style="font-size: 1.2rem; font-weight: 700;">NTUC FairPrice</h3>
-                <p style="font-size: 0.9rem; color: var(--accent); font-weight: 500;">Temporary Staff · Part-time</p>
-              </div>
-              <span class="tag tabular-nums">Dec 2024 – Feb 2025</span>
-            </div>
-
-            <ul class="bullet-list">
-              <li>Assisted customers with product enquiries, point-of-sale transactions, and daily store operations during peak festive periods.</li>
-              <li>Monitored shelf inventory levels, flagged low stock, and maintained an organised retail floor alongside the store team.</li>
-            </ul>
-
-            <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px;">
-              <span class="tag">Customer Communication</span>
-              <span class="tag">Inventory Tracking</span>
-              <span class="tag">Reliability</span>
-            </div>
-          </article>
-        </div>
+        <table class="xp-table">
+          <thead>
+            <tr>
+              <th scope="col">When</th>
+              <th scope="col">Role</th>
+              <th scope="col">Type</th>
+              <th scope="col">What I did</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="xp-when tabular-nums" data-label="When">Sep – Nov 2026</td>
+              <td data-label="Role">
+                <div class="xp-role">Cook</div>
+                <div class="xp-org">Universal Studios Singapore (USS)</div>
+              </td>
+              <td data-label="Type"><span class="tag">Part-time</span></td>
+              <td data-label="What I did">
+                <ul class="bullet-list">
+                  <li>Prepared high-volume food orders accurately in a fast-paced kitchen while upholding strict food safety and hygiene standards.</li>
+                  <li>Coordinated with kitchen crew during peak hours to keep orders moving on time.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="xp-when tabular-nums" data-label="When">Dec 2024 – Feb 2025</td>
+              <td data-label="Role">
+                <div class="xp-role">Temporary Staff</div>
+                <div class="xp-org">NTUC FairPrice</div>
+              </td>
+              <td data-label="Type"><span class="tag">Part-time</span></td>
+              <td data-label="What I did">
+                <ul class="bullet-list">
+                  <li>Restocked shelves, monitored inventory levels, and flagged low stock to the store team.</li>
+                  <li>Processed point-of-sale transactions and helped customers with enquiries during peak festive periods.</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -2065,7 +2287,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
     <section id="education" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">07</span> Education &amp; Leadership</p>
+          <p class="section-eyebrow"><span class="num">07</span> Education</p>
           <h2 class="section-title">Academic foundation and student leadership.</h2>
         </div>
 
@@ -2087,7 +2309,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
               </p>
               <div style="display: flex; flex-wrap: wrap; gap: 6px;">
                 <span class="tag">Continuity &amp; Integration (CI/CD)</span>
-                <span class="tag">SEP: Requirements &amp; UML</span>
+                <span class="tag">Software Engineering Practice (SEP)</span>
                 <span class="tag">Back-End Development (BED)</span>
                 <span class="tag">Ethical Hacking &amp; Security</span>
                 <span class="tag">Relational Database Systems</span>
@@ -2139,7 +2361,7 @@ Phase 4: Risk Rating &amp; Remediation Specification</div>
     <section id="goals" class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <p class="section-eyebrow"><span class="num">08</span> Internship Goals</p>
+          <p class="section-eyebrow"><span class="num">08</span> Goals</p>
           <h2 class="section-title">What I am looking for in an internship.</h2>
           <p class="section-desc">
             Available for full-time polytechnic internships starting March 2027 across software engineering, full-stack development, and cybersecurity roles.
