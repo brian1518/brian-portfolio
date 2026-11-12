@@ -521,6 +521,50 @@
       margin-bottom: 20px;
     }
 
+    /* Intro: each letter of the name rises out of a mask, one after another */
+    .name-line {
+      display: flex;
+      overflow: hidden;
+      padding-top: 0.08em;
+      margin-top: -0.08em;
+    }
+
+    .name-line > span {
+      display: inline-block;
+      transform: translateY(110%);
+      animation: name-rise 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      animation-delay: calc(0.15s + var(--i) * 55ms);
+    }
+
+    .hero-role {
+      animation: fade-up 0.6s ease 0.95s both;
+    }
+
+    @keyframes name-rise {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .name-line > span,
+      .hero-role {
+        animation: none;
+        transform: none;
+      }
+    }
+
     .hero-role {
       font-family: var(--font-display);
       font-size: clamp(1.15rem, 2vw, 1.4rem);
@@ -1377,9 +1421,9 @@
             <span>Singapore Polytechnic · Internship Availability: March 2027</span>
           </div>
 
-          <h1 class="hero-title hero-poster">
-            <span>Brian</span>
-            <span class="accent">Jeffrey</span>
+          <h1 class="hero-title hero-poster" aria-label="Brian Jeffrey">
+            <span class="name-line" aria-hidden="true"><span style="--i: 0">B</span><span style="--i: 1">r</span><span style="--i: 2">i</span><span style="--i: 3">a</span><span style="--i: 4">n</span></span>
+            <span class="name-line accent" aria-hidden="true"><span style="--i: 5">J</span><span style="--i: 6">e</span><span style="--i: 7">f</span><span style="--i: 8">f</span><span style="--i: 9">r</span><span style="--i: 10">e</span><span style="--i: 11">y</span></span>
           </h1>
           <p class="hero-role">Full-stack software &amp; cybersecurity student.</p>
 
